@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/mainColor"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainColor">
+        <TextView
+            android:id="@+id/keypoint_list_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:gravity="bottom"
+            android:textStyle="bold"
+            android:textColor="@color/mainColorWhite"
+            android:textSize="15pt"/>
+
+        <TextView
+            android:id="@+id/keypoint_list_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="╳"
+            android:textColor="@color/mainColorWhite"
+            android:textSize="10pt" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/keypoint_list_title"
+        android:layout_marginBottom="2dp"
+        android:textColor="@color/mainColorWhite"
+        android:layout_marginRight="100dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="다음 슬라이드"
+        android:textSize="8pt"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/keypoint_list_viblen"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/mainColorLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="진동길이:5"
+                android:textSize="5pt"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/keypoint_list_vibtime"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:layout_marginBottom="14dp"
+            android:textColor="@color/mainColorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:text="00:00"
+            android:textSize="14pt"/>
+    </LinearLayout>
+
+</LinearLayout>
