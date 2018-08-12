@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
+
+import s2017s25.kr.hs.mirim.present_2018stac.PTlistActivity;
 
 public class SettingActivity extends AppCompatActivity {
     TextView nextBtn, prevBtn;

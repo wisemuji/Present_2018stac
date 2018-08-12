@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.stac2018_present.model;
+package s2017s25.kr.hs.mirim.present_2018stac.model;
 
 public class Script {
     Long startTime;

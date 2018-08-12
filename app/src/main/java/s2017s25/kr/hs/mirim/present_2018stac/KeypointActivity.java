@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.stac2018_present;
+package s2017s25.kr.hs.mirim.present_2018stac;
 
 import android.content.Intent;
 import android.os.Bundle;
