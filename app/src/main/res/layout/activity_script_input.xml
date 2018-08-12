@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ScriptInputActivity">
+
+    <!--header-->
+    <LinearLayout
+        android:background="@color/mainColor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:gravity="center_horizontal|center_vertical"
+            android:text="╳"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColorWhite"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="스크립트"
+            android:textSize="9pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="9pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColorWhite"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+
+    <ScrollView
+        android:background="@color/mainColor"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ListView
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:id="@+id/script_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/mainColorWhite"
+            android:dividerHeight="1dp"
+            >
+
+        </ListView>
+
+    </ScrollView>
+
+    <!--footer-->
+    <LinearLayout
+        android:background="@color/mainColorWhite"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/script_prev_btn"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="이전"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/script_next_btn"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="다음"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
