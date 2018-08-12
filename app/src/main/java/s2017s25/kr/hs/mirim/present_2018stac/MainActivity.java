@@ -11,6 +11,8 @@ import android.widget.ListView;
 import java.io.File;
 import java.util.ArrayList;
 
+import s2017s25.kr.hs.mirim.stac2018_present.R;
+
 public class MainActivity extends AppCompatActivity {
     Button startPT;
     Button PTlist;
