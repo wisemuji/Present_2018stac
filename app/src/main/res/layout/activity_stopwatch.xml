@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/mainColor"
+    android:theme="@style/AppTheme"
+    >
+    <LinearLayout
+        android:background="@color/mainColor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:gravity="center_horizontal|center_vertical"
+            android:text="╳"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColorWhite"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="새 PT 제작"
+            android:textSize="9pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="9pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColorWhite"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+    <TextView
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PT 제목"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="28dp"
+        android:textSize="17dp"
+        />
+    <EditText
+        android:layout_gravity="center"
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:hint="제목을 입력해주세요"
+        android:textColorHint="#e3ffeb"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PT 시간"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="28dp"
+        android:textSize="17dp"
+        />
+    <TimePicker
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        style="@style/TimePickerTheme" />
+    <LinearLayout
+        android:background="@color/mainColorWhite"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="40dp">
+
+        <!--<TextView-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center_horizontal|center_vertical"-->
+            <!--android:text="이전"-->
+            <!--android:textSize="8pt"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/mainColor"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent" />-->
+
+        <TextView
+            android:id="@+id/stopwatch_next_btn"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="다음"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            android:textColor="@color/mainColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

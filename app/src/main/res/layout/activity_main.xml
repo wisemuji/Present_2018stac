@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/mainColor"
+    android:theme="@style/AppTheme"
+    >
+<ImageView
+    android:layout_marginTop="40dp"
+    android:layout_marginRight="5dp"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:src="@drawable/dd"
+    />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
+        android:text="새 PT 시작하기"
+        android:background="@drawable/main_btn"
+        android:textColor="#009961"
+        android:textStyle="bold"
+        android:id="@+id/startPT"
+        />
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
+        android:text="기존 PT 목록"
+        android:textStyle="bold"
+        android:background="@drawable/main_btn"
+        android:textColor="#009961"
+        android:id="@+id/PTlist"
+        />
+</LinearLayout>
