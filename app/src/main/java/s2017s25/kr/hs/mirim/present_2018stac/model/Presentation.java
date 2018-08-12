@@ -2,6 +2,10 @@ package s2017s25.kr.hs.mirim.present_2018stac.model;
 
 import java.util.ArrayList;
 
+import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
+import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
+
+
 public class Presentation {
     int id;
     String name;

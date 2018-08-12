@@ -4,12 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ListView;
-
-import java.io.File;
-import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.stac2018_present.R;
 
@@ -42,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         PTlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, s2017s25.kr.hs.mirim.stac2018_present.PTlistActivity.class);
+                Intent intent = new Intent(MainActivity.this, PTlistActivity.class);
                 startActivity(intent);
             }
         });

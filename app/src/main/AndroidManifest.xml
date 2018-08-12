@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingActivity" />
-        <activity android:name=".PTlistActivity" ></activity>
+        <activity android:name="s2017s25.kr.hs.mirim.present_2018stac.PTlistActivity" ></activity>
         <activity android:name=".StopwatchActivity" />
         <activity android:name=".ScriptInputActivity"></activity>
         <activity android:name=".KeypointActivity"></activity>

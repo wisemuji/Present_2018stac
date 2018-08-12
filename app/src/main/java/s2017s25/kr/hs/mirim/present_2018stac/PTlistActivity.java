@@ -1,6 +1,4 @@
 package s2017s25.kr.hs.mirim.present_2018stac;
-
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +9,7 @@ import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.stac2018_present.PTListAdapter;
 import s2017s25.kr.hs.mirim.stac2018_present.R;
+
 
 public class PTlistActivity extends AppCompatActivity {
 
