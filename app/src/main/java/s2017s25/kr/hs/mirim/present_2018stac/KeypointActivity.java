@@ -18,7 +18,6 @@ public class KeypointActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_keypoint);
 
         listView = (ListView)findViewById(R.id.keypoint_listview);
 

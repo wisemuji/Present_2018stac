@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.stac2018_present;
+package s2017s25.kr.hs.mirim.present_2018stac;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import s2017s25.kr.hs.mirim.present_2018stac.PTlistActivity;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
+
 
 public class SettingActivity extends AppCompatActivity {
     TextView nextBtn, prevBtn;
@@ -15,12 +16,17 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+        final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         nextBtn = (TextView) findViewById(R.id.setting_next_btn);
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Presentation pt=new Presentation();
+
+                dbHelper.insert(pt);
+
                 Intent intent = new Intent(SettingActivity.this, PTlistActivity.class);
                 startActivity(intent);
                 finish();

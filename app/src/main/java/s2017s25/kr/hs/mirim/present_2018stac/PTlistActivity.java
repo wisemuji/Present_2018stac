@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.stac2018_present.PTListAdapter;
 import s2017s25.kr.hs.mirim.stac2018_present.R;
-import s2017s25.kr.hs.mirim.stac2018_present.ptlist_list_item;
+
 
 public class PTlistActivity extends AppCompatActivity {
 
