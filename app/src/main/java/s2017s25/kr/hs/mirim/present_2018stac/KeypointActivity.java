@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.stac2018_present;
+package s2017s25.kr.hs.mirim.present_2018stac;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,6 @@ public class KeypointActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_keypoint);
 
         listView = (ListView)findViewById(R.id.keypoint_listview);
 
