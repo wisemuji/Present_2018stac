@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         startPT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, s2017s25.kr.hs.mirim.stac2018_present.StopwatchActivity.class);
+                Intent intent = new Intent(MainActivity.this, s2017s25.kr.hs.mirim.present_2018stac.StopwatchActivity.class);
                 startActivity(intent);
             }
         });
