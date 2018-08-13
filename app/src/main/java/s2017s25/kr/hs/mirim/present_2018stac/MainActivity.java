@@ -11,8 +11,6 @@ import android.widget.ListView;
 import java.io.File;
 import java.util.ArrayList;
 
-import s2017s25.kr.hs.mirim.stac2018_present.R;
-
 public class MainActivity extends AppCompatActivity {
     Button startPT;
     Button PTlist;
@@ -35,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
         startPT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, s2017s25.kr.hs.mirim.stac2018_present.StopwatchActivity.class);
+                Intent intent = new Intent(MainActivity.this, StopwatchActivity.class);
                 startActivity(intent);
             }
         });
         PTlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, s2017s25.kr.hs.mirim.stac2018_present.PTlistActivity.class);
+                Intent intent = new Intent(MainActivity.this, PTlistActivity.class);
                 startActivity(intent);
             }
         });
