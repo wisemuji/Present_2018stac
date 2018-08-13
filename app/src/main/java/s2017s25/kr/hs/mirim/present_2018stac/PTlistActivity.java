@@ -1,14 +1,17 @@
 package s2017s25.kr.hs.mirim.present_2018stac;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import s2017s25.kr.hs.mirim.stac2018_present.PTListAdapter;
-import s2017s25.kr.hs.mirim.stac2018_present.R;
+import s2017s25.kr.hs.mirim.present_2018stac.Adapter.PTListAdapter;
+import s2017s25.kr.hs.mirim.present_2018stac.Adapter.ptlist_list_item;
+import s2017s25.kr.hs.mirim.present_2018stac.R;
 
 
 public class PTlistActivity extends AppCompatActivity {
@@ -19,6 +22,8 @@ public class PTlistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ptlist);
+
+        ImageView startIcon = (ImageView) findViewById(R.id.start_icon_imageYiew);
         ListView listView;
         PTListAdapter myListAdapter;
         ArrayList<ptlist_list_item> list_itemArrayList;
@@ -40,5 +45,8 @@ public class PTlistActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
+
+
 }

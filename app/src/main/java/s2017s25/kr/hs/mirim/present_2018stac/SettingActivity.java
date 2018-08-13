@@ -16,7 +16,7 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
+
 
         nextBtn = (TextView) findViewById(R.id.setting_next_btn);
 
@@ -25,7 +25,6 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Presentation pt=new Presentation();
 
-                dbHelper.insert(pt);
 
                 Intent intent = new Intent(SettingActivity.this, PTlistActivity.class);
                 startActivity(intent);

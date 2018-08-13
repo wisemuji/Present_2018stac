@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_black"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="45dp">
+        <TextView
+            android:id="@+id/btn_destroy"
+            android:paddingTop="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  ×"
+            android:onClick="appFinish"
+            android:textColor="@color/bg_white"
+            android:textSize="19pt"
+            />
+        <TextView
+            android:paddingTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STAC 본선"
+            android:textColor="@color/bg_white"
+            android:gravity="center"
+            android:textSize="10pt"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_marginTop="140dp"
+        android:id="@+id/time_out"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="35pt"
+        android:textColor="@color/bg_white"
+        android:text="00:00"
+        android:textStyle="bold"
+        />
+
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:id="@+id/record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15pt"
+        android:padding="10dp"
+        android:textColor="@color/bg_white"
+        android:text="STAC 발표\nPRE-SENT"
+        android:layout_marginTop="75dp"
+        />
+
+    <Button
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:id="@+id/btn_start"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:textColor="@color/bg_black"
+        android:onClick="myOnClick"
+        android:background="@drawable/round_button1"
+        android:textSize="9pt"
+        android:text="시작"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:id="@+id/btn_refresh"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:textColor="@color/bg_black"
+        android:onClick="myOnClick"
+        android:background="@drawable/round_button1"
+        android:textSize="9pt"
+        android:text="초기화"
+        android:textStyle="bold"
+        />
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import s2017s25.kr.hs.mirim.present_2018stac.R;
 
 public class KeypointListAdapter extends BaseAdapter {
     Context context;

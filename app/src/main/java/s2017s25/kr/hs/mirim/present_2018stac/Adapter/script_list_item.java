@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
 
 public class script_list_item {
     private String timeStr;

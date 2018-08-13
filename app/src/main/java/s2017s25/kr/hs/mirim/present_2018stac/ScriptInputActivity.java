@@ -4,23 +4,28 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import s2017s25.kr.hs.mirim.present_2018stac.Adapter.ScriptListAdapter;
+import s2017s25.kr.hs.mirim.present_2018stac.Adapter.script_list_item;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
+
 public class ScriptInputActivity extends AppCompatActivity {
 
     ListView listView;
-    ScriptListAdapter ScriptListAdapter;
+    s2017s25.kr.hs.mirim.present_2018stac.Adapter.ScriptListAdapter ScriptListAdapter;
     ArrayList<script_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn;
+    Presentation presentation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_input);
+
 
         listView = (ListView)findViewById(R.id.script_listview);
 
@@ -69,6 +74,8 @@ public class ScriptInputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
+                intent.putExtra("presentation",presentation);
+                presentation.setName("EXO");
                 startActivity(intent);
                 finish();
             }

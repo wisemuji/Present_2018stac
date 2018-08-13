@@ -9,22 +9,28 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import s2017s25.kr.hs.mirim.present_2018stac.Adapter.KeypointListAdapter;
+import s2017s25.kr.hs.mirim.present_2018stac.Adapter.keypoint_list_item;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
+
 public class KeypointActivity extends AppCompatActivity {
     ListView listView;
-    KeypointListAdapter KeypointListAdapter;
+    s2017s25.kr.hs.mirim.present_2018stac.Adapter.KeypointListAdapter KeypointListAdapter;
     ArrayList<keypoint_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn;
+    Presentation presentation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_keypoint);
 
         listView = (ListView)findViewById(R.id.keypoint_listview);
 
         list_itemArrayList = new ArrayList<keypoint_list_item>();
 
         list_itemArrayList.add(
-                new keypoint_list_item("다음 슬라이드","00:00"));
+                new keypoint_list_item("다음슬라이드","00:00"));
         list_itemArrayList.add(
                 new keypoint_list_item("다음 슬라이드","00:00"));
         list_itemArrayList.add(
