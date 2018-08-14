@@ -11,7 +11,7 @@ public class dialogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_popup);
+        setContentView(R.layout.activity_dialog);
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         TextView closebtn = findViewById(R.id.closeBtn);

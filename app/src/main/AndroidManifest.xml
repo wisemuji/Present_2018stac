@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingActivity" />
+        <activity android:name=".ptPlayActivity" />
         <activity android:name=".PTlistActivity" />
         <activity android:name=".StopwatchActivity" />
         <activity android:name=".ScriptInputActivity" />
