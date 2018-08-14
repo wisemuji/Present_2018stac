@@ -3,6 +3,7 @@
     package="s2017s25.kr.hs.mirim.present_2018stac">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,10 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingActivity" />
-        <activity android:name="s2017s25.kr.hs.mirim.present_2018stac.PTlistActivity" ></activity>
+        <activity android:name=".PTlistActivity" />
         <activity android:name=".StopwatchActivity" />
-        <activity android:name=".ScriptInputActivity"></activity>
-        <activity android:name=".KeypointActivity"></activity>
+        <activity android:name=".ScriptInputActivity" />
+        <activity android:name=".KeypointActivity" />
+        <activity android:name=".dialogActivity" android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>

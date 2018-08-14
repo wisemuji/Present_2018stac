@@ -23,7 +23,7 @@ public class PTlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ptlist);
 
-        ImageView startIcon = (ImageView) findViewById(R.id.start_icon_imageYiew);
+        ImageView plusbtn = (ImageView) findViewById(R.id.plusbtn);
         ListView listView;
         PTListAdapter myListAdapter;
         ArrayList<ptlist_list_item> list_itemArrayList;
@@ -43,6 +43,14 @@ public class PTlistActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        plusbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PTlistActivity.this, dialogActivity.class);
+                startActivity(intent);
             }
         });
 

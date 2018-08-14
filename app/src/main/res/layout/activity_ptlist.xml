@@ -40,7 +40,9 @@
 
     </LinearLayout>
 
-
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
     <ScrollView
         android:background="@color/mainColor"
         android:orientation="vertical"
@@ -61,6 +63,18 @@
             android:id="@+id/my_listView">
         </ListView>
     </ScrollView>
+
+    <ImageView
+        android:id="@+id/plusbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/plusbtn"
+        android:layout_gravity="bottom|right"
+        />
+
+</FrameLayout>
+
+
     <!--<LinearLayout-->
         <!--android:background="@color/mainColorWhite"-->
         <!--android:layout_width="match_parent"-->
