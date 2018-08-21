@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/mainColor"
     android:orientation="vertical"
-    tools:context=".KeypointActivity">
+    tools:context=".activity.KeypointActivity">
 
     <!--header-->
     <LinearLayout

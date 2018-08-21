@@ -1,6 +1,8 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.item;
 
-public class ptlist_list_item {
+import java.util.Date;
+
+public class list_item {
 
     private int start_icon;
     private String title;
@@ -15,7 +17,7 @@ public class ptlist_list_item {
         this.title = title;
     }
 
-    public ptlist_list_item(int start_icon, String title, String PTtime, int menu) {
+    public list_item(int start_icon, String title, String PTtime, int menu) {
         this.start_icon = start_icon;
         this.title = title;
         this.PTtime = PTtime;

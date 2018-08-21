@@ -1,19 +1,22 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.adapter.ScriptListAdapter;
+import s2017s25.kr.hs.mirim.present_2018stac.item.script_list_item;
+
 public class ScriptInputActivity extends AppCompatActivity {
 
     ListView listView;
-    ScriptListAdapter ScriptListAdapter;
+    s2017s25.kr.hs.mirim.present_2018stac.adapter.ScriptListAdapter ScriptListAdapter;
     ArrayList<script_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn;
 

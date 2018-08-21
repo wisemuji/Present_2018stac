@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.db;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -88,34 +88,55 @@ public class DBHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()) {
             lastId = c.getInt(0);
         }
+        pt.setId(lastId);
 
         //KEYPOINT 테이블에 추가
         for(KeyPoint kp : pt.getKeyPoints()){
             db.execSQL("INSERT INTO KeyPoint(id, name, vibTime, title)\n" +
-                    "VALUES("+lastId+",'"+kp.getName()+"',"+kp.getVibTime()+",'"+kp.getTitle()+"');");
+                    "VALUES("+pt.getId()+",'"+kp.getName()+"',"+kp.getVibTime()+",'"+kp.getTitle()+"');");
         }
 
         //SCRIPT 테이블에 추가
         for(Script sc : pt.getScripts()){
             db.execSQL("INSERT INTO Script(id, startTime, endTime, content)\n" +
-                    "VALUES("+lastId+","+sc.getStartTime()+","+sc.getEndTime()+",'"+sc.getContent()+"');");
+                    "VALUES("+pt.getId()+","+sc.getStartTime()+","+sc.getEndTime()+",'"+sc.getContent()+"');");
         }
 
         db.close();
         return lastId;
     }
 
-    public void update(String item, int price) {
+    public void update(Presentation pt) {
         SQLiteDatabase db = getWritableDatabase();
         // 입력한 항목과 일치하는 행의 가격 정보 수정
-        db.execSQL("UPDATE PRESENTATION SET price=" + price + " WHERE item='" + item + "';");
+//        db.execSQL("UPDATE PRESENTATION SET price=" + price + " WHERE item='" + item + "';");
+
+        //PRESENTATION 테이블 수정
+        db.execSQL("UPDATE presentation SET\n" +
+                "name='"+pt.getName()+"', presentTime="+pt.getPresentTime()+", displayTime="+pt.isDisplayTime(1)+", displayScript="+pt.isDisplayScript(1)+", vibPhone="+pt.isVibPhone(1)+", vibSmartWatch="+pt.isVibSmartWatch(1)+"" +
+                "WHERE id="+pt.getId()+";");
+
+        //KEYPOINT 테이블 수정
+        db.execSQL("DELETE FROM KeyPoint WHERE id=" + pt.getId() + ";");
+        for(KeyPoint kp : pt.getKeyPoints()){
+            db.execSQL("INSERT INTO KeyPoint(id, name, vibTime, title)\n" +
+                    "VALUES("+pt.getId()+",'"+kp.getName()+"',"+kp.getVibTime()+",'"+kp.getTitle()+"');");
+        }
+
+        //SCRIPT 테이블 수정
+        db.execSQL("DELETE FROM Script WHERE id=" + pt.getId() + ";");
+        for(Script sc : pt.getScripts()){
+            db.execSQL("INSERT INTO Script(id, startTime, endTime, content)\n" +
+                    "VALUES("+pt.getId()+","+sc.getStartTime()+","+sc.getEndTime()+",'"+sc.getContent()+"');");
+        }
+
         db.close();
     }
 
-    public void delete(String item) {
+    public void delete(Presentation pt) {
         SQLiteDatabase db = getWritableDatabase();
         // 입력한 항목과 일치하는 행 삭제
-        db.execSQL("DELETE FROM PRESENTATION WHERE item='" + item + "';");
+        db.execSQL("DELETE FROM PRESENTATION WHERE id=" + pt.getId() + ";");
         db.close();
     }
 
