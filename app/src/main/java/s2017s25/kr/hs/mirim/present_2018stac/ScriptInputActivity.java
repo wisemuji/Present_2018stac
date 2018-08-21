@@ -19,13 +19,17 @@ public class ScriptInputActivity extends AppCompatActivity {
     s2017s25.kr.hs.mirim.present_2018stac.Adapter.ScriptListAdapter ScriptListAdapter;
     ArrayList<script_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn;
-    Presentation presentation;
+
+    Presentation presentation = new Presentation();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_script_input);
 
+        setContentView(R.layout.activity_script_input);
+        Intent inforIntent=getIntent();
+
+        presentation = (Presentation) inforIntent.getSerializableExtra("StopwatchInfor");
 
         listView = (ListView)findViewById(R.id.script_listview);
 
@@ -73,9 +77,8 @@ public class ScriptInputActivity extends AppCompatActivity {
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
-                intent.putExtra("presentation",presentation);
-                presentation.setName("EXO");
+                Intent intent = new Intent(ScriptInputActivity.this, KeypointActivity.class);
+                intent.putExtra("scriptInputInfor",presentation);
                 startActivity(intent);
                 finish();
             }
