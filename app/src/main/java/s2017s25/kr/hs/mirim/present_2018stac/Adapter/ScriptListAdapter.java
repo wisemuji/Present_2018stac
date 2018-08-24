@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import s2017s25.kr.hs.mirim.present_2018stac.Adapter.script_list_item;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.item.script_list_item;
 
 public class ScriptListAdapter extends BaseAdapter {
     Context context;

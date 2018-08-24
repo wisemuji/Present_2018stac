@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import s2017s25.kr.hs.mirim.present_2018stac.Adapter.list_item;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.item.list_item;
 
 public class listAdapter extends BaseAdapter {
 

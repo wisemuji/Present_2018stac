@@ -1,13 +1,13 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
+import s2017s25.kr.hs.mirim.present_2018stac.R;
 
 public class StopwatchActivity extends AppCompatActivity {
     TextView nextBtn;

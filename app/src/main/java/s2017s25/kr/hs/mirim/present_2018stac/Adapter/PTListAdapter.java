@@ -1,7 +1,6 @@
 package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import s2017s25.kr.hs.mirim.present_2018stac.PTlistActivity;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
-import s2017s25.kr.hs.mirim.present_2018stac.ptPlayActivity;
+import s2017s25.kr.hs.mirim.present_2018stac.item.ptlist_list_item;
 
 public class PTListAdapter extends BaseAdapter {
 
@@ -69,18 +67,6 @@ public class PTListAdapter extends BaseAdapter {
         viewHolder.PTtime_textView.setText(list_itemArrayList.get(position).getPTtime().toString());
         viewHolder.start_icon_imageYiew.setImageResource(list_itemArrayList.get(position).getStart_icon());
         viewHolder.menu_imageView.setImageResource(list_itemArrayList.get(position).getMenu());
-
-        viewHolder.start_icon_imageYiew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ptPlayActivity.class);
-                context.startActivity(intent);
-            }
-        });
         return convertView;
     }
-
-
-
-
-    }
+}
