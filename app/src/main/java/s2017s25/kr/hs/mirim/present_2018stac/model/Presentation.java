@@ -1,8 +1,13 @@
 package s2017s25.kr.hs.mirim.present_2018stac.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Presentation {
+import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
+import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
+
+
+public class Presentation implements Serializable{
     int id;
     String name;
     Long presentTime;
@@ -28,6 +33,10 @@ public class Presentation {
         this.id = id;
         this.name = name;
         this.presentTime = presentTime;
+    }
+
+    public Presentation() {
+
     }
 
     public int getId() {

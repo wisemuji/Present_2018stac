@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac.adapter;
+package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

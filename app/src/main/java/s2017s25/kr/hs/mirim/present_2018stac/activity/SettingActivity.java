@@ -14,6 +14,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
+
 public class SettingActivity extends AppCompatActivity {
     TextView nextBtn, prevBtn;
 
@@ -21,6 +22,7 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         nextBtn = (TextView) findViewById(R.id.setting_next_btn);

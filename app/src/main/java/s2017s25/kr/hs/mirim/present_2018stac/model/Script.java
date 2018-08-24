@@ -1,6 +1,8 @@
 package s2017s25.kr.hs.mirim.present_2018stac.model;
 
-public class Script {
+import java.io.Serializable;
+
+public class Script implements Serializable{
     int id;
     int ScriptId;
     Long startTime;
