@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
+import s2017s25.kr.hs.mirim.present_2018stac.R;
 
 public class dialogActivity extends AppCompatActivity {
 

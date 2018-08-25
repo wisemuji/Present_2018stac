@@ -14,6 +14,10 @@ public class KeyPoint implements Serializable{
         this.title = title;
         this.vibTime = vibTime;
     }
+    public KeyPoint(String name,Long vibTime) {
+        this.name = name;
+        this.vibTime = vibTime;
+    }
 
     public int getId() {
         return id;

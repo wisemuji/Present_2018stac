@@ -57,7 +57,7 @@ public class listAdapter extends BaseAdapter {
             viewHolder = new ViewHolder();
             viewHolder.title_textView = (TextView)convertView.findViewById(R.id.title_textView);
             viewHolder.PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
-            viewHolder.start_icon_imageYiew = (ImageView)convertView.findViewById(R.id.start_icon_imageYiew);
+            viewHolder.start_icon_imageYiew = (ImageView)convertView.findViewById(R.id.start_pt_btn);
             viewHolder.menu_imageView = (ImageView)convertView.findViewById(R.id.menu_imageView);
             convertView.setTag(viewHolder);
         }else {

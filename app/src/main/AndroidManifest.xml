@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ptPlayActivity" />
-        <activity android:name=".dialogActivity" android:theme="@android:style/Theme.Dialog"></activity>
+        <activity android:name=".activity.ptPlayActivity" />
+        <activity android:name=".activity.dialogActivity" android:theme="@android:style/Theme.Dialog"></activity>
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.PTlistActivity" ></activity>
         <activity android:name=".activity.StopwatchActivity" />

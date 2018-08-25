@@ -32,7 +32,7 @@ public class SettingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ArrayList<Script> scripts=new ArrayList<>();
                 ArrayList<KeyPoint> keyPoints=new ArrayList<>();
-                Presentation pt=new Presentation("test",(long)60,true,true,true,true,scripts,keyPoints);
+                Presentation pt=new Presentation("test2",(long)120000,true,true,true,true,scripts,keyPoints);
 
                 int lastId = dbHelper.insert(pt);
 //                Toast.makeText(getApplicationContext(), "lastId = "+lastId, Toast.LENGTH_LONG).show();

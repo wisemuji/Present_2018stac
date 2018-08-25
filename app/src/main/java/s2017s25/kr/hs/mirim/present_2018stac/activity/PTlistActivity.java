@@ -1,8 +1,10 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,6 +28,8 @@ public class PTlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ptlist);
 
+        ImageView start_pt_btn = (ImageView) findViewById(R.id.start_pt_btn);
+        ImageView plusbtn = (ImageView) findViewById(R.id.plusbtn);
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         ListView listView;
@@ -54,6 +58,14 @@ public class PTlistActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        plusbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PTlistActivity.this, ptPlayActivity.class);
+                startActivity(intent);
             }
         });
     }
