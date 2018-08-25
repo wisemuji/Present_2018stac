@@ -19,7 +19,7 @@
             android:text="  ×"
             android:onClick="appFinish"
             android:textColor="@color/bg_white"
-            android:textSize="19pt"
+            android:textSize="35sp"
             />
         <TextView
             android:paddingTop="15dp"
@@ -28,16 +28,16 @@
             android:text="STAC 본선"
             android:textColor="@color/bg_white"
             android:gravity="center"
-            android:textSize="10pt"
+            android:textSize="20sp"
             />
     </RelativeLayout>
     <TextView
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="100dp"
         android:id="@+id/time_out"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="35pt"
+        android:textSize="85sp"
         android:textColor="@color/bg_white"
         android:text="00:00"
         android:textStyle="bold"
@@ -48,16 +48,16 @@
         android:gravity="center_horizontal"
         android:id="@+id/record"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15pt"
+        android:layout_height="160dp"
+        android:textSize="28sp"
         android:padding="10dp"
         android:textColor="@color/bg_white"
         android:text="STAC 발표\nPRE-SENT"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="10dp"
         />
 
     <Button
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:id="@+id/btn_start"
         android:layout_width="110dp"
@@ -65,7 +65,7 @@
         android:textColor="@color/bg_black"
         android:onClick="myOnClick"
         android:background="@drawable/round_button1"
-        android:textSize="9pt"
+        android:textSize="18sp"
         android:text="시작"
         android:textStyle="bold"
         />
@@ -79,7 +79,7 @@
         android:textColor="@color/bg_black"
         android:onClick="myOnClick"
         android:background="@drawable/round_button1"
-        android:textSize="9pt"
+        android:textSize="18sp"
         android:text="초기화"
         android:textStyle="bold"
         />
