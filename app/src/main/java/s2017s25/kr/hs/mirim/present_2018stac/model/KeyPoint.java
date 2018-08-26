@@ -6,14 +6,8 @@ public class KeyPoint implements Serializable{
     int id;
     int KeyId;
     String name;
-    String title;
     Long vibTime;
 
-    public KeyPoint(String name, String title, Long vibTime) {
-        this.name = name;
-        this.title = title;
-        this.vibTime = vibTime;
-    }
     public KeyPoint(String name,Long vibTime) {
         this.name = name;
         this.vibTime = vibTime;
@@ -41,14 +35,6 @@ public class KeyPoint implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Long getVibTime() {

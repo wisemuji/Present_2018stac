@@ -92,8 +92,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //KEYPOINT 테이블에 추가
         for(KeyPoint kp : pt.getKeyPoints()){
-            db.execSQL("INSERT INTO KeyPoint(id, name, vibTime, title)\n" +
-                    "VALUES("+pt.getId()+",'"+kp.getName()+"',"+kp.getVibTime()+",'"+kp.getTitle()+"');");
+            db.execSQL("INSERT INTO KeyPoint(id, name, vibTime)\n" +
+                    "VALUES("+pt.getId()+",'"+kp.getName()+"',"+kp.getVibTime()+");");
         }
 
         //SCRIPT 테이블에 추가
@@ -119,8 +119,8 @@ public class DBHelper extends SQLiteOpenHelper {
         //KEYPOINT 테이블 수정
         db.execSQL("DELETE FROM KeyPoint WHERE id=" + pt.getId() + ";");
         for(KeyPoint kp : pt.getKeyPoints()){
-            db.execSQL("INSERT INTO KeyPoint(id, name, vibTime, title)\n" +
-                    "VALUES("+pt.getId()+",'"+kp.getName()+"',"+kp.getVibTime()+",'"+kp.getTitle()+"');");
+            db.execSQL("INSERT INTO KeyPoint(id, name, vibTime)\n" +
+                    "VALUES("+pt.getId()+",'"+kp.getName()+"',"+kp.getVibTime()+");");
         }
 
         //SCRIPT 테이블 수정

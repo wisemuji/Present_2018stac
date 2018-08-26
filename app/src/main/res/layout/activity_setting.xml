@@ -73,77 +73,99 @@
                         android:layout_marginBottom="9dp"
                         android:text="핸드폰"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="시간 표시"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColorWhite"
-                        android:textSize="8pt"/>
-
-                    <TextView
-                        android:id="@+id/setting_content1"
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColorWhite"
+                    <LinearLayout
+                        android:id="@+id/setting_time"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="꺼진 화면에 발표 시간 표시 "
-                        android:textSize="7pt"/>
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="시간 표시"
+                            android:gravity="bottom"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="3dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:textSize="8pt"/>
 
-                    <TextView
-                        android:background="@color/mainColorWhite"
+                        <TextView
+                            android:id="@+id/setting_content1"
+                            android:layout_marginBottom="14dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="꺼진 화면에 발표 시간 표시 "
+                            android:textSize="7pt"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/setting_script"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="1dp" />
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:background="@color/mainColorWhite"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:layout_height="1dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="스크립트 표시"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColorWhite"
-                        android:textSize="8pt"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="스크립트 표시"
+                            android:gravity="bottom"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="3dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:textSize="8pt"/>
 
-                    <TextView
-                        android:id="@+id/setting_content2"
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColorWhite"
+                        <TextView
+                            android:id="@+id/setting_content2"
+                            android:layout_marginBottom="14dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="꺼진 화면에 스크립트 표시 "
+                            android:textSize="7pt"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/setting_vib"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="꺼진 화면에 스크립트 표시 "
-                        android:textSize="7pt"/>
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:background="@color/mainColorWhite"
+                            android:layout_width="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:layout_height="1dp" />
 
-                    <TextView
-                        android:background="@color/mainColorWhite"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="1dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="진동"
+                            android:gravity="bottom"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="3dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:textSize="8pt"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="진동"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColorWhite"
-                        android:textSize="8pt"/>
-
-                    <TextView
-                        android:id="@+id/setting_content3"
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColorWhite"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="핸드폰으로 진동 주기 "
-                        android:textSize="7pt"/>
+                        <TextView
+                            android:id="@+id/setting_content3"
+                            android:layout_marginBottom="14dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="핸드폰으로 진동 주기 "
+                            android:textSize="7pt"/>
+                    </LinearLayout>
 
                     <TextView
                         android:background="@color/mainColorWhite"
@@ -206,30 +228,38 @@
                         android:layout_marginBottom="9dp"
                         android:text="스마트워치 연동"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="진동"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColorWhite"
-                        android:textSize="8pt"/>
 
-                    <TextView
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColorWhite"
+                    <LinearLayout
+                        android:id="@+id/setting_watch"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="핸드폰으로 진동 주기 "
-                        android:textSize="7pt"/>
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="진동"
+                            android:gravity="bottom"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="3dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:textSize="8pt"/>
+
+                        <TextView
+                            android:layout_marginBottom="14dp"
+                            android:textColor="@color/mainColorWhite"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="핸드폰으로 진동 주기 "
+                            android:textSize="7pt"/>
 
                     <TextView
                         android:background="@color/mainColorWhite"
                         android:layout_width="match_parent"
                         android:layout_marginBottom="10dp"
                         android:layout_height="1dp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
