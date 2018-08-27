@@ -49,6 +49,7 @@
         android:textSize="17dp"
         />
     <EditText
+        android:id="@+id/input_title"
         android:layout_gravity="center"
         android:layout_width="335dp"
         android:layout_height="wrap_content"
@@ -67,6 +68,7 @@
         android:textSize="17dp"
         />
     <TimePicker
+        android:id="@+id/input_time"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

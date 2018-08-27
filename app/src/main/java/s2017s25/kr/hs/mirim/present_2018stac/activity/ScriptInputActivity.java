@@ -20,17 +20,16 @@ public class ScriptInputActivity extends AppCompatActivity {
     ScriptListAdapter ScriptListAdapter;
     ArrayList<script_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn;
-
-    Presentation presentation = new Presentation();
+    Presentation pt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_script_input);
-        Intent inforIntent=getIntent();
 
-        presentation = (Presentation) inforIntent.getSerializableExtra("StopwatchInfor");
+        Intent intent = getIntent();
+        pt = (Presentation) intent.getSerializableExtra("presentation");
 
         listView = (ListView)findViewById(R.id.script_listview);
 
@@ -68,6 +67,7 @@ public class ScriptInputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, KeypointActivity.class);
+                intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
             }
@@ -78,8 +78,8 @@ public class ScriptInputActivity extends AppCompatActivity {
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, KeypointActivity.class);
-                intent.putExtra("scriptInputInfor",presentation);
+                Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
+                intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
             }

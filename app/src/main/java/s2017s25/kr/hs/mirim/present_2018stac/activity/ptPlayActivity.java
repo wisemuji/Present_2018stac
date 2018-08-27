@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,10 +32,13 @@ public class ptPlayActivity extends AppCompatActivity {
     private Timer mTimer;
     TextView myOutput;
     TextView myRec;
+    TextView btnLock;
     Button myBtnStart;
+    Button myBtnRefresh;
+    TextView btnFinish;
     Button myBtnRec;
     Vibrator vibe;
-
+    LinearLayout layoutPlay;
 
     final static int Init =0;
     final static int Run =1;
@@ -61,12 +65,45 @@ public class ptPlayActivity extends AppCompatActivity {
         keyPoints.add(0, new KeyPoint("테스트 키포인트", (long)2000));
         pt = new Presentation("test",(long)60,true,true,true,true,scripts,keyPoints);
 
-
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
         myBtnStart = (Button) findViewById(R.id.btn_start);
+        myBtnRefresh = (Button) findViewById(R.id.btn_refresh);
+        btnFinish = (TextView) findViewById(R.id.btn_destroy);
+
+        layoutPlay=findViewById(R.id.layout_play);
+        btnLock=findViewById(R.id.btn_lock);
+        btnLock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(btnFinish.isClickable()) {
+                    btnFinish.setClickable(false);
+                    myBtnStart.setClickable(false);
+                    myBtnRefresh.setClickable(false);
+                }
+               else {
+                    btnFinish.setClickable(true);
+                    myBtnStart.setClickable(true);
+                    myBtnRefresh.setClickable(true);
+                }
+            }
+        });
 
     }
+    @Override
+    public void onBackPressed() {
+        if(btnFinish.isClickable()) {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        if(btnFinish.isClickable()) {
+            super.onUserLeaveHint();
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

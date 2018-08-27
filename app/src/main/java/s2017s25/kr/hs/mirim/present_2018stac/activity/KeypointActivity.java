@@ -19,15 +19,15 @@ public class KeypointActivity extends AppCompatActivity {
     KeypointListAdapter KeypointListAdapter;
     ArrayList<keypoint_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn;
-    Presentation presentation = new Presentation();
+    Presentation pt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keypoint);
 
-        Intent inforIntent = getIntent();
-        presentation = (Presentation) inforIntent.getSerializableExtra("ScriptInputInfor");
+        Intent intent = getIntent();
+        pt = (Presentation) intent.getSerializableExtra("presentation");
 
         listView = (ListView)findViewById(R.id.keypoint_listview);
 
@@ -53,6 +53,7 @@ public class KeypointActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KeypointActivity.this, SettingActivity.class);
+                intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
             }
@@ -64,7 +65,7 @@ public class KeypointActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KeypointActivity.this, ScriptInputActivity.class);
-                intent.putExtra("KeypointInfor", presentation);
+                intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
             }
