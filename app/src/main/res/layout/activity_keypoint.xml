@@ -15,11 +15,12 @@
         android:layout_height="40dp">
 
         <TextView
+            android:id="@+id/exitBtn"
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textSize="10pt"
             android:textStyle="bold"
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:layout_width="50dp"
             android:layout_height="match_parent" />
 
@@ -29,7 +30,7 @@
             android:text="키 포인트 설정"
             android:textSize="9pt"
             android:textStyle="bold"
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -37,7 +38,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:textSize="9pt"
             android:textStyle="bold"
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:layout_width="50dp"
             android:layout_height="match_parent" />
 
@@ -50,11 +51,11 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
             android:text="슬라이드를 넘기거나 제스처를 취할 구간을 선택하세요.\n해당 구간에 스마트폰 혹은 스마트워치로 진동알람이 설정됩니다."
 
@@ -76,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="20dp"
-            android:divider="@color/mainColorWhite"
+            android:divider="@color/mainColor"
             android:dividerHeight="1dp">
 
         </ListView>

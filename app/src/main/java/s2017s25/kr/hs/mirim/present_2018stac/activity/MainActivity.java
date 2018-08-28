@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
 //        File recordDir = new File(filesDir, "record/" + pt.id);
 //        File[] mp3FIles = recordDir.listFiles();
 //        mp3FIles[0].getName()
+
+
         setContentView(R.layout.activity_main);
 
         startPT = (Button)findViewById(R.id.startPT);

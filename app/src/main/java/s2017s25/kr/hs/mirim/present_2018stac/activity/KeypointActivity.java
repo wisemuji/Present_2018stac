@@ -18,7 +18,7 @@ public class KeypointActivity extends AppCompatActivity {
     ListView listView;
     s2017s25.kr.hs.mirim.present_2018stac.Adapter.KeypointListAdapter KeypointListAdapter;
     ArrayList<keypoint_list_item> list_itemArrayList;
-    TextView nextBtn, prevBtn;
+    TextView nextBtn, prevBtn,exitBtn;
     Presentation presentation = new Presentation();
 
     @Override
@@ -66,6 +66,13 @@ public class KeypointActivity extends AppCompatActivity {
                 Intent intent = new Intent(KeypointActivity.this, ScriptInputActivity.class);
                 intent.putExtra("KeypointInfor", presentation);
                 startActivity(intent);
+                finish();
+            }
+        });
+        exitBtn = (TextView)findViewById(R.id.exitBtn);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });

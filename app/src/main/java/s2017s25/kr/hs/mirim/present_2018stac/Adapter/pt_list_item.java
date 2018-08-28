@@ -1,12 +1,14 @@
 package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
 
-public class ptlist_list_item {
+import java.util.Date;
+
+public class pt_list_item {
 
     private String title;
     private String PTtime;
     private String PTdate;
 
-    public list_item(String title, String PTtime, String PTdate, int option) {
+    public pt_list_item(String title, String PTtime, String PTdate, int option) {
         this.title = title;
         this.PTtime = PTtime;
         this.PTdate = PTdate;

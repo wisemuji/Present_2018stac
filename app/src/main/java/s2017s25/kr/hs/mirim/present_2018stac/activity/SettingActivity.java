@@ -11,7 +11,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 
 
 public class SettingActivity extends AppCompatActivity {
-    TextView nextBtn, prevBtn;
+    TextView nextBtn, prevBtn, exitBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +43,14 @@ public class SettingActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        exitBtn = (TextView)findViewById(R.id.exitBtn);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 }

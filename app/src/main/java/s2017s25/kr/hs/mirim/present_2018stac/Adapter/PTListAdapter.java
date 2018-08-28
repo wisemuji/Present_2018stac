@@ -1,7 +1,7 @@
 package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,29 +9,25 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
-import s2017s25.kr.hs.mirim.present_2018stac.activity.ptPlayActivity;
 
-public class PTListAdapter extends BaseAdapter {
-
+public class PTListAdapter extends BaseAdapter{
     Context context;
-    ArrayList<ptlist_list_item> list_itemArrayList;
-    ViewHolder viewHolder;
+    ArrayList<pt_list_item> list_itemArrayList;
 
-    class ViewHolder{
-        TextView PTdate_textView;
-        TextView title_textView;
-        TextView PTtime_textView;
-        ImageView option_imageView;
-    }
-
-
-    public PTListAdapter(Context context, ArrayList<ptlist_list_item> list_itemArrayList) {
+    public PTListAdapter(Context context, ArrayList<pt_list_item> list_itemArrayList) {
         this.context = context;
         this.list_itemArrayList = list_itemArrayList;
     }
+
+    TextView title_textView;
+    TextView PTtime_textView;
+    TextView PTdate_textView;
+    ImageView option_ImageView;
 
     @Override
     public int getCount() {
@@ -50,31 +46,18 @@ public class PTListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        if(convertView == null){
+        if(convertView==null){
             convertView = LayoutInflater.from(context).inflate(R.layout.item,null);
-
-            if(convertView == null){
-                convertView = LayoutInflater.from(context).inflate(R.layout.item,null);
-
-                viewHolder = new PTListAdapter.ViewHolder();
-                viewHolder.title_textView = (TextView)convertView.findViewById(R.id.title_textView);
-                viewHolder.PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
-                viewHolder.option_imageView = (ImageView)convertView.findViewById(R.id.option);
-                viewHolder.PTdate_textView = (TextView) convertView.findViewById(R.id.PTdate);
-                convertView.setTag(viewHolder);
-            }else {
-                viewHolder = (PTListAdapter.ViewHolder)convertView.getTag();
-            }
-            viewHolder.title_textView.setText(list_itemArrayList.get(position).getTitle());
-            viewHolder.PTtime_textView.setText(list_itemArrayList.get(position).getPTtime().toString());
-            viewHolder.PTdate_textView.setText(list_itemArrayList.get(position).getPTdate().toString());
-            viewHolder.option_imageView.setImageResource(list_itemArrayList.get(position).getOption());
-
-            return convertView;
-    }
-
-
-
+            title_textView = (TextView)convertView.findViewById(R.id.title_textView);
+            PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
+            PTdate_textView = (TextView)convertView.findViewById(R.id.PTdate);
+            option_ImageView = (ImageView)convertView.findViewById(R.id.option);
+        }
+      title_textView.setText(list_itemArrayList.get(position).getTitle());
+        PTtime_textView.setText(list_itemArrayList.get(position).getPTtime());
+        PTdate_textView.setText(list_itemArrayList.get(position).getPTdate());
+        option_ImageView.setImageResource(list_itemArrayList.get(position).getOption());
+        return convertView;
 
     }
+}
