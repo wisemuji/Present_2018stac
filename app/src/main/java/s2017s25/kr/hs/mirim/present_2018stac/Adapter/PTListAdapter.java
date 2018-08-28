@@ -21,11 +21,10 @@ public class PTListAdapter extends BaseAdapter {
     ViewHolder viewHolder;
 
     class ViewHolder{
+        TextView PTdate_textView;
         TextView title_textView;
         TextView PTtime_textView;
-        ImageView menu_imageView;
-        ImageView start_icon_imageYiew;
-
+        ImageView option_imageView;
     }
 
 
@@ -55,28 +54,24 @@ public class PTListAdapter extends BaseAdapter {
         if(convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.item,null);
 
-            viewHolder = new ViewHolder();
-            viewHolder.title_textView = (TextView)convertView.findViewById(R.id.title_textView);
-            viewHolder.PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
-            viewHolder.start_icon_imageYiew = (ImageView)convertView.findViewById(R.id.start_icon_imageYiew);
-            viewHolder.menu_imageView = (ImageView)convertView.findViewById(R.id.menu_imageView);
-            convertView.setTag(viewHolder);
-        }else {
-            viewHolder = (ViewHolder)convertView.getTag();
-        }
-        viewHolder.title_textView.setText(list_itemArrayList.get(position).getTitle());
-        viewHolder.PTtime_textView.setText(list_itemArrayList.get(position).getPTtime().toString());
-        viewHolder.start_icon_imageYiew.setImageResource(list_itemArrayList.get(position).getStart_icon());
-        viewHolder.menu_imageView.setImageResource(list_itemArrayList.get(position).getMenu());
+            if(convertView == null){
+                convertView = LayoutInflater.from(context).inflate(R.layout.item,null);
 
-        viewHolder.start_icon_imageYiew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ptPlayActivity.class);
-                context.startActivity(intent);
+                viewHolder = new PTListAdapter.ViewHolder();
+                viewHolder.title_textView = (TextView)convertView.findViewById(R.id.title_textView);
+                viewHolder.PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
+                viewHolder.option_imageView = (ImageView)convertView.findViewById(R.id.option);
+                viewHolder.PTdate_textView = (TextView) convertView.findViewById(R.id.PTdate);
+                convertView.setTag(viewHolder);
+            }else {
+                viewHolder = (PTListAdapter.ViewHolder)convertView.getTag();
             }
-        });
-        return convertView;
+            viewHolder.title_textView.setText(list_itemArrayList.get(position).getTitle());
+            viewHolder.PTtime_textView.setText(list_itemArrayList.get(position).getPTtime().toString());
+            viewHolder.PTdate_textView.setText(list_itemArrayList.get(position).getPTdate().toString());
+            viewHolder.option_imageView.setImageResource(list_itemArrayList.get(position).getOption());
+
+            return convertView;
     }
 
 

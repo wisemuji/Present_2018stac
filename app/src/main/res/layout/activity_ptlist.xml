@@ -64,14 +64,6 @@
         </ListView>
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/plusbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/plusbtn"
-        android:layout_gravity="bottom|right"
-        />
-
 </FrameLayout>
 
 

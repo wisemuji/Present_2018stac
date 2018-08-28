@@ -4,49 +4,48 @@ import java.util.Date;
 
 public class list_item {
 
-    private int start_icon;
     private String title;
     private String PTtime;
-    private int menu;
+    private String PTdate;
 
-    public void setStart_icon(int start_icon) {
-        this.start_icon = start_icon;
+    public list_item(String title, String PTtime, String PTdate, int option) {
+        this.title = title;
+        this.PTtime = PTtime;
+        this.PTdate = PTdate;
+        this.option = option;
+    }
+
+    private int option;
+
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public list_item(int start_icon, String title, String PTtime, int menu) {
-        this.start_icon = start_icon;
-        this.title = title;
-        this.PTtime = PTtime;
-        this.menu=menu;
-    }
-
-    public void setPTtime(String PTtime) {
-        this.PTtime = PTtime;
-
-    }
-
-    public void setMenu(int Menu) {
-        this.menu = menu;
-    }
-
-    public int getStart_icon() {
-
-        return start_icon;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
     public String getPTtime() {
         return PTtime;
     }
 
-    public int getMenu() {
-        return menu;
+    public void setPTtime(String PTtime) {
+        this.PTtime = PTtime;
+    }
+
+    public String getPTdate() {
+        return PTdate;
+    }
+
+    public void setPTdate(String PTdate) {
+        this.PTdate = PTdate;
+    }
+
+    public int getOption() {
+        return option;
+    }
+
+    public void setOption(int option) {
+        this.option = option;
     }
 }

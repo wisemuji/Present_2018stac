@@ -22,7 +22,7 @@ public class PTlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ptlist);
 
-        ImageView plusbtn = (ImageView) findViewById(R.id.plusbtn);
+       // ImageView plusbtn = (ImageView) findViewById(R.id.plusbtn);
         ListView listView;
         PTListAdapter myListAdapter;
         ArrayList<ptlist_list_item> list_itemArrayList;
