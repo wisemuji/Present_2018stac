@@ -11,9 +11,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import s2017s25.kr.hs.mirim.present_2018stac.PTlistActivity;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
-import s2017s25.kr.hs.mirim.present_2018stac.ptPlayActivity;
+import s2017s25.kr.hs.mirim.present_2018stac.activity.ptPlayActivity;
 
 public class PTListAdapter extends BaseAdapter {
 

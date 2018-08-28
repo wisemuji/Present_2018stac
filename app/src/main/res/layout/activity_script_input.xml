@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ScriptInputActivity">
+    tools:context=".activity.ScriptInputActivity">
 
     <!--header-->
     <LinearLayout
-        android:background="@color/mainColor"
+        android:background="@color/bgcolor"
         android:layout_width="match_parent"
         android:layout_height="40dp">
 
@@ -18,7 +18,7 @@
             android:text="╳"
             android:textSize="10pt"
             android:textStyle="bold"
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:layout_width="50dp"
             android:layout_height="match_parent" />
 
@@ -28,7 +28,7 @@
             android:text="스크립트"
             android:textSize="9pt"
             android:textStyle="bold"
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -44,7 +44,7 @@
 
 
     <ScrollView
-        android:background="@color/mainColor"
+        android:background="@color/bgcolor"
         android:orientation="vertical"
         android:layout_weight="1"
         android:fillViewport="true"

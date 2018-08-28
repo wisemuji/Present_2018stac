@@ -1,5 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
-import android.content.Intent;
+package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -45,14 +44,14 @@ public class PTlistActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+/*
         plusbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PTlistActivity.this, dialogActivity.class);
                 startActivity(intent);
             }
-        });
+        }); 팝업창*/
 
     }
 

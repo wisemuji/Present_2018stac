@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import s2017s25.kr.hs.mirim.present_2018stac.R;
 
 public class ptPlayActivity extends AppCompatActivity {
     private TimerTask mTask;

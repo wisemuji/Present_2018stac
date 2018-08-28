@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac;
+package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.KeypointListAdapter;
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.keypoint_list_item;
+import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 
 public class KeypointActivity extends AppCompatActivity {

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:background="@color/mainColor"
+        android:background="@color/bgcolor"
         android:layout_width="match_parent"
         android:layout_height="40dp">
 
@@ -44,7 +44,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent">
     <ScrollView
-        android:background="@color/mainColor"
+        android:background="@color/bgcolor"
         android:orientation="vertical"
         android:layout_weight="1"
         android:fillViewport="true"

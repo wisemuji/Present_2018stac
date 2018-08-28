@@ -6,5 +6,5 @@ public class KeyPoint implements Serializable{
     int id;
     int KeyId;
     Long vibTime;
-    String title;
+    String name;
 }
