@@ -67,13 +67,47 @@
         android:layout_marginLeft="28dp"
         android:textSize="17dp"
         />
-    <TimePicker
-        android:id="@+id/input_time"
+
+    <LinearLayout
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="20dp"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:timePickerMode="spinner"
-        style="@style/TimePickerTheme" />
+        android:layout_height="wrap_content">
+
+        <NumberPicker
+            android:id="@+id/picker1"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            />
+        <NumberPicker
+            android:id="@+id/picker2"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            />
+        <NumberPicker
+            android:id="@+id/picker3"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            />
+
+    </LinearLayout>
+
+    <!--<TimePicker-->
+        <!--android:id="@+id/input_time"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:timePickerMode="spinner"-->
+        <!--style="@style/TimePickerTheme" />-->
     <LinearLayout
         android:background="@color/mainColorWhite"
         android:layout_width="match_parent"
