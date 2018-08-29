@@ -78,21 +78,21 @@
         android:layout_height="wrap_content">
 
         <NumberPicker
-            android:id="@+id/picker1"
+            android:id="@+id/picker_hour"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             />
         <NumberPicker
-            android:id="@+id/picker2"
+            android:id="@+id/picker_minute"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="2dp"
             />
         <NumberPicker
-            android:id="@+id/picker3"
+            android:id="@+id/picker_second"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
