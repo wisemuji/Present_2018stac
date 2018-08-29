@@ -1,287 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bgcolor"
+    android:orientation="vertical"
     tools:context=".activity.ScriptInputActivity">
 
     <!--header-->
     <LinearLayout
-        android:background="@color/bgcolor"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:id="@+id/linearLayout7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/bgcolor">
 
         <TextView
             android:id="@+id/exitBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
-            android:textSize="10pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:layout_width="50dp"
-            android:layout_height="match_parent" />
+            android:textSize="10pt"
+            android:textStyle="bold" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="발표 세팅"
-            android:textSize="9pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:textSize="9pt"
+            android:textStyle="bold" />
 
         <TextView
-            android:gravity="center_horizontal|center_vertical"
-            android:textSize="9pt"
-            android:textStyle="bold"
-            android:textColor="@color/mainColor"
             android:layout_width="50dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/mainColor"
+            android:textSize="9pt"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
 
-    <ScrollView
-        android:layout_weight="1"
+    <LinearLayout
+        android:id="@+id/linearLayout8"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:background="@color/bgcolor"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:text="핸드폰"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_marginTop="30dp"
-                    android:background="@color/bgcolor"
-                    android:orientation="vertical"
-                    android:padding="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:gravity="bottom"
+            android:text="시간 표시"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/mainColor"
-                        android:textSize="8pt"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="9dp"
-                        android:text="핸드폰"/>
+        <TextView
+            android:id="@+id/setting_content1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:text="꺼진 화면에 발표 시간 표시 "
+            android:textColor="@color/mainColor"
+            android:textSize="7pt" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="시간 표시"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColor"
-                        android:textSize="8pt"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/mainColor" />
 
-                    <TextView
-                        android:id="@+id/setting_content1"
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="꺼진 화면에 발표 시간 표시 "
-                        android:textSize="7pt"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:gravity="bottom"
+            android:text="스크립트 표시"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
-                    <TextView
-                        android:background="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="1dp" />
+        <TextView
+            android:id="@+id/setting_content2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:text="꺼진 화면에 스크립트 표시 "
+            android:textColor="@color/mainColor"
+            android:textSize="7pt" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="스크립트 표시"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColor"
-                        android:textSize="8pt"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/mainColor" />
 
-                    <TextView
-                        android:id="@+id/setting_content2"
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="꺼진 화면에 스크립트 표시 "
-                        android:textSize="7pt"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:gravity="bottom"
+            android:text="진동"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
-                    <TextView
-                        android:background="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="1dp" />
+        <TextView
+            android:id="@+id/setting_content3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:text="핸드폰으로 진동 주기 "
+            android:textColor="@color/mainColor"
+            android:textSize="7pt" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="진동"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColor"
-                        android:textSize="8pt"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/mainColor" />
 
-                    <TextView
-                        android:id="@+id/setting_content3"
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="핸드폰으로 진동 주기 "
-                        android:textSize="7pt"/>
+    </LinearLayout>
 
-                    <TextView
-                        android:background="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="1dp" />
+    <CheckBox
+        android:id="@+id/setting_check1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-                </LinearLayout>
+    <CheckBox
+        android:id="@+id/setting_check2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-                <CheckBox
-                    android:id="@+id/setting_check1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginEnd="27dp"
-                    android:layout_marginTop="95dp" />
-
-                <CheckBox
-                    android:id="@+id/setting_check2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginEnd="27dp"
-                    android:layout_marginTop="162dp" />
-
-                <CheckBox
-                    android:id="@+id/setting_check3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginEnd="27dp"
-                    android:layout_marginTop="228dp" />
-
-            </RelativeLayout>
+    <CheckBox
+        android:id="@+id/setting_check3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
-            <RelativeLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/bgcolor"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-                <LinearLayout
-                    android:background="@color/bgcolor"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:padding="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="9dp"
+            android:paddingTop="27dp"
+            android:text="스마트워치 연동"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
-                    <TextView
-                        android:paddingTop="27dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/mainColor"
-                        android:textSize="8pt"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="9dp"
-                        android:text="스마트워치 연동"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:gravity="bottom"
+            android:text="진동"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="진동"
-                        android:gravity="bottom"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="@color/mainColor"
-                        android:textSize="8pt"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:text="핸드폰으로 진동 주기 "
+            android:textColor="@color/mainColor"
+            android:textSize="7pt" />
 
-                    <TextView
-                        android:layout_marginBottom="14dp"
-                        android:textColor="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:text="핸드폰으로 진동 주기 "
-                        android:textSize="7pt"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/mainColor" />
 
-                    <TextView
-                        android:background="@color/mainColor"
-                        android:layout_width="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:layout_height="1dp" />
+    </LinearLayout>
 
-                </LinearLayout>
+    <CheckBox
+        android:id="@+id/setting_check4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-                <CheckBox
-                    android:id="@+id/setting_check4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginEnd="27dp"
-                    android:layout_marginTop="88dp" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
 
     <!--footer-->
     <LinearLayout
-        android:gravity="bottom"
-        android:background="@color/mainColor"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout9"
+        android:id="@+id/linearLayout10"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainColor"
         android:orientation="horizontal"
-        android:layout_height="40dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/setting_prev_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="이전"
-            android:textSize="8pt"
-            android:textStyle="bold"
             android:textColor="#ffffff"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/setting_next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="다음"
-            android:textSize="8pt"
-            android:textStyle="bold"
             android:textColor="#ffffff"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
