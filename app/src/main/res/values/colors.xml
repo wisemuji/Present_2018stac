@@ -12,4 +12,6 @@
     <color name="bg_white2">#fff3fff9</color>
     <color name="bg_white3">#ff7f8482</color>
     <color name="bgcolor">#ffffff</color>
+    <color name="ptplayWhite">#f8fffb</color>
+    <color name="ptplayBG">#231f20</color>
 </resources>

@@ -82,7 +82,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
-            android:id="@+id/setting_prev_btn"
+            android:id="@+id/script_prev_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -93,7 +93,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/setting_next_btn"
+            android:id="@+id/script_next_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"

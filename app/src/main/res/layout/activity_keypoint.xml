@@ -62,16 +62,39 @@
         android:textSize="6pt"
         tools:ignore="MissingConstraints"
         />
-    <ListView
-        app:layout_constraintTop_toBottomOf="@id/textView"
-        android:id="@+id/keypoint_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="@color/mainColor"
-        android:dividerHeight="1dp"
-        android:paddingRight="20dp">
 
-    </ListView>
+
+
+
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/bgcolor"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+
+        <ListView
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            android:id="@+id/keypoint_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/mainColor"
+            android:dividerHeight="1dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            ></ListView>
+    </ScrollView>
+
+
+
 
     <LinearLayout
         app:layout_constraintBottom_toBottomOf="parent"
