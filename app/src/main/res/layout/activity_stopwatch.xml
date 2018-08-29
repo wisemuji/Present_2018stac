@@ -1,105 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout11"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/bgcolor"
-    android:theme="@style/AppTheme"
-    >
+    android:theme="@style/AppTheme">
+
     <LinearLayout
-        android:background="@color/bgcolor"
+        android:id="@+id/linearLayout12"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@color/bgcolor"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/exitBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
-            android:textSize="10pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:layout_width="50dp"
-            android:layout_height="match_parent" />
+            android:textSize="10pt"
+            android:textStyle="bold" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="새 PT 제작"
-            android:textSize="9pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:textSize="9pt"
+            android:textStyle="bold" />
 
         <TextView
-            android:gravity="center_horizontal|center_vertical"
-            android:textSize="9pt"
-            android:textStyle="bold"
-            android:textColor="@color/mainColor"
             android:layout_width="50dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/mainColor"
+            android:textSize="9pt"
+            android:textStyle="bold" />
 
     </LinearLayout>
-    <TextView
-        android:textColor="@color/mainColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PT 제목"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="28dp"
-        android:textSize="17dp"
-        />
-    <EditText
-        android:layout_gravity="center"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:hint="제목을 입력해주세요"
-        android:textColorHint="@color/mainColorLight"
-        android:textColor="@color/mainColor"
-        />
 
     <TextView
-        android:textColor="@color/mainColor"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PT 시간"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="28dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp"
+        android:text="PT 제목"
+        android:textColor="@color/mainColor"
         android:textSize="17dp"
-        />
-    <TimePicker
-        android:layout_weight="1"
-        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:hint="제목을 입력해주세요"
+        android:textColor="@color/mainColor"
+        android:textColorHint="@color/mainColorLight"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="315dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:text="PT 시간"
+        android:textColor="@color/mainColor"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/stopwatch_next_btn"
+        app:layout_constraintStart_toStartOf="@+id/timePicker"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        style="@style/TimePickerTheme"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="39dp"
+        android:layout_marginTop="23dp"
         android:timePickerMode="spinner"
-        style="@style/TimePickerTheme" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
     <LinearLayout
         android:id="@+id/stopwatch_next_btn"
-        android:background="@color/mainColor"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainColor"
         android:orientation="horizontal"
-        android:layout_height="40dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <!--<TextView-->
-            <!--android:layout_weight="1"-->
-            <!--android:gravity="center_horizontal|center_vertical"-->
-            <!--android:text="이전"-->
-            <!--android:textSize="8pt"-->
-            <!--android:textStyle="bold"-->
-            <!--android:textColor="@color/mainColor"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent" />-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center_horizontal|center_vertical"-->
+        <!--android:text="이전"-->
+        <!--android:textSize="8pt"-->
+        <!--android:textStyle="bold"-->
+        <!--android:textColor="@color/mainColor"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
         <TextView
 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="다음"
-            android:textSize="8pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColorWhite"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:textSize="8pt"
+            android:textStyle="bold" />
     </LinearLayout>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,66 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activity.ScriptInputActivity">
 
     <!--header-->
     <LinearLayout
-        android:background="@color/bgcolor"
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="wrap_content"
+        android:background="@color/bgcolor"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/exitBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
-            android:textSize="10pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:layout_width="50dp"
-            android:layout_height="match_parent" />
+            android:textSize="10pt"
+            android:textStyle="bold" />
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="스크립트"
-            android:textSize="9pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:textSize="9pt"
+            android:textStyle="bold" />
 
         <TextView
-            android:gravity="center_horizontal|center_vertical"
-            android:textSize="9pt"
-            android:textStyle="bold"
-            android:textColor="@color/mainColorWhite"
             android:layout_width="50dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/mainColorWhite"
+            android:textSize="9pt"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
 
     <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:background="@color/bgcolor"
-        android:orientation="vertical"
-        android:layout_weight="1"
         android:fillViewport="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <ListView
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
             android:id="@+id/script_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/mainColorWhite"
             android:dividerHeight="1dp"
-            >
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
         </ListView>
 
@@ -68,36 +74,36 @@
 
     <!--footer-->
     <LinearLayout
-        android:background="@color/mainColor"
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mainColor"
         android:orientation="horizontal"
-        android:layout_height="40dp">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
-            android:id="@+id/script_prev_btn"
+            android:id="@+id/setting_prev_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="이전"
-            android:textSize="8pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColorWhite"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/script_next_btn"
+            android:id="@+id/setting_next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="다음"
-            android:textSize="8pt"
-            android:textStyle="bold"
             android:textColor="@color/mainColorWhite"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

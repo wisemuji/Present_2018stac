@@ -6,15 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgcolor"
-    android:orientation="vertical"
     tools:context=".activity.ScriptInputActivity">
 
-    <!--header-->
     <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="wrap_content"
+        android:id="@+id/titleLinear"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bgcolor">
+        android:background="@color/bgcolor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/exitBtn"
@@ -31,7 +32,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
-            android:text="발표 세팅"
+            android:text="발표세팅"
             android:textColor="@color/mainColor"
             android:textSize="9pt"
             android:textStyle="bold" />
@@ -40,101 +41,170 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
-            android:textColor="@color/mainColor"
+            android:textColor="@color/mainColorWhite"
             android:textSize="9pt"
             android:textStyle="bold" />
 
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/bgcolor"
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="15sp"
         android:orientation="vertical"
-        android:padding="20dp">
-
+        android:id="@+id/phoneLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/titleLinear"
+        android:layout_marginRight="15dp"
+        >
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
             android:text="핸드폰"
-            android:textColor="@color/mainColor"
+            android:textStyle="bold"
             android:textSize="8pt"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:gravity="bottom"
-            android:text="시간 표시"
             android:textColor="@color/mainColor"
-            android:textSize="8pt"
-            android:textStyle="bold" />
+            android:layout_marginBottom="7sp"
+            />
 
-        <TextView
-            android:id="@+id/setting_content1"
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="14dp"
-            android:text="꺼진 화면에 발표 시간 표시 "
-            android:textColor="@color/mainColor"
-            android:textSize="7pt" />
+            android:orientation="horizontal"
+
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/time_display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="시간 표시"
+                    android:textColor="@color/mainColor"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/setting_content1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="꺼진 화면에 발표 시간 표시 "
+                    android:textColor="@color/mainColor"
+                    android:textSize="7pt" />
+            </LinearLayout>
+
+            <CheckBox
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                android:id="@+id/timeChecked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
             android:background="@color/mainColor" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:gravity="bottom"
-            android:text="스크립트 표시"
-            android:textColor="@color/mainColor"
-            android:textSize="8pt"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/setting_content2"
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="14dp"
-            android:text="꺼진 화면에 스크립트 표시 "
-            android:textColor="@color/mainColor"
-            android:textSize="7pt" />
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:text="스크립트 표시"
+                    android:textColor="@color/mainColor"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/setting_content2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="꺼진 화면에 스크립트 표시 "
+                    android:textColor="@color/mainColor"
+                    android:textSize="7pt" />
+
+            </LinearLayout>
+
+            <CheckBox
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                android:id="@+id/scriptChecked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+               />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginBottom="10dp"
             android:background="@color/mainColor" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:gravity="bottom"
-            android:text="진동"
-            android:textColor="@color/mainColor"
-            android:textSize="8pt"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/setting_content3"
+
+
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="14dp"
-            android:text="핸드폰으로 진동 주기 "
-            android:textColor="@color/mainColor"
-            android:textSize="7pt" />
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:text="진동"
+                    android:textColor="@color/mainColor"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/setting_content3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="핸드폰으로 진동 주기 "
+                    android:textColor="@color/mainColor"
+                    android:textSize="7pt" />
+
+            </LinearLayout>
+            <CheckBox
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                android:id="@+id/vibChecked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -144,60 +214,72 @@
 
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/setting_check1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-    <CheckBox
-        android:id="@+id/setting_check2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <CheckBox
-        android:id="@+id/setting_check3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 
     <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/bgcolor"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15sp"
         android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="9dp"
-            android:paddingTop="27dp"
-            android:text="스마트워치 연동"
-            android:textColor="@color/mainColor"
-            android:textSize="8pt"
-            android:textStyle="bold" />
-
+        android:id="@+id/smartLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/phoneLinear"
+        android:layout_marginRight="15dp"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="3dp"
-            android:gravity="bottom"
-            android:text="진동"
-            android:textColor="@color/mainColor"
+            android:text="스마트워치"
+            android:textStyle="bold"
             android:textSize="8pt"
-            android:textStyle="bold" />
+            android:textColor="@color/mainColor"
+            android:layout_marginBottom="7sp"
+            />
 
-        <TextView
+
+        <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="14dp"
-            android:text="핸드폰으로 진동 주기 "
-            android:textColor="@color/mainColor"
-            android:textSize="7pt" />
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="bottom"
+                    android:text="진동"
+                    android:textColor="@color/mainColor"
+                    android:textSize="8pt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="스마트워치로 진동주기"
+                    android:textColor="@color/mainColor"
+                    android:textSize="7pt" />
+
+            </LinearLayout>
+
+            <CheckBox
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                android:id="@+id/smartVibChecked"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </LinearLayout>
 
         <TextView
+            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
@@ -205,46 +287,59 @@
 
     </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/setting_check4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 
-    <!--footer-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
     <LinearLayout
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout9"
-        android:id="@+id/linearLayout10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/linearLayout14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mainColor"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints">
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/setting_prev_btn"
+            android:id="@+id/keypoint_prev_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="이전"
-            android:textColor="#ffffff"
+            android:textColor="@color/mainColorWhite"
             android:textSize="8pt"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/setting_next_btn"
+            android:id="@+id/keypoint_next_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:text="다음"
-            android:textColor="#ffffff"
+            android:textColor="@color/mainColorWhite"
             android:textSize="8pt"
             android:textStyle="bold" />
-
 
     </LinearLayout>
 
