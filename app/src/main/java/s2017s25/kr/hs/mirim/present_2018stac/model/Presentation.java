@@ -18,6 +18,23 @@ public class Presentation implements Serializable{
     ArrayList<Script> scripts;
     ArrayList<KeyPoint> keyPoints;
 
+    //0                "   id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+    //1                "   name TEXT ,\n" +
+    //2                "   presentTime INTEGER,\n" +
+    //3                "   displayTime INTEGER,\n" +
+    //4                "   displayScript INTEGER,\n" +
+    //5                "   vibPhone INTEGER,\n" +
+    //6                "   vibSmartWatch INTEGER\n" +
+    public Presentation(int id, String name, Long presentTime, int displayTime, int displayScript, int vibPhone, int vibSmartWatch){
+        this.id = id;
+        this.name = name;
+        this.presentTime = presentTime;
+        this.displayTime = toBoolean(displayTime);
+        this.displayScript = toBoolean(displayScript);
+        this.vibPhone = toBoolean(vibPhone);
+        this.vibSmartWatch = toBoolean(vibSmartWatch);
+    }
+
     public Presentation(String name, Long presentTime, boolean displayTime, boolean displayScript, boolean vibPhone, boolean vibSmartWatch, ArrayList<Script> scripts, ArrayList<KeyPoint> keyPoints) {
 
         this.name = name;
@@ -138,5 +155,9 @@ public class Presentation implements Serializable{
 
     public void setKeyPoints(ArrayList<KeyPoint> keyPoints) {
         this.keyPoints = keyPoints;
+    }
+
+    public boolean toBoolean(int i){
+        return i==1;
     }
 }

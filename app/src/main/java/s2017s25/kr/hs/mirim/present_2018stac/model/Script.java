@@ -15,6 +15,17 @@ public class Script implements Serializable{
         this.content = content;
     }
 
+    public Script(int id, int scriptId, Long startTime, Long endTime, String content) {
+        this.id = id;
+        ScriptId = scriptId;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.content = content;
+    }
+
+    public Script() {
+    }
+
     public int getId() {
         return id;
     }
