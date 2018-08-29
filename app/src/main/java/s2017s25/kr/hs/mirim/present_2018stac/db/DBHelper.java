@@ -50,7 +50,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 "   KeyId INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "   name TEXT,\n" +
                 "   vibTime INTEGER,\n" +
-                "   title TEXT,\n" +
                 "  FOREIGN KEY(id)\n" +
                 "  REFERENCES presentation(id)\n" +
                 ");");
@@ -139,6 +138,106 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM PRESENTATION WHERE id=" + pt.getId() + ";");
         db.close();
     }
+    public void delete(int id) {
+        SQLiteDatabase db = getWritableDatabase();
+        // 입력한 항목과 일치하는 행 삭제
+        db.execSQL("DELETE FROM PRESENTATION WHERE id=" + id + ";");
+        db.close();
+    }
+
+    public Presentation getPresentation(int id){
+        SQLiteDatabase db = getReadableDatabase();
+        Presentation pt=new Presentation();
+        ArrayList<KeyPoint> keyPoints = new ArrayList<>();
+        KeyPoint kp;
+        ArrayList<Script> scripts = new ArrayList<>();
+        Script sc;
+
+        Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION WHERE id="+id, null);
+        while (cursor.moveToNext()) {
+            pt=new Presentation(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getLong(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getInt(6)
+            );
+        }
+        cursor = db.rawQuery("SELECT * FROM KeyPoint WHERE id="+id, null);
+        while (cursor.moveToNext()) {
+            kp=new KeyPoint(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getLong(3)
+            );
+            keyPoints.add(kp);
+        }
+        cursor = db.rawQuery("SELECT * FROM Script WHERE id="+id, null);
+        while (cursor.moveToNext()) {
+            sc=new Script(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getLong(2),
+                    cursor.getLong(3),
+                    cursor.getString(4)
+            );
+            scripts.add(sc);
+        }
+        pt.setKeyPoints(keyPoints);
+        pt.setScripts(scripts);
+
+        return pt;
+    }
+
+    public Presentation getPresentation(String name){
+        SQLiteDatabase db = getReadableDatabase();
+        Presentation pt=new Presentation();
+        ArrayList<KeyPoint> keyPoints = new ArrayList<>();
+        KeyPoint kp;
+        ArrayList<Script> scripts = new ArrayList<>();
+        Script sc;
+
+        Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION WHERE name='"+name+"'", null);
+        while (cursor.moveToNext()) {
+            pt=new Presentation(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getLong(2),
+                    cursor.getInt(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getInt(6)
+            );
+        }
+        cursor = db.rawQuery("SELECT * FROM KeyPoint WHERE id="+pt.getId(), null);
+        while (cursor.moveToNext()) {
+            kp=new KeyPoint(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getLong(3)
+            );
+            keyPoints.add(kp);
+        }
+        cursor = db.rawQuery("SELECT * FROM Script WHERE id="+pt.getId(), null);
+        while (cursor.moveToNext()) {
+            sc=new Script(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getLong(2),
+                    cursor.getLong(3),
+                    cursor.getString(4)
+            );
+            scripts.add(sc);
+        }
+        pt.setKeyPoints(keyPoints);
+        pt.setScripts(scripts);
+
+        return pt;
+    }
 
     public ArrayList<Presentation> getResult() {
         // 읽기가 가능하게 DB 열기
@@ -150,14 +249,6 @@ public class DBHelper extends SQLiteOpenHelper {
         // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
         Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION", null);
         while (cursor.moveToNext()) {
-//            result += cursor.getString(0)
-//                    + " : "
-//                    + cursor.getString(1)
-//                    + " | "
-//                    + cursor.getInt(2)
-//                    + "원 "
-//                    + cursor.getString(3)
-//                    + "\n";
             ptTmp=new Presentation(cursor.getInt(0),cursor.getString(1),cursor.getLong(2));
             ptList.add(ptTmp);
         }

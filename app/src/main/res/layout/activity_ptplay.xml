@@ -23,6 +23,7 @@
             android:textSize="35sp"
             />
         <TextView
+            android:id="@+id/pt_title"
             android:paddingTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +34,7 @@
             />
         <TextView
             android:id="@+id/btn_lock"
-            android:paddingLeft="320dp"
+            android:layout_marginLeft="320dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="  잠금"
@@ -63,7 +64,7 @@
         android:textSize="28sp"
         android:padding="10dp"
         android:textColor="@color/bg_white"
-        android:text="STAC 발표\nPRE-SENT"
+        android:text="이곳에 스크립트가\n표시됩니다."
         android:layout_marginTop="10dp"
         />
 

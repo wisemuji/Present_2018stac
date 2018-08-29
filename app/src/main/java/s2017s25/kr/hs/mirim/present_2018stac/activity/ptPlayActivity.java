@@ -31,6 +31,7 @@ public class ptPlayActivity extends AppCompatActivity {
     private TimerTask mTask;
     private Timer mTimer;
     TextView myOutput;
+    TextView ptTitle;
     TextView myRec;
     TextView btnLock;
     Button myBtnStart;
@@ -51,6 +52,7 @@ public class ptPlayActivity extends AppCompatActivity {
     int i=1;
     String str;
     Presentation pt;
+    int osVersion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,16 +62,25 @@ public class ptPlayActivity extends AppCompatActivity {
 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        ArrayList<Script> scripts=new ArrayList<>();
-        ArrayList<KeyPoint> keyPoints=new ArrayList<>();
-        keyPoints.add(0, new KeyPoint("테스트 키포인트", (long)2000));
-        pt = new Presentation("test",(long)60,true,true,true,true,scripts,keyPoints);
+        osVersion = Build.VERSION.SDK_INT;
+
+        Intent intent = getIntent();
+        pt = (Presentation) intent.getSerializableExtra("presentation");
+
+        //테스트
+//        ArrayList<Script> scripts=new ArrayList<>();
+//        ArrayList<KeyPoint> keyPoints=new ArrayList<>();
+//        keyPoints.add(0, new KeyPoint("테스트 키포인트", (long)2000));
+//        pt = new Presentation("test",(long)60,true,true,true,true,scripts,keyPoints);
 
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
         myBtnStart = (Button) findViewById(R.id.btn_start);
         myBtnRefresh = (Button) findViewById(R.id.btn_refresh);
         btnFinish = (TextView) findViewById(R.id.btn_destroy);
+        ptTitle = (TextView) findViewById(R.id.pt_title);
+
+        ptTitle.setText(pt.getName());
 
         layoutPlay=findViewById(R.id.layout_play);
         btnLock=findViewById(R.id.btn_lock);
@@ -80,11 +91,39 @@ public class ptPlayActivity extends AppCompatActivity {
                     btnFinish.setClickable(false);
                     myBtnStart.setClickable(false);
                     myBtnRefresh.setClickable(false);
+
+                    //Immersive full screen mode[[
+                    if (osVersion >= 19){
+                        try {
+                            hideSystemUi();
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(
+                                new View.OnSystemUiVisibilityChangeListener(){
+                                    @Override
+                                    public void onSystemUiVisibilityChange(int visibility){
+                                        if (visibility == 0){
+                                            mHideHandler.postDelayed(mHideRunnable, 3000);
+                                        }
+                                    }
+                                });
+                    }
+                    //Immersive full screen mode]]
                 }
                else {
                     btnFinish.setClickable(true);
                     myBtnStart.setClickable(true);
                     myBtnRefresh.setClickable(true);
+                    //Immersive full screen mode[[
+                    if (osVersion >= 19){
+                        try {
+                            hideSystemUi();
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                    //Immersive full screen mode]]
                 }
             }
         });
@@ -103,6 +142,7 @@ public class ptPlayActivity extends AppCompatActivity {
             super.onUserLeaveHint();
         }
     }
+
 
     @Override
     protected void onDestroy() {
@@ -189,6 +229,35 @@ public class ptPlayActivity extends AppCompatActivity {
         finish();
     }
 
+    //Immersive full screen mode[[
+    private void hideSystemUi() {
+        if(!btnFinish.isClickable()) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE);
+        }
+        else {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
+    }
+
+    Handler mHideHandler = new Handler();
+    Runnable mHideRunnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            try {
+                hideSystemUi();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    };
 }
 
 
