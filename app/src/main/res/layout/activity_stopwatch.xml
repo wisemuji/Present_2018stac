@@ -58,13 +58,13 @@
         android:text="PT 제목"
         android:textColor="@color/mainColor"
         android:textSize="17dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/input_title"
+        app:layout_constraintStart_toStartOf="@+id/input_title"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
 
     <EditText
-        android:id="@+id/editText"
         android:layout_width="0dp"
+        android:id="@+id/input_title"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:layout_marginEnd="24dp"
@@ -91,20 +91,57 @@
         android:textSize="17dp"
         app:layout_constraintBottom_toTopOf="@+id/stopwatch_next_btn"
         app:layout_constraintStart_toStartOf="@+id/timePicker"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/input_title" />
 
-    <TimePicker
+    <!--<TimePicker-->
+        <!--android:id="@+id/timePicker"-->
+        <!--style="@style/TimePickerTheme"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_marginBottom="39dp"-->
+        <!--android:layout_marginTop="23dp"-->
+        <!--android:timePickerMode="spinner"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="@+id/textView2" />-->
+    <LinearLayout
         android:id="@+id/timePicker"
-        style="@style/TimePickerTheme"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="39dp"
-        android:layout_marginTop="23dp"
-        android:timePickerMode="spinner"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="@+id/textView" >
+
+        <NumberPicker
+            android:id="@+id/picker_hour"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            />
+        <NumberPicker
+            android:id="@+id/picker_minute"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            />
+        <NumberPicker
+            android:id="@+id/picker_second"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
+            />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/stopwatch_next_btn"

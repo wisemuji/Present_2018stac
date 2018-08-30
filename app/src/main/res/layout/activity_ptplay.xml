@@ -2,16 +2,20 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout7"
+    android:id="@+id/layout_play"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ptplayBG"
     android:orientation="vertical">
-<LinearLayout
-    android:id="@+id/title_layout"
-    app:layout_constraintTop_toTopOf="parent"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/titleVar"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
     <TextView
         android:id="@+id/btn_destroy"
         android:layout_width="wrap_content"
@@ -22,19 +26,61 @@
         android:textColor="@color/ptplayWhite"
         android:textSize="19pt" />
 
+        <TextView
+            android:id="@+id/pt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:paddingTop="15dp"
+            android:text="STAC 본선"
+            android:textColor="@color/ptplayWhite"
+            android:textSize="20sp" />
+    </RelativeLayout>
+    <!--<TextView-->
+    <!--android:id="@+id/btn_lock"-->
+    <!--android:layout_marginLeft="320dp"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="  잠금"-->
+    <!--android:onClick="appFinish"-->
+    <!--android:textColor="@color/bg_white"-->
+    <!--android:textSize="35sp"-->
+    <!--/>-->
+
+    <ImageButton
+        android:id="@+id/btn_lock"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:adjustViewBounds="true"
+        android:background="@color/ptplayBG"
+        android:onClick="appFinish"
+        android:scaleType="centerCrop"
+        android:src="@drawable/lock_opened"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleVar" />
+
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/sc_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:gravity="center"
-        android:paddingTop="15dp"
-        android:text="STAC 본선"
+        android:text="스크립트 제목"
         android:textColor="@color/ptplayWhite"
-        android:textSize="10pt" />
-</LinearLayout>
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_lock" />
 
     <TextView
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sc_title"
+        android:layout_marginTop="22dp"
         android:id="@+id/time_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,38 +90,54 @@
         android:textSize="35pt"
         android:textStyle="bold" />
 
-
     <TextView
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time_out"
         android:id="@+id/record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:padding="10dp"
-        android:text="STAC 발표\nPRE-SENT"
+        android:text="이곳에 스크립트가\n표시됩니다."
         android:textColor="@color/ptplayWhite"
-        android:textSize="15pt" />
+        android:textSize="25sp" />
 
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/record"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button1"
-        android:onClick="myOnClick"
-        android:text="시작"
-        android:textColor="@color/ptplayBG"
-        android:textSize="9pt"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+        <Button
+            android:layout_marginRight="5dp"
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button1"
+            android:onClick="myOnClick"
+            android:text="시작"
+            android:textColor="@color/ptplayBG"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_button1"
-        android:onClick="myOnClick"
-        android:text="초기화"
-        android:textColor="@color/ptplayBG"
-        android:textSize="9pt"
-        android:textStyle="bold" />
+        <Button
+            android:layout_marginLeft="5dp"
+            android:id="@+id/btn_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button1"
+            android:onClick="myOnClick"
+            android:text="초기화"
+            android:textColor="@color/ptplayBG"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

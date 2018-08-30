@@ -68,6 +68,8 @@
             />
 
         <LinearLayout
+            android:id="@+id/setting_time"
+            android:background="?android:attr/selectableItemBackground"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -104,7 +106,7 @@
             <CheckBox
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-                android:id="@+id/timeChecked"
+                android:id="@+id/setting_check1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
@@ -116,6 +118,8 @@
 
 
         <LinearLayout
+            android:id="@+id/setting_script"
+            android:background="?android:attr/selectableItemBackground"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -150,10 +154,10 @@
             <CheckBox
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-                android:id="@+id/scriptChecked"
+                android:id="@+id/setting_check2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-               />
+                />
         </LinearLayout>
 
         <TextView
@@ -166,6 +170,8 @@
 
 
         <LinearLayout
+            android:id="@+id/setting_vib"
+            android:background="?android:attr/selectableItemBackground"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
@@ -199,7 +205,7 @@
             <CheckBox
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-                android:id="@+id/vibChecked"
+                android:id="@+id/setting_check3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 />
@@ -239,7 +245,7 @@
 
 
         <LinearLayout
-
+            android:id="@+id/setting_watch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -272,7 +278,7 @@
             <CheckBox
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
-                android:id="@+id/smartVibChecked"
+                android:id="@+id/setting_check4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 />
@@ -287,11 +293,11 @@
 
     </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
     </LinearLayout>
 
 

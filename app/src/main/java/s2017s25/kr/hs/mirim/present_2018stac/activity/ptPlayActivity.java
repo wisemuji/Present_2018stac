@@ -14,23 +14,33 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 public class ptPlayActivity extends AppCompatActivity {
     private TimerTask mTask;
     private Timer mTimer;
     TextView myOutput;
+    TextView ptTitle;
     TextView myRec;
+    ImageButton btnLock;
     Button myBtnStart;
+    Button myBtnRefresh;
+    TextView btnFinish;
     Button myBtnRec;
     Vibrator vibe;
-
+    LinearLayout layoutPlay;
 
     final static int Init =0;
     final static int Run =1;
@@ -42,6 +52,8 @@ public class ptPlayActivity extends AppCompatActivity {
     long myPauseTime;
     int i=1;
     String str;
+    Presentation pt;
+    int osVersion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,46 +63,91 @@ public class ptPlayActivity extends AppCompatActivity {
 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        osVersion = Build.VERSION.SDK_INT;
+
+        Intent intent = getIntent();
+        pt = (Presentation) intent.getSerializableExtra("presentation");
+
+        //테스트
+//        ArrayList<Script> scripts=new ArrayList<>();
+//        ArrayList<KeyPoint> keyPoints=new ArrayList<>();
+//        keyPoints.add(0, new KeyPoint("테스트 키포인트", (long)2000));
+//        pt = new Presentation("test",(long)60,true,true,true,true,scripts,keyPoints);
+
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
         myBtnStart = (Button) findViewById(R.id.btn_start);
-//
-//        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            v.vibrate(VibrationEffect.createOneShot(1000, VibrationEffect.DEFAULT_AMPLITUDE));
-//        }
-//
-//// Output yes if can vibrate, no otherwise
-//        if (v.hasVibrator()) {
-//            Log.v("Can Vibrate", "YES");
-//        } else {
-//            Log.v("Can Vibrate", "NO");
-//        }
-//
+        myBtnRefresh = (Button) findViewById(R.id.btn_refresh);
+        btnFinish = (TextView) findViewById(R.id.btn_destroy);
+        ptTitle = (TextView) findViewById(R.id.pt_title);
 
-//       Handler handler = new Handler();
-//       handler.postDelayed(new Runnable() {
-//           public void run() {
-//               vibe.vibrate(1000);
-//               myRec.setText((i++)+"분 경과");
-//           }
-//       }, 1000*3);  // 2000은 2초를 의미합니다.
-//        str = "0";
-//        mTask = new TimerTask() {
-//            @Override
-//            public void run() {
-//                str=myOutput.getText().toString().substring(1,2);
-//                myRec.setText(str + "분 경과");
-//                vibe.vibrate(1000);
-//            }
-//        };
-//
-//        mTimer = new Timer();
-//
-//        mTimer.schedule(mTask, 1000 * 5, 100);
+        ptTitle.setText(pt.getName());
 
+        layoutPlay=findViewById(R.id.layout_play);
+        btnLock=findViewById(R.id.btn_lock);
+        btnLock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //잠그기
+                if(btnFinish.isClickable()) {
+                    btnFinish.setClickable(false);
+                    myBtnStart.setClickable(false);
+                    myBtnRefresh.setClickable(false);
+
+                    //Immersive full screen mode[[
+                    if (osVersion >= 19){
+                        try {
+                            hideSystemUi();
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(
+                                new View.OnSystemUiVisibilityChangeListener(){
+                                    @Override
+                                    public void onSystemUiVisibilityChange(int visibility){
+                                        if (visibility == 0){
+                                            mHideHandler.postDelayed(mHideRunnable, 3000);
+                                        }
+                                    }
+                                });
+                    }
+                    //Immersive full screen mode]]
+                }
+                //잠금 풀기
+                else {
+                    btnFinish.setClickable(true);
+                    myBtnStart.setClickable(true);
+                    myBtnRefresh.setClickable(true);
+//                    btnLock.setImageDrawable(R.drawable.lock_opened);
+                    //Immersive full screen mode[[
+                    if (osVersion >= 19){
+                        try {
+                            hideSystemUi();
+                        }catch(Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                    //Immersive full screen mode]]
+                }
+            }
+        });
 
     }
+    @Override
+    public void onBackPressed() {
+        if(btnFinish.isClickable()) {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onUserLeaveHint() {
+        if(btnFinish.isClickable()) {
+            super.onUserLeaveHint();
+        }
+    }
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -148,32 +205,25 @@ public class ptPlayActivity extends AppCompatActivity {
         vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
         long now = SystemClock.elapsedRealtime(); //애플리케이션이 실행되고나서 실제로 경과된 시간(??)^^;
         long outTime = now - myBaseTime;
-        String easy_outTime = String.format("%02d:%02d", outTime/1000 / 60, (outTime/1000)%60);
+        String easy_outTime;
+        if(outTime >= 3600000)
+            easy_outTime = String.format("%d:%02d:%02d", (outTime/1000) / 3600, ((outTime/1000) % 3600) / 60, (outTime/1000) % 60);
+        else
+            easy_outTime = String.format("%02d:%02d", outTime/1000 / 60, (outTime/1000)%60);
         String minute = String.format("%02d", outTime/1000 / 60);
         String second = String.format("%02d", (outTime/1000)%60);
+
+        for(KeyPoint kp : pt.getKeyPoints()){
+            if((outTime/1000) == (kp.getVibTime()/1000)){
+                myRec.setText(kp.getName());
+                vibe.vibrate(1000);
+            }
+        }
+
         if(minute.equals("04") && Integer.parseInt(second)>19 && Integer.parseInt(second)<40) {
             myRec.setText("큰일!!!!!!!마무리!!!");
             if (Integer.parseInt(second) == 20) {
                 vibe.vibrate(1000);
-            }
-        }
-        else if(minute.equals("04") && Integer.parseInt(second)>39 && Integer.parseInt(second)<=59){
-            myRec.setText("큰일!!!!!!!마무리!!!");
-            if (Integer.parseInt(second)==40) {
-                vibe.vibrate(1000);
-            }
-        }
-        else if(minute.equals("05")){
-            myTimer.removeMessages(0); //핸들러 메세지 제거
-            myPauseTime = SystemClock.elapsedRealtime();
-            myBtnStart.setText("다시 시작");
-            cur_Status = Init;
-        }
-        else if(!minute.equals("00")){
-            myRec.setText(minute.substring(1) + "분 경과");
-            if (minute.equals("0"+myCount)) {
-                vibe.vibrate(1000);
-                myCount++;
             }
         }
         return easy_outTime;
@@ -183,6 +233,33 @@ public class ptPlayActivity extends AppCompatActivity {
         finish();
     }
 
+    //Immersive full screen mode[[
+    private void hideSystemUi() {
+        if(!btnFinish.isClickable()) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE);
+        }
+        else {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+        }
+    }
+
+    Handler mHideHandler = new Handler();
+    Runnable mHideRunnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            try {
+                hideSystemUi();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    };
 }
-
-

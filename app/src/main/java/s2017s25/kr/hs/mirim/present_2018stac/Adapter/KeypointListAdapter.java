@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.item.keypoint_list_item;
 
 public class KeypointListAdapter extends BaseAdapter {
     Context context;
