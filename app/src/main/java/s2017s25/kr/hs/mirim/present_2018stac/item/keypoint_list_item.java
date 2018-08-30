@@ -1,4 +1,4 @@
-package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
+package s2017s25.kr.hs.mirim.present_2018stac.item;
 
 public class keypoint_list_item {
     private String title;

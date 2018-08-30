@@ -10,24 +10,24 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.KeypointListAdapter;
-import s2017s25.kr.hs.mirim.present_2018stac.Adapter.keypoint_list_item;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.item.keypoint_list_item;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 
 public class KeypointActivity extends AppCompatActivity {
     ListView listView;
-    s2017s25.kr.hs.mirim.present_2018stac.Adapter.KeypointListAdapter KeypointListAdapter;
+    KeypointListAdapter KeypointListAdapter;
     ArrayList<keypoint_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn,exitBtn;
-    Presentation presentation = new Presentation();
+    Presentation pt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keypoint);
 
-        Intent inforIntent = getIntent();
-        presentation = (Presentation) inforIntent.getSerializableExtra("ScriptInputInfor");
+        Intent intent = getIntent();
+        pt = (Presentation) intent.getSerializableExtra("presentation");
 
         listView = (ListView)findViewById(R.id.keypoint_listview);
 
@@ -53,6 +53,7 @@ public class KeypointActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KeypointActivity.this, SettingActivity.class);
+                intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
             }
@@ -64,7 +65,7 @@ public class KeypointActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(KeypointActivity.this, ScriptInputActivity.class);
-                intent.putExtra("KeypointInfor", presentation);
+                intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
             }

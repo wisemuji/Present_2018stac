@@ -1,7 +1,6 @@
 package s2017s25.kr.hs.mirim.present_2018stac.Adapter;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,11 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.item.pt_list_item;
 
 public class PTListAdapter extends BaseAdapter{
     Context context;
@@ -59,5 +57,22 @@ public class PTListAdapter extends BaseAdapter{
         option_ImageView.setImageResource(list_itemArrayList.get(position).getOption());
         return convertView;
 
+//=======
+//
+//            viewHolder = new ViewHolder();
+//            viewHolder.title_textView = (TextView)convertView.findViewById(R.id.title_textView);
+//            viewHolder.PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
+//            viewHolder.start_icon_imageYiew = (ImageView)convertView.findViewById(R.id.start_pt_btn);
+//            viewHolder.menu_imageView = (ImageView)convertView.findViewById(R.id.menu_imageView);
+//            convertView.setTag(viewHolder);
+//        }else {
+//            viewHolder = (ViewHolder)convertView.getTag();
+//        }
+//        viewHolder.title_textView.setText(list_itemArrayList.get(position).getTitle());
+//        viewHolder.PTtime_textView.setText(list_itemArrayList.get(position).getPTtime().toString());
+//        viewHolder.start_icon_imageYiew.setImageResource(list_itemArrayList.get(position).getStart_icon());
+//        viewHolder.menu_imageView.setImageResource(list_itemArrayList.get(position).getMenu());
+//        return convertView;
+//>>>>>>> master
     }
 }

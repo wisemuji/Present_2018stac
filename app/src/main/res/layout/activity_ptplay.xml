@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_play"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -22,17 +23,28 @@
             android:textSize="19pt"
             />
         <TextView
+            android:id="@+id/pt_title"
             android:paddingTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="STAC 본선"
             android:textColor="@color/ptplayWhite"
             android:gravity="center"
-            android:textSize="10pt"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/btn_lock"
+            android:layout_marginLeft="320dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  잠금"
+            android:onClick="appFinish"
+            android:textColor="@color/bg_white"
+            android:textSize="35sp"
             />
     </RelativeLayout>
     <TextView
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="100dp"
         android:id="@+id/time_out"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -48,11 +60,11 @@
         android:gravity="center_horizontal"
         android:id="@+id/record"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15pt"
+        android:layout_height="160dp"
+        android:textSize="28sp"
         android:padding="10dp"
         android:textColor="@color/ptplayWhite"
-        android:text="STAC 발표\nPRE-SENT"
+        android:text="이곳에 스크립트가\n표시됩니다."
         android:layout_marginTop="37dp"
         />
 <LinearLayout
@@ -70,7 +82,7 @@
         android:textColor="@color/ptplayBG"
         android:onClick="myOnClick"
         android:background="@drawable/round_button1"
-        android:textSize="9pt"
+        android:textSize="18sp"
         android:text="시작"
         android:textStyle="bold"
         android:layout_marginRight="5dp"
@@ -85,7 +97,7 @@
         android:textColor="@color/ptplayBG"
         android:onClick="myOnClick"
         android:background="@drawable/round_button1"
-        android:textSize="9pt"
+        android:textSize="18sp"
         android:text="초기화"
         android:textStyle="bold"
         />

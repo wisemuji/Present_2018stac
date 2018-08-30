@@ -17,15 +17,6 @@ public class SettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
-
-
-
-
-
-
-
-
         nextBtn = (TextView) findViewById(R.id.setting_next_btn);
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
