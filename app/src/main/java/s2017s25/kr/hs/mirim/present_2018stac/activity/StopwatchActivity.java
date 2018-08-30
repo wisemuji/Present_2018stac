@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -17,6 +18,9 @@ public class StopwatchActivity extends AppCompatActivity {
     EditText inputTitle;
     TimePicker inputTime;
     TextView nextBtn;
+    NumberPicker pickerHour;
+    NumberPicker pickerMinute;
+    NumberPicker pickerSecond;
     Presentation pt = new Presentation();
 
     @Override
@@ -28,6 +32,16 @@ public class StopwatchActivity extends AppCompatActivity {
         if(intent.getSerializableExtra("presentation")!=null)
             pt = (Presentation) intent.getSerializableExtra("presentation");
 
+        pickerHour = (NumberPicker)findViewById(R.id.picker_hour);
+        pickerHour.setMinValue(0);
+        pickerHour.setMaxValue(99);
+        pickerMinute = (NumberPicker)findViewById(R.id.picker_minute);
+        pickerMinute.setMinValue(0);
+        pickerMinute.setMaxValue(23);
+        pickerSecond = (NumberPicker)findViewById(R.id.picker_second);
+        pickerSecond.setMinValue(0);
+        pickerSecond.setMaxValue(59);
+
         inputTitle = (EditText) findViewById(R.id.input_title);
         inputTitle.setText(pt.getName());
         nextBtn = (TextView) findViewById(R.id.stopwatch_next_btn);
@@ -35,13 +49,20 @@ public class StopwatchActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(inputTitle.getText().toString().isEmpty()){
+                String title = inputTitle.getText().toString();
+                long time=0;
+                time+=pickerHour.getValue()*1000*3600;
+                time+=pickerMinute.getValue()*1000*60;
+                time+=pickerSecond.getValue()*1000;
+
+                if(title.isEmpty()){
                     Toast.makeText(getApplicationContext(),"제목을 입력해주세요",Toast.LENGTH_SHORT).show();
-                } else {
-                    String title = inputTitle.getText().toString();
+                }
+                else if(time==0){
+                    Toast.makeText(getApplicationContext(),"시간을 설정해주세요",Toast.LENGTH_SHORT).show();
+                }
+                else {
                     pt.setName(title);
-                    long time = 120000; //더미데이터
-                    /*inputTime.getHour()*/
                     pt.setPresentTime(time);
 
                     Intent intent = new Intent(StopwatchActivity.this, ScriptInputActivity.class);
