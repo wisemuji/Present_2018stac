@@ -93,6 +93,7 @@ public class ptPlayActivity extends AppCompatActivity {
                     btnFinish.setClickable(false);
                     myBtnStart.setClickable(false);
                     myBtnRefresh.setClickable(false);
+                    btnLock.setImageResource(R.drawable.lock_closed);
 
                     //Immersive full screen mode[[
                     if (osVersion >= 19){
@@ -118,7 +119,7 @@ public class ptPlayActivity extends AppCompatActivity {
                     btnFinish.setClickable(true);
                     myBtnStart.setClickable(true);
                     myBtnRefresh.setClickable(true);
-//                    btnLock.setImageDrawable(R.drawable.lock_opened);
+                    btnLock.setImageResource(R.drawable.lock_opened);
                     //Immersive full screen mode[[
                     if (osVersion >= 19){
                         try {

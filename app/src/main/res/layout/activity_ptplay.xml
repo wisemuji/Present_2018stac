@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/lock_opened"
-        android:background="null"
+        android:background="@color/ptplayBG"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         />
