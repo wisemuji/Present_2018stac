@@ -41,7 +41,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "   displayTime INTEGER,\n" +
                 "   displayScript INTEGER,\n" +
                 "   vibPhone INTEGER,\n" +
-                "   vibSmartWatch INTEGER\n" +
+                "   vibSmartWatch INTEGER,\n" +
+                "   modifiedDate INTEGER\n" +
                 ");");
 
         //KEYPOINT
@@ -78,8 +79,8 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         // DB에 입력한 값으로 행 추가
         //PRESENTATION 테이블에 추가
-        db.execSQL("INSERT INTO presentation(name, presentTime, displayTime, displayScript, vibPhone, vibSmartWatch)\n" +
-                "VALUES('"+pt.getName()+"',"+pt.getPresentTime()+","+pt.isDisplayTime(1)+","+pt.isDisplayScript(1)+","+pt.isVibPhone(1)+","+pt.isVibSmartWatch(1)+");");
+        db.execSQL("INSERT INTO presentation(name, presentTime, displayTime, displayScript, vibPhone, vibSmartWatch, modifiedDate)\n" +
+                "VALUES('"+pt.getName()+"',"+pt.getPresentTime()+","+pt.isDisplayTime(1)+","+pt.isDisplayScript(1)+","+pt.isVibPhone(1)+","+pt.isVibSmartWatch(1)+","+pt.getModifiedDate()+");");
 //                db.execSQL("INSERT INTO PRESENTATION VALUES(null, '" + item + "', " + price + ", '" + create_at + "');");
 
         int lastId = 1;
@@ -112,7 +113,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //PRESENTATION 테이블 수정
         db.execSQL("UPDATE presentation SET\n" +
-                "name='"+pt.getName()+"', presentTime="+pt.getPresentTime()+", displayTime="+pt.isDisplayTime(1)+", displayScript="+pt.isDisplayScript(1)+", vibPhone="+pt.isVibPhone(1)+", vibSmartWatch="+pt.isVibSmartWatch(1)+"" +
+                "name='"+pt.getName()+"', presentTime="+pt.getPresentTime()+", displayTime="+pt.isDisplayTime(1)+", displayScript="+pt.isDisplayScript(1)+", vibPhone="+pt.isVibPhone(1)+", vibSmartWatch="+pt.isVibSmartWatch(1)+", modifiedDate="+pt.getModifiedDate()+");" +
                 "WHERE id="+pt.getId()+";");
 
         //KEYPOINT 테이블 수정
@@ -162,7 +163,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     cursor.getInt(3),
                     cursor.getInt(4),
                     cursor.getInt(5),
-                    cursor.getInt(6)
+                    cursor.getInt(6),
+                    cursor.getLong(7)
             );
         }
         cursor = db.rawQuery("SELECT * FROM KeyPoint WHERE id="+id, null);
@@ -209,7 +211,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     cursor.getInt(3),
                     cursor.getInt(4),
                     cursor.getInt(5),
-                    cursor.getInt(6)
+                    cursor.getInt(6),
+                    cursor.getLong(7)
             );
         }
         cursor = db.rawQuery("SELECT * FROM KeyPoint WHERE id="+pt.getId(), null);
@@ -249,7 +252,7 @@ public class DBHelper extends SQLiteOpenHelper {
         // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
         Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION", null);
         while (cursor.moveToNext()) {
-            ptTmp=new Presentation(cursor.getInt(0),cursor.getString(1),cursor.getLong(2));
+            ptTmp=new Presentation(cursor.getInt(0),cursor.getString(1),cursor.getLong(2),cursor.getLong(7));
             ptList.add(ptTmp);
         }
 

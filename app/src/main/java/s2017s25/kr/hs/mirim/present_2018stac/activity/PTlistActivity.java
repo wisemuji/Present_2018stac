@@ -97,8 +97,6 @@ public class PTlistActivity extends AppCompatActivity {
 
     void listRefresh(){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
-        Date date = new Date();
-        String today = formatter.format(date);
 
         ArrayList<Presentation> ptList;
         ptList = dbHelper.getResult();
@@ -106,7 +104,7 @@ public class PTlistActivity extends AppCompatActivity {
 
         DateFormat df = new SimpleDateFormat("mm:ss"); // HH=24h, hh=12h
         for(Presentation ptTmp : ptList){
-            list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),today,R.drawable.option1));
+            list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option1));
         }
 
 //        list_itemArrayList.add(new ptlist_list_item(R.drawable.start,"앱잼발표","5:00",R.drawable.menu));

@@ -15,6 +15,7 @@ public class Presentation implements Serializable{
     boolean displayScript;
     boolean vibPhone;
     boolean vibSmartWatch;
+    Long modifiedDate;
     ArrayList<Script> scripts;
     ArrayList<KeyPoint> keyPoints;
 
@@ -25,7 +26,7 @@ public class Presentation implements Serializable{
     //4                "   displayScript INTEGER,\n" +
     //5                "   vibPhone INTEGER,\n" +
     //6                "   vibSmartWatch INTEGER\n" +
-    public Presentation(int id, String name, Long presentTime, int displayTime, int displayScript, int vibPhone, int vibSmartWatch){
+    public Presentation(int id, String name, Long presentTime, int displayTime, int displayScript, int vibPhone, int vibSmartWatch, Long modifiedDate){
         this.id = id;
         this.name = name;
         this.presentTime = presentTime;
@@ -33,6 +34,7 @@ public class Presentation implements Serializable{
         this.displayScript = toBoolean(displayScript);
         this.vibPhone = toBoolean(vibPhone);
         this.vibSmartWatch = toBoolean(vibSmartWatch);
+        this.modifiedDate = modifiedDate;
     }
 
     public Presentation(String name, Long presentTime, boolean displayTime, boolean displayScript, boolean vibPhone, boolean vibSmartWatch, ArrayList<Script> scripts, ArrayList<KeyPoint> keyPoints) {
@@ -46,14 +48,23 @@ public class Presentation implements Serializable{
         this.scripts = scripts;
         this.keyPoints = keyPoints;
     }
-    public Presentation(int id, String name, Long presentTime) {
+    public Presentation(int id, String name, Long presentTime, Long modifiedDate) {
         this.id = id;
         this.name = name;
         this.presentTime = presentTime;
+        this.modifiedDate = modifiedDate;
     }
 
     public Presentation() {
 
+    }
+
+    public Long getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Long modifiedDate) {
+        this.modifiedDate = modifiedDate;
     }
 
     public int getId() {
