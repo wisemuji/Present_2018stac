@@ -10,7 +10,7 @@ import android.widget.TextView;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 
 public class dialogActivity extends AppCompatActivity {
-
+//팝업창
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

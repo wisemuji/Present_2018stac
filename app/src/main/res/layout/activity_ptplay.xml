@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/bg_black"
+    android:background="@color/ptplayBG"
     >
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:text="  ×"
             android:onClick="appFinish"
-            android:textColor="@color/bg_white"
-            android:textSize="35sp"
+            android:textColor="@color/ptplayWhite"
+            android:textSize="19pt"
             />
         <TextView
             android:id="@+id/pt_title"
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="STAC 본선"
-            android:textColor="@color/bg_white"
+            android:textColor="@color/ptplayWhite"
             android:gravity="center"
             android:textSize="20sp"
             />
@@ -49,8 +49,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textSize="85sp"
-        android:textColor="@color/bg_white"
+        android:textSize="35pt"
+        android:textColor="@color/ptplayWhite"
         android:text="00:00"
         android:textStyle="bold"
         />
@@ -63,37 +63,46 @@
         android:layout_height="160dp"
         android:textSize="28sp"
         android:padding="10dp"
-        android:textColor="@color/bg_white"
+        android:textColor="@color/ptplayWhite"
         android:text="이곳에 스크립트가\n표시됩니다."
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="37dp"
         />
-
+<LinearLayout
+    android:layout_marginTop="50dp"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
     <Button
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
         android:id="@+id/btn_start"
         android:layout_width="110dp"
         android:layout_height="40dp"
-        android:textColor="@color/bg_black"
+        android:textColor="@color/ptplayBG"
         android:onClick="myOnClick"
         android:background="@drawable/round_button1"
         android:textSize="18sp"
         android:text="시작"
         android:textStyle="bold"
+        android:layout_marginRight="5dp"
         />
 
     <Button
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_gravity="center"
         android:id="@+id/btn_refresh"
         android:layout_width="110dp"
         android:layout_height="40dp"
-        android:textColor="@color/bg_black"
+        android:textColor="@color/ptplayBG"
         android:onClick="myOnClick"
         android:background="@drawable/round_button1"
         android:textSize="18sp"
         android:text="초기화"
         android:textStyle="bold"
         />
+
+</LinearLayout>
+
 
 </LinearLayout>

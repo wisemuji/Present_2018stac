@@ -18,13 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ptPlayActivity" />
-        <activity android:name=".activity.dialogActivity" android:theme="@android:style/Theme.Dialog"></activity>
         <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.PTlistActivity" ></activity>
+        <activity android:name=".activity.ptPlayActivity" />
+        <activity android:name=".activity.PTlistActivity" />
         <activity android:name=".activity.StopwatchActivity" />
-        <activity android:name=".activity.ScriptInputActivity"></activity>
-        <activity android:name=".activity.KeypointActivity"></activity>
+        <activity android:name=".activity.ScriptInputActivity" />
+        <activity android:name=".activity.KeypointActivity" />
+        <activity android:name=".activity.dialogActivity" android:theme="@android:style/Theme.Dialog"></activity>
     </application>
 
 </manifest>

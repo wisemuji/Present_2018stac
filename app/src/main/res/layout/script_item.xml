@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
-    android:background="@color/mainColor"
+    android:background="@color/bgcolor"
     android:layout_height="match_parent" >
 
     <LinearLayout
         android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/mainColor">
+        android:background="@color/bgcolor">
         <TextView
             android:id="@+id/script_list_time"
             android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
             android:text="00:00 ~ 00:00"
             android:gravity="bottom"
             android:textStyle="bold"
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:textSize="14pt"/>
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="╳"
-            android:textColor="@color/mainColorWhite"
+            android:textColor="@color/mainColor"
             android:textSize="10pt" />
 
     </LinearLayout>
@@ -38,7 +38,7 @@
     <TextView
         android:id="@+id/script_list_content"
         android:layout_marginBottom="14dp"
-        android:textColor="@color/mainColorWhite"
+        android:textColor="@color/mainColor"
         android:layout_marginRight="100dp"
 
         android:layout_width="match_parent"

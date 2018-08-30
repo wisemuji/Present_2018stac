@@ -16,12 +16,14 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 import s2017s25.kr.hs.mirim.present_2018stac.db.DBHelper;
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.PTListAdapter;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
-import s2017s25.kr.hs.mirim.present_2018stac.item.ptlist_list_item;
+import s2017s25.kr.hs.mirim.present_2018stac.item.pt_list_item;
 
 
 public class PTlistActivity extends AppCompatActivity {
@@ -29,7 +31,7 @@ public class PTlistActivity extends AppCompatActivity {
     TextView exitBtn;
     ListView listView;
     PTListAdapter myListAdapter;
-    ArrayList<ptlist_list_item> list_itemArrayList;
+    ArrayList<pt_list_item> list_itemArrayList;
     DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class PTlistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ptlist);
 
         ImageView start_pt_btn = (ImageView) findViewById(R.id.start_pt_btn);
-        ImageView plusbtn = (ImageView) findViewById(R.id.plusbtn);
+//        ImageView plusbtn = (ImageView) findViewById(R.id.plusbtn);
         dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         listView = (ListView)findViewById(R.id.my_listView);
@@ -52,13 +54,6 @@ public class PTlistActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        plusbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
@@ -101,13 +96,17 @@ public class PTlistActivity extends AppCompatActivity {
     }
 
     void listRefresh(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd", Locale.KOREA);
+        Date date = new Date();
+        String today = formatter.format(date);
+
         ArrayList<Presentation> ptList;
         ptList = dbHelper.getResult();
-        list_itemArrayList = new ArrayList<ptlist_list_item>();
+        list_itemArrayList = new ArrayList<pt_list_item>();
 
         DateFormat df = new SimpleDateFormat("mm:ss"); // HH=24h, hh=12h
         for(Presentation ptTmp : ptList){
-            list_itemArrayList.add(new ptlist_list_item(R.drawable.start,ptTmp.getName(),df.format(ptTmp.getPresentTime()),R.drawable.menu));
+            list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),today,R.drawable.option1));
         }
 
 //        list_itemArrayList.add(new ptlist_list_item(R.drawable.start,"앱잼발표","5:00",R.drawable.menu));

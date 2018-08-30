@@ -19,7 +19,7 @@ public class ScriptInputActivity extends AppCompatActivity {
     ListView listView;
     ScriptListAdapter ScriptListAdapter;
     ArrayList<script_list_item> list_itemArrayList;
-    TextView nextBtn, prevBtn;
+    TextView nextBtn, prevBtn, exitBtn;
     Presentation pt;
 
     @Override
@@ -81,6 +81,14 @@ public class ScriptInputActivity extends AppCompatActivity {
                 Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
                 intent.putExtra("presentation", pt);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        exitBtn = (TextView) findViewById(R.id.exitBtn);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });
