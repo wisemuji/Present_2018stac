@@ -78,6 +78,7 @@ public class SettingActivity extends AppCompatActivity {
                 Intent intent = new Intent(SettingActivity.this, PTlistActivity.class);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
             }
         });
 
@@ -94,6 +95,7 @@ public class SettingActivity extends AppCompatActivity {
                 intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(R.anim.activity_slide_enter, R.anim.activity_slide_exit);
             }
         });
     }

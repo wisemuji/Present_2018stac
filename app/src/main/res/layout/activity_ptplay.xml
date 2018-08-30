@@ -32,19 +32,42 @@
             android:gravity="center"
             android:textSize="20sp"
             />
-        <TextView
-            android:id="@+id/btn_lock"
-            android:layout_marginLeft="320dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  잠금"
-            android:onClick="appFinish"
-            android:textColor="@color/bg_white"
-            android:textSize="35sp"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/btn_lock"-->
+            <!--android:layout_marginLeft="320dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="  잠금"-->
+            <!--android:onClick="appFinish"-->
+            <!--android:textColor="@color/bg_white"-->
+            <!--android:textSize="35sp"-->
+            <!--/>-->
     </RelativeLayout>
+    <ImageButton
+        android:id="@+id/btn_lock"
+        android:layout_marginTop="40dp"
+        android:layout_width="40dp"
+        android:onClick="appFinish"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/lock_opened"
+        android:background="null"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        />
     <TextView
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/sc_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="12pt"
+        android:textColor="@color/ptplayWhite"
+        android:text="스크립트 제목"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_marginTop="22dp"
         android:id="@+id/time_out"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -60,15 +83,15 @@
         android:gravity="center_horizontal"
         android:id="@+id/record"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:textSize="28sp"
+        android:layout_height="200dp"
+        android:textSize="25sp"
         android:padding="10dp"
         android:textColor="@color/ptplayWhite"
         android:text="이곳에 스크립트가\n표시됩니다."
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="20dp"
         />
 <LinearLayout
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="20dp"
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

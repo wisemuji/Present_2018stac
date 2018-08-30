@@ -81,6 +81,7 @@ public class StopwatchActivity extends AppCompatActivity {
                     intent.putExtra("presentation", pt);
                     startActivity(intent);
                     finish();
+                    overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
                 }
             }
         });

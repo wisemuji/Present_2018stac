@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class ptPlayActivity extends AppCompatActivity {
     TextView myOutput;
     TextView ptTitle;
     TextView myRec;
-    TextView btnLock;
+    ImageButton btnLock;
     Button myBtnStart;
     Button myBtnRefresh;
     TextView btnFinish;
@@ -87,6 +88,7 @@ public class ptPlayActivity extends AppCompatActivity {
         btnLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //잠그기
                 if(btnFinish.isClickable()) {
                     btnFinish.setClickable(false);
                     myBtnStart.setClickable(false);
@@ -111,10 +113,12 @@ public class ptPlayActivity extends AppCompatActivity {
                     }
                     //Immersive full screen mode]]
                 }
+                //잠금 풀기
                 else {
                     btnFinish.setClickable(true);
                     myBtnStart.setClickable(true);
                     myBtnRefresh.setClickable(true);
+//                    btnLock.setImageDrawable(R.drawable.lock_opened);
                     //Immersive full screen mode[[
                     if (osVersion >= 19){
                         try {
