@@ -104,6 +104,9 @@ public class PTlistActivity extends AppCompatActivity {
 
         DateFormat df = new SimpleDateFormat("mm:ss"); // HH=24h, hh=12h
         for(Presentation ptTmp : ptList){
+            if(ptTmp.getPresentTime()>=3600000){
+                df = new SimpleDateFormat("hh:mm:ss");
+            }
             list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option1));
         }
 
