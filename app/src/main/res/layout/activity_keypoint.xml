@@ -10,6 +10,7 @@
     tools:context=".activity.KeypointActivity">
 
     <LinearLayout
+        android:layout_marginTop="25dp"
         android:id="@+id/linearLayout13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +29,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="10pt"
+            android:textSize="14.7dp"
             android:textStyle="bold" />
 
         <TextView
@@ -38,7 +39,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="키 포인트 설정"
             android:textColor="@color/mainColor"
-            android:textSize="9pt"
+            android:textSize="14.7dp"
             android:textStyle="bold" />
 
         <TextView

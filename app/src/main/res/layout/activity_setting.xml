@@ -12,6 +12,7 @@
         android:id="@+id/titleLinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:background="@color/bgcolor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +25,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="10pt"
+            android:textSize="14.7dp"
             android:textStyle="bold" />
 
         <TextView
@@ -34,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="발표세팅"
             android:textColor="@color/mainColor"
-            android:textSize="9pt"
+            android:textSize="14.7dp"
             android:textStyle="bold" />
 
         <TextView
@@ -48,40 +49,39 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="15sp"
-        android:layout_marginLeft="15sp"
-        android:orientation="vertical"
         android:id="@+id/phoneLinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/titleLinear"
+        android:layout_marginLeft="15sp"
         android:layout_marginRight="15dp"
-        >
+        android:layout_marginTop="15sp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/titleLinear">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="핸드폰"
-            android:textStyle="bold"
-            android:textSize="8pt"
-            android:textColor="@color/mainColor"
             android:layout_marginBottom="7sp"
-            />
+            android:text="핸드폰"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/setting_time"
-            android:background="?android:attr/selectableItemBackground"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="?android:attr/selectableItemBackground"
             android:orientation="horizontal"
 
             >
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/time_display"
@@ -94,21 +94,21 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_weight="1"
                     android:id="@+id/setting_content1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="꺼진 화면에 발표 시간 표시 "
                     android:textColor="@color/mainColor"
                     android:textSize="7pt" />
             </LinearLayout>
 
             <CheckBox
-                android:button="@null"
-                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                 android:id="@+id/setting_check1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
         </LinearLayout>
 
         <TextView
@@ -119,18 +119,18 @@
 
         <LinearLayout
             android:id="@+id/setting_script"
-            android:background="?android:attr/selectableItemBackground"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -152,12 +152,11 @@
             </LinearLayout>
 
             <CheckBox
-                android:button="@null"
-                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                 android:id="@+id/setting_check2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                />
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
         </LinearLayout>
 
         <TextView
@@ -166,23 +165,20 @@
             android:background="@color/mainColor" />
 
 
-
-
-
         <LinearLayout
             android:id="@+id/setting_vib"
-            android:background="?android:attr/selectableItemBackground"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -202,13 +198,13 @@
                     android:textSize="7pt" />
 
             </LinearLayout>
+
             <CheckBox
-                android:button="@null"
-                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                 android:id="@+id/setting_check3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                />
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
         </LinearLayout>
 
 
@@ -221,40 +217,37 @@
     </LinearLayout>
 
 
-
-
     <LinearLayout
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="15sp"
-        android:orientation="vertical"
         android:id="@+id/smartLinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/phoneLinear"
+        android:layout_marginLeft="15sp"
         android:layout_marginRight="15dp"
-        >
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/phoneLinear">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="스마트워치"
-            android:textStyle="bold"
-            android:textSize="8pt"
-            android:textColor="@color/mainColor"
             android:layout_marginBottom="7sp"
-            />
+            android:text="스마트워치"
+            android:textColor="@color/mainColor"
+            android:textSize="8pt"
+            android:textStyle="bold" />
 
 
         <LinearLayout
             android:id="@+id/setting_watch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -276,19 +269,18 @@
             </LinearLayout>
 
             <CheckBox
-                android:button="@null"
-                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                 android:id="@+id/setting_check4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                />
+                android:button="@null"
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
         </LinearLayout>
 
         <TextView
-            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
             android:background="@color/mainColor" />
 
     </LinearLayout>
@@ -296,19 +288,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-    </LinearLayout>
-
+        android:orientation="horizontal"></LinearLayout>
 
 
     <LinearLayout
-        app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/linearLayout14"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:background="@color/mainColor"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/setting_prev_btn"
