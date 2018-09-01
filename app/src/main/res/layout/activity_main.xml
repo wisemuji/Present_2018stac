@@ -1,37 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/bgcolor"
+    android:gravity="center"
+    android:orientation="vertical"
     android:theme="@style/AppTheme"
-    >
-<ImageView
-    android:layout_marginBottom="10dp"
-    android:layout_width="210dp"
-    android:layout_height="210dp"
-    android:src="@drawable/mainlogo"
-    />
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/MainLogo"
+        android:layout_width="98.3dp"
+        android:layout_height="123dp"
+        android:src="@drawable/mainlogo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="122dp" />
+    <ImageView
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/MainLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/TextLogo"
+        android:layout_width="62.3dp"
+        android:layout_height="41.3dp"
+        android:src="@drawable/maintext"
+        tools:ignore="MissingConstraints"
+
+         />
+
+    <ImageView
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@+id/TextLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/InforLogo"
+        android:layout_width="104.3dp"
+        android:layout_height="29dp"
+        android:src="@drawable/inforlogo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="122dp" />
 
     <Button
-        android:layout_marginTop="50dp"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:text="새 PT 시작하기"
-        android:background="@drawable/main_btn"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
+        android:layout_marginTop="68.3dp"
+        app:layout_constraintTop_toBottomOf="@+id/InforLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/startPT"
-        />
-    <Button
-        android:layout_marginTop="15dp"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:text="기존 PT 목록"
-        android:textStyle="bold"
+        android:layout_width="143dp"
+        android:layout_height="40dp"
         android:background="@drawable/main_btn"
+        android:text="새 PT 시작하기"
         android:textColor="#ffffff"
-        android:id="@+id/PTlist"
+        android:textStyle="bold"
+        android:textSize="13dp"
         />
-</LinearLayout>
+
+    <Button
+        android:layout_marginTop="27dp"
+        app:layout_constraintTop_toBottomOf="@+id/startPT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/PTlist"
+        android:layout_width="143dp"
+        android:layout_height="40dp"
+        android:background="@drawable/main_btn"
+        android:text="기존 PT 목록"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+</android.support.constraint.ConstraintLayout>
