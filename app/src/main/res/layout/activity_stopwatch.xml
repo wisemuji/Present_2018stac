@@ -14,10 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:background="@color/bgcolor"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <TextView
             android:id="@+id/exitBtn"
