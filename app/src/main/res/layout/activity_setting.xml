@@ -54,14 +54,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15sp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="15sp"
+        android:layout_marginTop="48dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/titleLinear">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7sp"
+            android:layout_marginBottom="17dp"
             android:text="핸드폰"
             android:textColor="@color/mainColor"
             android:textSize="8pt"
@@ -223,14 +223,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15sp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="58dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/phoneLinear">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7sp"
+            android:layout_marginBottom="17dp"
             android:text="스마트워치"
             android:textColor="@color/mainColor"
             android:textSize="8pt"
