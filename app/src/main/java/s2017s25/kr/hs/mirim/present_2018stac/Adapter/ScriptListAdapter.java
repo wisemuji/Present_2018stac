@@ -15,7 +15,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.item.script_list_item;
 public class ScriptListAdapter extends BaseAdapter {
     Context context;
     ArrayList<script_list_item> list_itemArrayList;
-
+   // TextView scriptTitle;
     TextView timeStr;
     TextView content;
 
@@ -44,9 +44,11 @@ public class ScriptListAdapter extends BaseAdapter {
         if(convertView==null){
             convertView = LayoutInflater.from(context).inflate(R.layout.script_item,null);
 
+           // scriptTitle = (TextView)convertView.findViewById(R.id.script_title);
             timeStr=(TextView)convertView.findViewById(R.id.script_list_time);
             content=(TextView)convertView.findViewById(R.id.script_list_content);
 
+           // scriptTitle.setText(list_itemArrayList.get(position).getScript_title());
             timeStr.setText(list_itemArrayList.get(position).getTimeStr());
             content.setText(list_itemArrayList.get(position).getContent());
         }

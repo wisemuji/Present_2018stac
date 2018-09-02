@@ -38,7 +38,6 @@ public class PTlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ptlist);
 
-        ImageView start_pt_btn = (ImageView) findViewById(R.id.start_pt_btn);
 //        ImageView plusbtn = (ImageView) findViewById(R.id.plusbtn);
         dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
@@ -61,7 +60,7 @@ public class PTlistActivity extends AppCompatActivity {
 //                        Toast.makeText(getApplicationContext(), v.getText().toString(), Toast.LENGTH_LONG).show();
                         Presentation pt = dbHelper.getPresentation(v.getText().toString());
                         Intent intent = new Intent(PTlistActivity.this, ptPlayActivity.class);
-                        intent.putExtra("presentation", pt);
+                        //intent.putExtra("presentation", pt);
                         startActivity(intent);
                     }
                 }

@@ -35,8 +35,8 @@ public class ptPlayActivity extends AppCompatActivity {
     TextView ptTitle;
     TextView myRec;
     ImageButton btnLock;
-    Button myBtnStart;
-    Button myBtnRefresh;
+    TextView myBtnStart;
+    TextView myBtnRefresh;
     TextView btnFinish;
     Button myBtnRec;
     Vibrator vibe;
@@ -76,8 +76,8 @@ public class ptPlayActivity extends AppCompatActivity {
 
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
-        myBtnStart = (Button) findViewById(R.id.btn_start);
-        myBtnRefresh = (Button) findViewById(R.id.btn_refresh);
+        myBtnStart = (TextView) findViewById(R.id.btn_start);
+        myBtnRefresh = (TextView) findViewById(R.id.btn_refresh);
         btnFinish = (TextView) findViewById(R.id.btn_destroy);
         ptTitle = (TextView) findViewById(R.id.pt_title);
 

@@ -39,22 +39,17 @@ public class ScriptInputActivity extends AppCompatActivity {
                 new script_list_item("00:00 ~ 00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
 
         list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+                new script_list_item("00:00 ~ 00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
 
         list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
-
+                new script_list_item("00:00 ~ 00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
         list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
-
+                new script_list_item("00:00 ~ 00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
         list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
-
+                new script_list_item("00:00 ~ 00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
         list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+                new script_list_item("00:00 ~ 00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
 
-        list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
         //ListAdapter.notifyDataSetChanged();
 
         ScriptListAdapter = new ScriptListAdapter(ScriptInputActivity.this,list_itemArrayList);

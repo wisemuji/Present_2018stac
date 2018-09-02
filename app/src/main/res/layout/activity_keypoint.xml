@@ -67,13 +67,14 @@
 
     <ScrollView
         android:layout_marginTop="18dp"
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:id="@+id/scrollView3"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@color/bgcolor"
         android:fillViewport="true"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="@+id/inforKey"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout14"
         app:layout_constraintTop_toBottomOf="@+id/inforKey">
 
 
@@ -95,10 +96,11 @@
 
 
     <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/linearLayout14"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:background="@color/mainColor"
         android:orientation="horizontal">
 

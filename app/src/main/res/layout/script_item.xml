@@ -4,25 +4,26 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_marginTop="5dp"
-    android:layout_marginBottom="5dp"
     android:background="@color/bgcolor"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    >
+
 
     <LinearLayout
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="14dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/bgcolor">
+        android:background="@color/bgcolor"
+        >
         <TextView
             android:id="@+id/script_list_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00:00 ~ 00:00"
-            android:gravity="bottom"
             android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:textSize="14pt"/>
-
+            android:textSize="11dp"/>
         <TextView
             android:id="@+id/script_list_delete"
             android:layout_width="match_parent"
@@ -30,21 +31,21 @@
             android:gravity="right"
             android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="10pt" />
+            android:textSize="11dp"
+            />
 
     </LinearLayout>
 
-
     <TextView
         android:id="@+id/script_list_content"
-        android:layout_marginBottom="14dp"
         android:textColor="@color/mainColor"
         android:layout_marginRight="100dp"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="저희의 앱 pre-sent는 미리를 뜻하는 pre와 보내다라는 뜻의 sent를 합친 단어로 발표를 미리 준비한다는 뜻과 발표와 선물을 뜻하는 present를 합친 단어입니다."
-        android:textSize="6pt"/>
+        android:textSize="9.3dp"
+        android:layout_marginBottom="5dp"
+        />
 
 </LinearLayout>

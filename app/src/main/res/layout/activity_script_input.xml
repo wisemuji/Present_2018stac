@@ -64,9 +64,6 @@
 
 
     <ScrollView
-        android:fadeScrollbars="true"
-        android:scrollbarFadeDuration="300"
-        android:scrollbarDefaultDelayBeforeFade="1000"
         android:layout_marginTop="18dp"
         android:scrollbars="none"
         android:id="@+id/scrollView3"
@@ -83,11 +80,12 @@
             android:id="@+id/script_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:divider="@color/mainColorWhite"
+            android:divider="@color/mainColor"
             android:dividerHeight="1dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:paddingTop="10dp"
+
             >
 
         </ListView>
