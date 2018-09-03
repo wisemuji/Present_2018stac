@@ -35,12 +35,15 @@ public class StopwatchActivity extends AppCompatActivity {
             pt = (Presentation) intent.getSerializableExtra("presentation");
 
         pickerHour = (NumberPicker)findViewById(R.id.picker_hour);
+        pickerHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         pickerHour.setMinValue(0);
         pickerHour.setMaxValue(99);
         pickerMinute = (NumberPicker)findViewById(R.id.picker_minute);
+        pickerMinute.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         pickerMinute.setMinValue(0);
         pickerMinute.setMaxValue(59);
         pickerSecond = (NumberPicker)findViewById(R.id.picker_second);
+        pickerSecond.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         pickerSecond.setMinValue(0);
         pickerSecond.setMaxValue(59);
 
