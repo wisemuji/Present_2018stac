@@ -9,6 +9,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -40,7 +41,7 @@ public class ptPlayActivity extends AppCompatActivity {
     TextView btnFinish;
     Button myBtnRec;
     Vibrator vibe;
-    LinearLayout layoutPlay;
+    ConstraintLayout layoutPlay;
 
     final static int Init =0;
     final static int Run =1;
@@ -94,6 +95,7 @@ public class ptPlayActivity extends AppCompatActivity {
                     myBtnStart.setClickable(false);
                     myBtnRefresh.setClickable(false);
                     btnLock.setImageResource(R.drawable.lock_closed);
+                    Toast.makeText(getApplicationContext(), "잠금 모드가 활성화되었습니다.", Toast.LENGTH_LONG);
 
                     //Immersive full screen mode[[
                     if (osVersion >= 19){
@@ -120,6 +122,7 @@ public class ptPlayActivity extends AppCompatActivity {
                     myBtnStart.setClickable(true);
                     myBtnRefresh.setClickable(true);
                     btnLock.setImageResource(R.drawable.lock_opened);
+                    Toast.makeText(getApplicationContext(), "잠금 모드가 해제되었습니다.", Toast.LENGTH_LONG);
                     //Immersive full screen mode[[
                     if (osVersion >= 19){
                         try {

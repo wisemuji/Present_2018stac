@@ -3,6 +3,7 @@
     package="s2017s25.kr.hs.mirim.present_2018stac">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +25,9 @@
         <activity android:name=".activity.StopwatchActivity" />
         <activity android:name=".activity.ScriptInputActivity" />
         <activity android:name=".activity.KeypointActivity" />
-        <activity android:name=".activity.dialogActivity" android:theme="@android:style/Theme.Dialog"></activity>
+        <activity
+            android:name=".activity.dialogActivity"
+            android:theme="@android:style/Theme.Dialog" />
     </application>
 
 </manifest>
