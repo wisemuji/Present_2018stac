@@ -1,5 +1,7 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -27,7 +31,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.item.pt_list_item;
 
 
 public class PTlistActivity extends AppCompatActivity {
-
+    private Animation animShow, animHide, animSlideUp;
     TextView exitBtn;
     ListView listView;
     PTListAdapter myListAdapter;
@@ -46,6 +50,10 @@ public class PTlistActivity extends AppCompatActivity {
 
         listRefresh();
 
+        animShow = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.view_show);
+        animHide = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.view_hide);
+        animSlideUp = AnimationUtils.loadAnimation( getApplicationContext(), R.anim.view_slide_up);
+
         exitBtn = (TextView) findViewById(R.id.exitBtn);
 
         exitBtn.setOnClickListener(new View.OnClickListener() {
@@ -56,13 +64,73 @@ public class PTlistActivity extends AppCompatActivity {
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
                     @Override
-                    public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
-                        TextView v=(TextView)view.findViewById(R.id.title_textView);
-//                        Toast.makeText(getApplicationContext(), v.getText().toString(), Toast.LENGTH_LONG).show();
-                        Presentation pt = dbHelper.getPresentation(v.getText().toString());
-                        Intent intent = new Intent(PTlistActivity.this, ptPlayActivity.class);
-                        intent.putExtra("presentation", pt);
-                        startActivity(intent);
+                    public void onItemClick(AdapterView<?> arg0, final View view, int position, long id) {
+                        final View menu=view.findViewById(R.id.item_expend);
+
+                        view.findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                TextView t=(TextView)view.findViewById(R.id.title_textView);
+                                Presentation pt = dbHelper.getPresentation(t.getText().toString());
+                                Intent intent = new Intent(PTlistActivity.this, ptPlayActivity.class);
+                                intent.putExtra("presentation", pt);
+                                startActivity(intent);
+                            }
+                        });
+
+                        view.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PTlistActivity.this);
+                                alertDialogBuilder.setTitle("PT삭제");
+                                alertDialogBuilder
+                                        .setMessage("선택한 PT를 삭제하시겠습니까?")
+                                        .setPositiveButton("삭제",
+                                                new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog, int id) {
+                                                        TextView v=(TextView)view.findViewById(R.id.title_textView);
+                                                        Presentation pt = dbHelper.getPresentation(v.getText().toString());
+                                                        dbHelper.delete(pt.getId());
+                                                        listRefresh();
+                                                    }
+                                                })
+                                        .setNegativeButton("취소",
+                                                new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog, int id) {
+                                                        // 다이얼로그를 취소한다
+                                                        dialog.cancel();
+                                                    }
+                                                });
+                                alertDialogBuilder.show();
+                            }
+                        });
+
+                        if(menu.getVisibility() == View.GONE) {
+                            menu.setVisibility(View.VISIBLE);
+                            menu.startAnimation(animShow);
+                            while(listView.getChildAt(++position)!=null){
+                                listView.getChildAt(position).startAnimation(animShow);
+                            }
+
+                        }
+                        else {
+                            animHide.setAnimationListener(new Animation.AnimationListener(){
+                                @Override
+                                public void onAnimationStart(Animation arg0) {
+                                }
+                                @Override
+                                public void onAnimationRepeat(Animation arg0) {
+                                }
+                                @Override
+                                public void onAnimationEnd(Animation arg0) {
+                                    menu.setVisibility(View.GONE);
+                                }
+                            });
+                            menu.startAnimation( animHide );
+                            while(listView.getChildAt(++position)!=null){
+                                listView.getChildAt(position).startAnimation(animHide);
+                            }
+                        }
                     }
                 }
         );
@@ -107,7 +175,7 @@ public class PTlistActivity extends AppCompatActivity {
             if(ptTmp.getPresentTime()>=3600000){
                 df = new SimpleDateFormat("hh:mm:ss");
             }
-            list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option1));
+            list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option1,R.drawable.edit1,R.drawable.play1,R.drawable.delete1));
         }
 
 //        list_itemArrayList.add(new ptlist_list_item(R.drawable.start,"앱잼발표","5:00",R.drawable.menu));
@@ -115,4 +183,5 @@ public class PTlistActivity extends AppCompatActivity {
         myListAdapter = new PTListAdapter(PTlistActivity.this,list_itemArrayList);
         listView.setAdapter(myListAdapter);
     }
+
 }
