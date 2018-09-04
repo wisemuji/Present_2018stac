@@ -66,6 +66,7 @@ public class PTlistActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> arg0, final View view, int position, long id) {
                         final View menu=view.findViewById(R.id.item_expend);
+                        ImageView option=view.findViewById(R.id.option);
 
                         view.findViewById(R.id.edit).setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -118,6 +119,7 @@ public class PTlistActivity extends AppCompatActivity {
                         });
 
                         if(menu.getVisibility() == View.GONE) {
+                            option.setImageResource(R.drawable.option1);
                             menu.setVisibility(View.VISIBLE);
                             menu.startAnimation(animShow);
                             while(listView.getChildAt(++position)!=null){
@@ -126,6 +128,7 @@ public class PTlistActivity extends AppCompatActivity {
 
                         }
                         else {
+                            option.setImageResource(R.drawable.option2);
                             animHide.setAnimationListener(new Animation.AnimationListener(){
                                 @Override
                                 public void onAnimationStart(Animation arg0) {
@@ -187,7 +190,7 @@ public class PTlistActivity extends AppCompatActivity {
             if(ptTmp.getPresentTime()>=3600000){
                 df = new SimpleDateFormat("hh:mm:ss");
             }
-            list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option1,R.drawable.edit1,R.drawable.play1,R.drawable.delete1));
+            list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option2,R.drawable.edit1,R.drawable.play1,R.drawable.delete1));
         }
 
 //        list_itemArrayList.add(new ptlist_list_item(R.drawable.start,"앱잼발표","5:00",R.drawable.menu));
