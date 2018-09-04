@@ -21,6 +21,7 @@ public class ScriptInputActivity extends AppCompatActivity {
     ArrayList<script_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn, exitBtn;
     Presentation pt;
+    String mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,9 @@ public class ScriptInputActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+        if(intent.getStringExtra("mode")!=null) {
+            mode = intent.getStringExtra("mode");
+        }
 
         listView = (ListView)findViewById(R.id.script_listview);
 
@@ -68,6 +72,7 @@ public class ScriptInputActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, KeypointActivity.class);
                 intent.putExtra("presentation", pt);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
@@ -81,6 +86,7 @@ public class ScriptInputActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
                 intent.putExtra("presentation", pt);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.activity_slide_enter, R.anim.activity_slide_exit);

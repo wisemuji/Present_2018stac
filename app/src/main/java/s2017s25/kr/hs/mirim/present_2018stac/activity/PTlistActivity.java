@@ -67,6 +67,18 @@ public class PTlistActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> arg0, final View view, int position, long id) {
                         final View menu=view.findViewById(R.id.item_expend);
 
+                        view.findViewById(R.id.edit).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                TextView t=(TextView)view.findViewById(R.id.title_textView);
+                                Presentation pt = dbHelper.getPresentation(t.getText().toString());
+                                Intent intent = new Intent(PTlistActivity.this, StopwatchActivity.class);
+                                intent.putExtra("presentation", pt);
+                                intent.putExtra("mode", "modify");
+                                startActivity(intent);
+                            }
+                        });
+
                         view.findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {

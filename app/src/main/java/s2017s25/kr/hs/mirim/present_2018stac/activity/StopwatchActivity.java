@@ -24,7 +24,7 @@ public class StopwatchActivity extends AppCompatActivity {
     NumberPicker pickerMinute;
     NumberPicker pickerSecond;
     Presentation pt = new Presentation();
-
+    String mode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,10 @@ public class StopwatchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent.getSerializableExtra("presentation")!=null)
             pt = (Presentation) intent.getSerializableExtra("presentation");
+        mode="input";
+        if(intent.getStringExtra("mode")!=null) {
+            mode = intent.getStringExtra("mode");
+        }
 
         pickerHour = (NumberPicker)findViewById(R.id.picker_hour);
         pickerHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
@@ -82,6 +86,7 @@ public class StopwatchActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(StopwatchActivity.this, ScriptInputActivity.class);
                     intent.putExtra("presentation", pt);
+                    intent.putExtra("mode", mode);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);

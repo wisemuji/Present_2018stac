@@ -20,6 +20,7 @@ public class KeypointActivity extends AppCompatActivity {
     ArrayList<keypoint_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn,exitBtn;
     Presentation pt;
+    String mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class KeypointActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+        if(intent.getStringExtra("mode")!=null) {
+            mode = intent.getStringExtra("mode");
+        }
 
         listView = (ListView)findViewById(R.id.keypoint_listview);
 
@@ -54,6 +58,7 @@ public class KeypointActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KeypointActivity.this, SettingActivity.class);
                 intent.putExtra("presentation", pt);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
@@ -67,6 +72,7 @@ public class KeypointActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(KeypointActivity.this, ScriptInputActivity.class);
                 intent.putExtra("presentation", pt);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.activity_slide_enter, R.anim.activity_slide_exit);
