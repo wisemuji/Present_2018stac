@@ -25,7 +25,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="14.7dp"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="새 PT 제작"
             android:textColor="@color/mainColor"
-            android:textSize="14.7dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
         <TextView
@@ -67,10 +67,8 @@
         android:id="@+id/input_title"
         android:layout_height="wrap_content"
         android:layout_marginBottom="37dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="18dp"
         android:hint="제목을 입력해주세요"
         android:textColor="@color/mainColor"
         android:textColorHint="@color/mainColorLight"

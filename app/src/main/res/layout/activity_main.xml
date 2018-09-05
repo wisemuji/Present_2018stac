@@ -40,7 +40,7 @@
         android:background="@drawable/main_btn"
         android:text="새 PT 시작하기"
         android:textColor="@color/mainColorWhite"
-        android:textSize="13dp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 
     <Button
@@ -51,6 +51,6 @@
         android:background="@drawable/main_btn"
         android:text="기존 PT 목록"
         android:textColor="@color/mainColorWhite"
-        android:textSize="13dp"
+        android:textSize="14sp"
         android:textStyle="bold" />
 </LinearLayout>

@@ -25,7 +25,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="14.7dp"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="발표세팅"
             android:textColor="@color/mainColor"
-            android:textSize="14.7dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
         <TextView

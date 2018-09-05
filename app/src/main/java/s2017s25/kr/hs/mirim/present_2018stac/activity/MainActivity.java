@@ -18,11 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-//        File filesDir = getFilesDir();
-//        File recordDir = new File(filesDir, "record/" + pt.id);
-//        File[] mp3FIles = recordDir.listFiles();
-//        mp3FIles[0].getName()
-
 
         setContentView(R.layout.activity_main);
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,6 +8,7 @@
     >
 
     <RelativeLayout
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -17,18 +19,18 @@
         android:layout_height="wrap_content"
         android:textColor="@color/mainColor"
         android:text="프리젠트"
-        android:textSize="17sp"/>
+        android:textSize="13.8sp"/>
 
         <ImageView
             android:id="@+id/option"
             android:layout_alignParentRight="true"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="13.7dp"
+            android:layout_height="7.3dp"
             android:src="@drawable/option1"
             />
     </RelativeLayout>
     <RelativeLayout
-        android:layout_marginTop="6dp"
+        android:layout_marginBottom="10dp"
         android:id="@+id/bottom"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -42,17 +44,18 @@
             android:layout_height="wrap_content"
             android:text="2018.09.24"
             android:textColor="@color/mainColor"
-            android:textSize="13sp"
+            android:textSize="10.7sp"
             />
 
         <TextView
+
             android:layout_alignParentRight="true"
             android:id="@+id/PTtime_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5:00"
             android:textColor="@color/mainColor"
-            android:textSize="20dp"
+            android:textSize="16.7sp"
             android:textStyle="bold"
             />
     </RelativeLayout>

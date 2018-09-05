@@ -21,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="appFinish"
-        android:paddingTop="0dp"
         android:text="  ×"
         android:textColor="@color/ptplayWhite"
         android:textSize="19pt" />
@@ -32,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:paddingTop="15dp"
+            android:paddingTop="16.2sp"
             android:text="STAC 본선"
             android:textColor="@color/ptplayWhite"
             android:textSize="20sp" />
@@ -56,7 +55,7 @@
         android:gravity="center"
         android:text="스크립트 제목"
         android:textColor="@color/ptplayWhite"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,14 +65,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sc_title"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="33dp"
         android:id="@+id/time_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="00:00"
         android:textColor="@color/ptplayWhite"
-        android:textSize="35pt"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
     <TextView
@@ -91,8 +90,8 @@
         android:textSize="25sp" />
 
     <ImageButton
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginRight="17.3dp"
+        android:layout_marginBottom="17.3dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
         android:id="@+id/btn_lock"
