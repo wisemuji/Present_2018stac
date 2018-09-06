@@ -54,7 +54,7 @@ public class ScriptContentInput extends AppCompatActivity {
         OKbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(ScriptContentInput.this, ScriptInputActivity.class);
                 String content = scriptContent.getText().toString();
                 long startTime = 0, endTime = 0;
 
@@ -70,10 +70,8 @@ public class ScriptContentInput extends AppCompatActivity {
                 intent.putExtra("script", script);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
-
             }
         });
-
 
         TextView exitBtn = (TextView) findViewById(R.id.exitBtn);
         exitBtn.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +80,6 @@ public class ScriptContentInput extends AppCompatActivity {
                 finish();
             }
         });
-
 
     }
 }

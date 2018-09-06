@@ -3,9 +3,12 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,6 +25,8 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 public class ScriptInputActivity extends AppCompatActivity {
+    ArrayList<KeyPoint> keyPoints;
+    ArrayList<Script> scripts;
 
     ScriptListAdapter adapter;
     ListView listView;
@@ -29,12 +34,14 @@ public class ScriptInputActivity extends AppCompatActivity {
     ArrayList<script_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn, exitBtn;
     Presentation pt;
-    String keypointTitle, keypointTime, scriptStartTime, scriptEndTime, scriptContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_input);
+
+        scripts = new ArrayList<Script>();
+        keyPoints = new ArrayList<KeyPoint>();
         adapter = new ScriptListAdapter();
         listView = (ListView) findViewById(R.id.listview522);
         listView.setAdapter(adapter);
@@ -43,14 +50,17 @@ public class ScriptInputActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
 
         Intent intent = getIntent();
+
         pt = (Presentation) intent.getSerializableExtra("presentation");
 
 
         /*
-       adapter.addItem("00:00","00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다.");
-        adapter.addItem("그래서 엑소 컴백 언제", "00:00");
-        */
-
+        if(scripts != null && scripts.size() !=0) {
+            for (int i = 0; i < scripts.size(); i++) {
+                adapter.addItem(scripts.get(i).getStartTime().toString(), scripts.get(i).getEndTime().toString(),
+                        scripts.get(i).getContent());
+            }
+        }*/
 
         ImageView itemSet = (ImageView) findViewById(R.id.item_set);
         itemSet.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +77,7 @@ public class ScriptInputActivity extends AppCompatActivity {
                                         break;
                                     case 1:
                                         intent = new Intent(ScriptInputActivity.this, keypointInputActivity.class);
-                                        startActivityForResult(intent,1);
+                                        startActivityForResult(intent, 1);
                                         break;
                                 }
                             }
@@ -79,13 +89,14 @@ public class ScriptInputActivity extends AppCompatActivity {
         });
 
 
-
         nextBtn = (TextView) findViewById(R.id.script_next_btn);
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, SettingActivity.class);
+                pt.setKeyPoints(keyPoints);
+                pt.setScripts(scripts);
                 intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();
@@ -115,31 +126,22 @@ public class ScriptInputActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-            switch (requestCode) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
                 case 0:
-                    pt.getScripts().add((Script) data.getSerializableExtra("script"));
-                    int i = pt.getScripts().size() - 1;
-
-                    scriptStartTime = pt.getScripts().get(i).getStartTime().toString();
-                    scriptEndTime = pt.getScripts().get(i).getEndTime().toString();
-                    scriptContent = pt.getScripts().get(i).getContent();
-
-                    adapter.addItem(scriptStartTime, scriptEndTime, scriptContent);
+                    scripts.add((Script) data.getSerializableExtra("script"));
                     break;
-
                 case 1:
-                    pt.getKeyPoints().add((KeyPoint)data.getSerializableExtra("keyPoint"));
+                    KeyPoint key = (KeyPoint) data.getSerializableExtra("key");
+                    Log.e("pttest", key.getName());
+                        keyPoints.add(key);
 
-                    i = pt.getKeyPoints().size() - 1;
+                        adapter.addItem(key.getName(), key.getVibTime().toString());
+                        adapter.notifyDataSetChanged();
 
-                    keypointTitle = pt.getKeyPoints().get(i).getName();
-                    keypointTime = pt.getKeyPoints().get(i).getVibTime().toString();
-
-                    adapter.addItem(keypointTitle, keypointTime);
                     break;
-
+            }
         }
     }
 }

@@ -5,10 +5,13 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
@@ -23,6 +26,9 @@ public class keypointInputActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keypt_input);
+
+        Intent intent = getIntent();
+        final Presentation pt= (Presentation) intent.getSerializableExtra("presentation");
 
         TextView OKbtn = (TextView) findViewById(R.id.kpt_ok_btn);
 
@@ -41,11 +47,10 @@ public class keypointInputActivity extends AppCompatActivity {
         pickerSecond.setMinValue(0);
         pickerSecond.setMaxValue(59);
 
-
         OKbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(keypointInputActivity.this, ScriptInputActivity.class);
                 String content = keyContent.getText().toString();
                 long keyptTime = 0;
 
@@ -53,9 +58,11 @@ public class keypointInputActivity extends AppCompatActivity {
                 keyptTime += pickerMinute.getValue() * 1000 * 60;
                 keyptTime += pickerSecond.getValue() * 1000;
 
-                KeyPoint key = new KeyPoint(content, keyptTime);
-                intent.putExtra("keyPoint", key);
-                setResult(RESULT_OK, intent);
+                KeyPoint dataKey = new KeyPoint(content,keyptTime);
+
+                intent.putExtra("key", dataKey);
+
+                setResult(RESULT_OK,intent);
                 finish();
             }
         });
