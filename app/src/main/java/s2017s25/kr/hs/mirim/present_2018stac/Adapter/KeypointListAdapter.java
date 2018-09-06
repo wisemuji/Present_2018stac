@@ -42,17 +42,15 @@ public class KeypointListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.keypoint_item,null);
+            if(convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.keypoint_item, null);
 
-            title=(TextView)convertView.findViewById(R.id.keypoint_list_title);
-            vibTime=(TextView)convertView.findViewById(R.id.keypoint_list_vibtime);
-//            vibLen=(TextView)convertView.findViewById(R.id.keypoint_list_viblen);
+                title = (TextView) convertView.findViewById(R.id.keypoint_list_title);
+                vibTime = (TextView) convertView.findViewById(R.id.keypoint_list_vibtime);
+            }
+                title.setText(list_itemArrayList.get(position).getTitle());
+                vibTime.setText(list_itemArrayList.get(position).getVibTime());
 
-            title.setText(list_itemArrayList.get(position).getTitle());
-            vibTime.setText(list_itemArrayList.get(position).getVibTime());
-//            vibLen.setText(list_itemArrayList.get(position).getViblen());
-        }
 
         return convertView;
     }

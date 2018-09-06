@@ -53,14 +53,23 @@ public class ScriptInputActivity extends AppCompatActivity {
 
         pt = (Presentation) intent.getSerializableExtra("presentation");
 
+        ArrayList<KeyPoint> key = pt.getKeyPoints();
+        ArrayList<Script> sc = pt.getScripts();
+       if(key != null) {
 
-        /*
-        if(scripts != null && scripts.size() !=0) {
-            for (int i = 0; i < scripts.size(); i++) {
-                adapter.addItem(scripts.get(i).getStartTime().toString(), scripts.get(i).getEndTime().toString(),
-                        scripts.get(i).getContent());
+               for (int i = 0; i < keyPoints.size(); i++) {
+                   adapter.addItem(keyPoints.get(i).getName(), keyPoints.get(i).getVibTime().toString());
+               }
+           }
+
+        if(sc != null) {
+            if (scripts.size() != 0) {
+                for (int i = 0; i < scripts.size(); i++) {
+                    adapter.addItem(scripts.get(i).getStartTime().toString(), scripts.get(i).getEndTime().toString(),
+                            scripts.get(i).getContent());
+                }
             }
-        }*/
+        }
 
         ImageView itemSet = (ImageView) findViewById(R.id.item_set);
         itemSet.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +139,11 @@ public class ScriptInputActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             switch (requestCode){
                 case 0:
-                    scripts.add((Script) data.getSerializableExtra("script"));
+                    Script sc = (Script) data.getSerializableExtra("script");
+                    scripts.add(sc);
+
+                    adapter.addItem(sc.getStartTime().toString(), sc.getEndTime().toString(), sc.getContent());
+                    adapter.notifyDataSetChanged();
                     break;
                 case 1:
                     KeyPoint key = (KeyPoint) data.getSerializableExtra("key");

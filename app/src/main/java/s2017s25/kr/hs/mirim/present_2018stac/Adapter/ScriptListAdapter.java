@@ -22,6 +22,10 @@ public class ScriptListAdapter extends BaseAdapter {
 
     public ScriptListAdapter() { }
 
+
+    TextView startTime, endTime, content, title, vibTime;
+
+
     @Override
     public int getCount() { return this.list_itemArrayList.size(); }
 
@@ -41,33 +45,35 @@ public class ScriptListAdapter extends BaseAdapter {
         final Context context = parent.getContext();
         int viewType = getItemViewType(position) ;
 
-        if(convertView==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
             switch (viewType) {
                 case ITEM_VIEW_TYPE_Script:
-                convertView = inflater.inflate(R.layout.script_item, parent, false);
+                    if(convertView == null) {
+                        convertView = inflater.inflate(R.layout.script_item, parent, false);
 
-                    TextView startTime=(TextView)convertView.findViewById(R.id.script_start_time);
-                    TextView endTime=(TextView)convertView.findViewById(R.id.script_end_time);
-                    TextView content=(TextView)convertView.findViewById(R.id.script_list_content);
+                       startTime = (TextView) convertView.findViewById(R.id.script_start_time);
+                       endTime = (TextView) convertView.findViewById(R.id.script_end_time);
+                       content = (TextView) convertView.findViewById(R.id.script_list_content);
+                    }
 
-                    content.setText(list_itemArrayList.get(position).getStartTime());
-                    content.setText(list_itemArrayList.get(position).getEndTime());
+                    startTime.setText(list_itemArrayList.get(position).getStartTime());
+                    endTime.setText(list_itemArrayList.get(position).getEndTime());
                     content.setText(list_itemArrayList.get(position).getContent());
 
                 break;
                 case ITEM_VIEW_TYPE_Keypoint:
-                    convertView = inflater.inflate(R.layout.keypoint_item, parent, false);
-                   TextView title=(TextView)convertView.findViewById(R.id.keypoint_list_title);
-                   TextView vibTime=(TextView)convertView.findViewById(R.id.keypoint_list_vibtime);
-
+                    if(convertView == null) {
+                        convertView = inflater.inflate(R.layout.keypoint_item, parent, false);
+                         title = (TextView) convertView.findViewById(R.id.keypoint_list_title);
+                         vibTime = (TextView) convertView.findViewById(R.id.keypoint_list_vibtime);
+                    }
                     title.setText(list_itemArrayList.get(position).getTitle());
                     vibTime.setText(list_itemArrayList.get(position).getVibTime());
 
                     break;
             }
-        }
+
 
         return convertView;
     }
