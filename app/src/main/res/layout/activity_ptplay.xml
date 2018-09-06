@@ -21,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="appFinish"
-        android:paddingTop="0dp"
         android:text="  ×"
         android:textColor="@color/ptplayWhite"
         android:textSize="19pt" />
@@ -32,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:paddingTop="15dp"
+            android:paddingTop="16.2sp"
             android:text="STAC 본선"
             android:textColor="@color/ptplayWhite"
             android:textSize="20sp" />
@@ -48,51 +47,51 @@
     <!--android:textSize="35sp"-->
     <!--/>-->
 
-    <ImageButton
-        android:id="@+id/btn_lock"
-        android:layout_marginTop="25dp"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@drawable/lock_opened"
-        android:background="@color/ptplayBG"
-        android:adjustViewBounds="true"
-        android:onClick="appFinish"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleVar" />
+    <!--<ImageButton-->
+        <!--android:id="@+id/btn_lock"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/lock_opened"-->
+        <!--android:background="@color/ptplayBG"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:onClick="appFinish"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/titleVar" />-->
 
     <TextView
         android:id="@+id/sc_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="88dp"
         android:gravity="center"
         android:text="스크립트 제목"
         android:textColor="@color/ptplayWhite"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_lock" />
+        app:layout_constraintTop_toBottomOf="@id/titleVar" />
 
     <TextView
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sc_title"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="33dp"
         android:id="@+id/time_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="00:00"
         android:textColor="@color/ptplayWhite"
-        android:textSize="35pt"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
     <TextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/time_out"
@@ -105,37 +104,49 @@
         android:textColor="@color/ptplayWhite"
         android:textSize="25sp" />
 
+    <ImageButton
+        android:layout_marginRight="17.3dp"
+        android:layout_marginBottom="17.3dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        android:id="@+id/btn_lock"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:adjustViewBounds="true"
+        android:background="@color/ptplayBG"
+        android:onClick="appFinish"
+        android:scaleType="centerCrop"
+        android:src="@drawable/lock_opened" />
+
     <LinearLayout
-        app:layout_constraintTop_toBottomOf="@id/record"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_marginRight="5dp"
+        android:layout_height="44dp"
+        android:background="@drawable/ptplay_btn"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
             android:id="@+id/btn_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button1"
-            android:onClick="myOnClick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
             android:text="시작"
-            android:textColor="@color/ptplayBG"
-            android:textSize="18sp"
+            android:textColor="@color/bg_black"
+            android:textSize="8pt"
             android:textStyle="bold" />
 
-        <Button
-            android:layout_marginLeft="5dp"
+        <TextView
             android:id="@+id/btn_refresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_button1"
-            android:onClick="myOnClick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
             android:text="초기화"
-            android:textColor="@color/ptplayBG"
-            android:textSize="18sp"
+            android:textColor="@color/bg_black"
+            android:textSize="8pt"
             android:textStyle="bold" />
-
 
     </LinearLayout>
 

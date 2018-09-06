@@ -5,17 +5,20 @@ import java.io.Serializable;
 public class Script implements Serializable{
     int id;
     int ScriptId;
+   // String scriptTitle;
     Long startTime;
     Long endTime;
     String content;
 
     public Script(Long startTime, Long endTime, String content) {
+       // this.scriptTitle = scriptTitle;
         this.startTime = startTime;
         this.endTime = endTime;
         this.content = content;
     }
 
     public Script(int id, int scriptId, Long startTime, Long endTime, String content) {
+      //  this.scriptTitle = scriptTitle;
         this.id = id;
         ScriptId = scriptId;
         this.startTime = startTime;
@@ -25,7 +28,11 @@ public class Script implements Serializable{
 
     public Script() {
     }
+/*
+    public String getScriptTitle() { return scriptTitle; }
 
+    public void setScriptTitle(String scriptTitle) { this.scriptTitle = scriptTitle; }
+*/
     public int getId() {
         return id;
     }

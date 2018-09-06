@@ -11,6 +11,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:background="@color/bgcolor"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +25,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="×"
             android:textColor="@color/mainColor"
-            android:textSize="10pt"
+            android:textSize="16.3dp"
             android:textStyle="bold" />
 
         <TextView
@@ -34,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="PT 목록"
             android:textColor="@color/mainColor"
-            android:textSize="9pt"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -49,17 +50,20 @@
 
 
     <ScrollView
+        android:layout_marginTop="34dp"
         android:id="@+id/scrollView2"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background="@color/bgcolor"
         android:fillViewport="true"
         android:orientation="vertical"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <ListView
+            android:scrollbars="none"
             android:id="@+id/my_listView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,8 +71,8 @@
             android:divider="#ffffff"
             android:dividerHeight="0dp"
             android:paddingBottom="10dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:paddingTop="10dp"></ListView>
     </ScrollView>
 

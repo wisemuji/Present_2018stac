@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.media.ExifInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 
@@ -93,6 +97,7 @@ public class StopwatchActivity extends AppCompatActivity {
                     pt.setPresentTime(time);
 
                     Intent intent = new Intent(StopwatchActivity.this, ScriptInputActivity.class);
+
                     intent.putExtra("presentation", pt);
                     intent.putExtra("mode", mode);
                     startActivity(intent);

@@ -67,7 +67,8 @@ public class SettingActivity extends AppCompatActivity {
                 ArrayList<Script> scripts=new ArrayList<>();
                 ArrayList<KeyPoint> keyPoints=new ArrayList<>();
                 Date date=new Date();
-//                Presentation pt=new Presentation("test2",(long)120000,true,true,true,true,scripts,keyPoints);
+//              Presentation pt=new Presentation("test2",(long)120000,true,true,true,true,scripts,keyPoints);
+
                 pt.setScripts(scripts);
                 pt.setKeyPoints(keyPoints);
                 pt.setDisplayTime(settingCheck1.isChecked());
@@ -101,7 +102,7 @@ public class SettingActivity extends AppCompatActivity {
                 pt.setDisplayScript(settingCheck2.isChecked());
                 pt.setVibPhone(settingCheck3.isChecked());
                 pt.setVibSmartWatch(settingCheck4.isChecked());
-                Intent intent = new Intent(SettingActivity.this, KeypointActivity.class);
+                Intent intent = new Intent(SettingActivity.this, ScriptInputActivity.class);
                 intent.putExtra("presentation", pt);
                 startActivity(intent);
                 finish();

@@ -7,27 +7,17 @@ import android.view.View;
 import android.widget.Button;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 
 public class MainActivity extends AppCompatActivity {
-    Button startPT;
-    Button PTlist;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-//        File filesDir = getFilesDir();
-//        File recordDir = new File(filesDir, "record/" + pt.id);
-//        File[] mp3FIles = recordDir.listFiles();
-//        mp3FIles[0].getName()
-
-
         setContentView(R.layout.activity_main);
 
-        startPT = (Button)findViewById(R.id.startPT);
-        PTlist = (Button)findViewById(R.id.PTlist);
+        Button startPT = (Button)findViewById(R.id.startPT);
+        Button PTlist = (Button)findViewById(R.id.PTlist);
+
 
         startPT.setOnClickListener(new View.OnClickListener() {
             @Override

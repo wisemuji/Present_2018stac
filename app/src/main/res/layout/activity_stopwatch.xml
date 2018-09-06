@@ -9,15 +9,14 @@
     android:theme="@style/AppTheme">
 
     <LinearLayout
+        android:layout_marginTop="25dp"
         android:id="@+id/linearLayout12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:background="@color/bgcolor"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
         <TextView
             android:id="@+id/exitBtn"
@@ -26,7 +25,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="×"
             android:textColor="@color/mainColor"
-            android:textSize="10pt"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
         <TextView
@@ -36,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="새 PT 제작"
             android:textColor="@color/mainColor"
-            android:textSize="9pt"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
         <TextView
@@ -50,6 +49,7 @@
     </LinearLayout>
 
     <TextView
+        android:layout_marginTop="40dp"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,11 +66,9 @@
         android:layout_width="0dp"
         android:id="@+id/input_title"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginStart="18dp"
         android:hint="제목을 입력해주세요"
         android:textColor="@color/mainColor"
         android:textColorHint="@color/mainColorLight"
@@ -339,9 +337,10 @@
     <LinearLayout
         android:id="@+id/stopwatch_next_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:background="@color/mainColor"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <!--<TextView-->

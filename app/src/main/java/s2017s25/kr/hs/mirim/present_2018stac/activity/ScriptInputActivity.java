@@ -1,9 +1,17 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.Image;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -12,10 +20,15 @@ import java.util.ArrayList;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.ScriptListAdapter;
 import s2017s25.kr.hs.mirim.present_2018stac.item.script_list_item;
+import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 public class ScriptInputActivity extends AppCompatActivity {
+    ArrayList<KeyPoint> keyPoints;
+    ArrayList<Script> scripts;
 
+    ScriptListAdapter adapter;
     ListView listView;
     ScriptListAdapter ScriptListAdapter;
     ArrayList<script_list_item> list_itemArrayList;
@@ -26,7 +39,6 @@ public class ScriptInputActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_script_input);
 
         Intent intent = getIntent();
@@ -35,34 +47,62 @@ public class ScriptInputActivity extends AppCompatActivity {
             mode = intent.getStringExtra("mode");
         }
 
-        listView = (ListView)findViewById(R.id.script_listview);
+        scripts = new ArrayList<Script>();
+        keyPoints = new ArrayList<KeyPoint>();
+        adapter = new ScriptListAdapter();
+        listView = (ListView) findViewById(R.id.listview522);
+        listView.setAdapter(adapter);
 
-        list_itemArrayList = new ArrayList<script_list_item>();
+//        listView = (ListView)findViewById(R.id.script_listview);
+//
+//        list_itemArrayList = new ArrayList<script_list_item>();
 
-        list_itemArrayList.add(
-                new script_list_item("00:00 ~ 00:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+        final CharSequence[] items = {"스크립트", "키포인트"};
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
 
-        list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+        ArrayList<KeyPoint> key = pt.getKeyPoints();
+        ArrayList<Script> sc = pt.getScripts();
+       if(key != null) {
 
-        list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+               for (int i = 0; i < keyPoints.size(); i++) {
+                   adapter.addItem(keyPoints.get(i).getName(), keyPoints.get(i).getVibTime().toString());
+               }
+           }
 
-        list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+        if(sc != null) {
+            if (scripts.size() != 0) {
+                for (int i = 0; i < scripts.size(); i++) {
+                    adapter.addItem(scripts.get(i).getStartTime().toString(), scripts.get(i).getEndTime().toString(),
+                            scripts.get(i).getContent());
+                }
+            }
+        }
 
-        list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+        ImageView itemSet = (ImageView) findViewById(R.id.item_set);
+        itemSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
+                builder.setTitle("항목을 선택하세요")// 제목 설정
+                        .setItems(items, new DialogInterface.OnClickListener(){    // 목록 클릭시 설정
+                            public void onClick(DialogInterface dialog, int index){
+                                switch (index){
+                                    case 0:
+                                        Intent intent = new Intent(ScriptInputActivity.this, ScriptContentInput.class);
+                                        startActivityForResult(intent,0);
+                                        break;
+                                    case 1:
+                                        intent = new Intent(ScriptInputActivity.this, keypointInputActivity.class);
+                                        startActivityForResult(intent, 1);
+                                        break;
+                                }
+                            }
+                        });
+                AlertDialog dialog = builder.create();    // 알림창 객체 생성
 
-        list_itemArrayList.add(
-                new script_list_item("00:10 ~ 01:00","안녕하십니까. 저희는 뜨거운 감자 팀입니다. 지금부터 발표 시작하겠습니다."));
-        //ListAdapter.notifyDataSetChanged();
-
-        ScriptListAdapter = new ScriptListAdapter(ScriptInputActivity.this,list_itemArrayList);
-        listView.setAdapter(ScriptListAdapter);
+                dialog.show();    // 알림창 띄우기
+            }
+        });
 
 
         nextBtn = (TextView) findViewById(R.id.script_next_btn);
@@ -70,7 +110,9 @@ public class ScriptInputActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, KeypointActivity.class);
+                Intent intent = new Intent(ScriptInputActivity.this, SettingActivity.class);
+                pt.setKeyPoints(keyPoints);
+                pt.setScripts(scripts);
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);
@@ -80,7 +122,6 @@ public class ScriptInputActivity extends AppCompatActivity {
         });
 
         prevBtn = (TextView) findViewById(R.id.script_prev_btn);
-
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +141,29 @@ public class ScriptInputActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RESULT_OK){
+            switch (requestCode){
+                case 0:
+                    Script sc = (Script) data.getSerializableExtra("script");
+                    scripts.add(sc);
+
+                    adapter.addItem(sc.getStartTime().toString(), sc.getEndTime().toString(), sc.getContent());
+                    adapter.notifyDataSetChanged();
+                    break;
+                case 1:
+                    KeyPoint key = (KeyPoint) data.getSerializableExtra("key");
+                    Log.e("pttest", key.getName());
+                        keyPoints.add(key);
+
+                        adapter.addItem(key.getName(), key.getVibTime().toString());
+                        adapter.notifyDataSetChanged();
+
+                    break;
+            }
+        }
     }
 }
