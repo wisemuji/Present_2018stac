@@ -7,15 +7,44 @@ public class pt_list_item {
     private String title;
     private String PTtime;
     private String PTdate;
+    private int option;
+    private int PTedit;
+    private int PTplay;
+    private int PTdelete;
 
-    public pt_list_item(String title, String PTtime, String PTdate, int option) {
+    public pt_list_item(String title, String PTtime, String PTdate, int option, int PTedit, int PTplay, int PTdelete) {
         this.title = title;
         this.PTtime = PTtime;
         this.PTdate = PTdate;
         this.option = option;
+        this.PTedit = PTedit;
+        this.PTplay = PTplay;
+        this.PTdelete = PTdelete;
     }
 
-    private int option;
+    public int getPTedit() {
+        return PTedit;
+    }
+
+    public void setPTedit(int PTedit) {
+        this.PTedit = PTedit;
+    }
+
+    public int getPTplay() {
+        return PTplay;
+    }
+
+    public void setPTplay(int PTplay) {
+        this.PTplay = PTplay;
+    }
+
+    public int getPTdelete() {
+        return PTdelete;
+    }
+
+    public void setPTdelete(int PTdelete) {
+        this.PTdelete = PTdelete;
+    }
 
     public String getTitle() {
         return title;
