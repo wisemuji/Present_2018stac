@@ -223,13 +223,26 @@ public class ptPlayActivity extends AppCompatActivity {
                 vibe.vibrate(1000);
             }
         }
+//
+//        if(minute.equals("04") && Integer.parseInt(second)>19 && Integer.parseInt(second)<40) {
+//            myRec.setText("큰일!!!!!!!마무리!!!");
+//            if (Integer.parseInt(second) == 20) {
+//                vibe.vibrate(1000);
+//            }
+//        }
 
-        if(minute.equals("04") && Integer.parseInt(second)>19 && Integer.parseInt(second)<40) {
-            myRec.setText("큰일!!!!!!!마무리!!!");
-            if (Integer.parseInt(second) == 20) {
-                vibe.vibrate(1000);
+//        ArrayList<Script> scr= new ArrayList<>();
+//        scr.add(new Script((long)1000, (long)4000, "안녕 테스트"));
+//        pt.setScripts(scr);
+
+        for(Script sc : pt.getScripts()){
+            if((outTime/1000) >= (sc.getStartTime()/1000) && (outTime/1000) <= (sc.getEndTime()/1000)){
+                myRec.setText(sc.getContent());
+            } else {
+                myRec.setText("");
             }
         }
+
         return easy_outTime;
     }
 
