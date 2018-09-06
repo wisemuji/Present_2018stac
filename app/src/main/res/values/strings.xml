@@ -1,9 +1,5 @@
 <resources>
-<<<<<<< HEAD
-    <string name="app_name">STAC2018_PRESENT</string>
     <string name="script_infor">스크립트에 대한 설명입니다</string>
     <string name="keypoint_infor">키포인트에 대한 설명입니다</string>
-=======
     <string name="app_name">프리젠트</string>
->>>>>>> master
 </resources>
