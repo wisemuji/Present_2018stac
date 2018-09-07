@@ -50,20 +50,20 @@
         <ImageView
             android:layout_toLeftOf="@+id/script_list_delete"
             android:id="@+id/script_list_insert"
-            android:layout_width="12dp"
-            android:layout_height="17dp"
+            android:layout_width="16.7dp"
+            android:layout_height="16.7dp"
             android:src="@drawable/script_modi"
             android:textColor="@color/mainColor"
             android:textSize="11dp"
             />
 
         <ImageView
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="6dp"
             android:layout_marginLeft="8dp"
             android:layout_alignParentRight="true"
             android:id="@+id/script_list_delete"
             android:layout_width="12dp"
-            android:layout_height="16dp"
+            android:layout_height="16.7dp"
             android:src="@drawable/script_delete"
             android:textColor="@color/mainColor"
             android:textSize="11dp"

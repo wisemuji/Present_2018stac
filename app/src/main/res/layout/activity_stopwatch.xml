@@ -25,7 +25,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="16dp"
+            android:textSize="16.3sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="새 PT 제작"
             android:textColor="@color/mainColor"
-            android:textSize="15dp"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -57,12 +57,13 @@
         android:layout_marginStart="3dp"
         android:text="PT 제목"
         android:textColor="@color/mainColor"
-        android:textSize="17dp"
+        android:textSize="13.8sp"
         app:layout_constraintBottom_toTopOf="@+id/input_title"
         app:layout_constraintStart_toStartOf="@+id/input_title"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
 
     <EditText
+        android:textSize="12.5sp"
         android:layout_width="0dp"
         android:id="@+id/input_title"
         android:layout_height="wrap_content"
@@ -86,7 +87,7 @@
         android:layout_marginStart="28dp"
         android:text="PT 시간"
         android:textColor="@color/mainColor"
-        android:textSize="17dp"
+        android:textSize="13.8sp"
         app:layout_constraintBottom_toTopOf="@+id/stopwatch_next_btn"
         app:layout_constraintStart_toStartOf="@+id/timePicker"
         app:layout_constraintTop_toBottomOf="@+id/input_title" />
@@ -107,7 +108,7 @@
         android:id="@+id/timePicker"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="9dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:orientation="horizontal"
@@ -168,7 +169,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="다음"
             android:textColor="@color/mainColorWhite"
-            android:textSize="8pt"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
     </LinearLayout>
 

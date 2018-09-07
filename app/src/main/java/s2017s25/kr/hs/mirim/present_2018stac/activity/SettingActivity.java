@@ -21,7 +21,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 
 public class SettingActivity extends AppCompatActivity {
-    TextView nextBtn, prevBtn;
+    TextView nextBtn, prevBtn, exitBtn;
     LinearLayout settingTime,settingScript,settingVib,settingWatch;
     CheckBox settingCheck1, settingCheck2, settingCheck3, settingCheck4;
     Presentation pt;
@@ -101,7 +101,13 @@ public class SettingActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.activity_slide_enter, R.anim.activity_slide_exit);
             }
         });
+        exitBtn = findViewById(R.id.exitBtn);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {finish();}
+        });
     }
+
 
     View.OnClickListener setCheck = new View.OnClickListener() {
         @Override
@@ -134,4 +140,5 @@ public class SettingActivity extends AppCompatActivity {
             }
         }
     };
+
 }

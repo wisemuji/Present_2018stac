@@ -23,7 +23,7 @@
         android:onClick="appFinish"
         android:text="  ×"
         android:textColor="@color/ptplayWhite"
-        android:textSize="19pt" />
+        android:textSize="42sp" />
 
         <TextView
             android:id="@+id/pt_title"

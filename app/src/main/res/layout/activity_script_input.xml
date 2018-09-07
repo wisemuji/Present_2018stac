@@ -83,11 +83,11 @@
     </ScrollView>
 
     <ImageView
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:src="@drawable/sckp_plus_btn"
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/item_set"

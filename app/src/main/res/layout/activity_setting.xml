@@ -25,7 +25,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="16dp"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="발표세팅"
             android:textColor="@color/mainColor"
-            android:textSize="15dp"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -48,15 +48,26 @@
 
     </LinearLayout>
 
+    <ScrollView
+        app:layout_constraintTop_toBottomOf="@id/titleLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_marginLeft="18.3dp"
+        android:layout_marginRight="18.3dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <LinearLayout
         android:id="@+id/phoneLinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15sp"
-        android:layout_marginRight="15dp"
         android:layout_marginTop="48dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/titleLinear">
+       >
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,15 +75,13 @@
             android:layout_marginBottom="17dp"
             android:text="핸드폰"
             android:textColor="@color/mainColor"
-            android:textSize="8pt"
+            android:textSize="16.5sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/setting_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
             android:background="?android:attr/selectableItemBackground"
             android:orientation="horizontal"
 
@@ -90,17 +99,18 @@
                     android:layout_weight="1"
                     android:text="시간 표시"
                     android:textColor="@color/mainColor"
-                    android:textSize="8pt"
+                    android:textSize="14.5sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_marginBottom="16dp"
                     android:id="@+id/setting_content1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="꺼진 화면에 발표 시간 표시 "
                     android:textColor="@color/mainColor"
-                    android:textSize="7pt" />
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <CheckBox
@@ -121,8 +131,6 @@
             android:id="@+id/setting_script"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
             android:background="?android:attr/selectableItemBackground"
             android:orientation="horizontal">
 
@@ -132,22 +140,24 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginTop="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom"
                     android:text="스크립트 표시"
                     android:textColor="@color/mainColor"
-                    android:textSize="8pt"
+                    android:textSize="14.5sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_marginBottom="16dp"
                     android:id="@+id/setting_content2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:text="꺼진 화면에 스크립트 표시 "
                     android:textColor="@color/mainColor"
-                    android:textSize="7pt" />
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
@@ -169,8 +179,6 @@
             android:id="@+id/setting_vib"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
             android:background="?android:attr/selectableItemBackground"
             android:orientation="horizontal">
 
@@ -180,22 +188,24 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginTop="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom"
                     android:text="진동"
                     android:textColor="@color/mainColor"
-                    android:textSize="8pt"
+                    android:textSize="14.5sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_marginBottom="16dp"
                     android:id="@+id/setting_content3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:text="핸드폰으로 진동 주기 "
                     android:textColor="@color/mainColor"
-                    android:textSize="7pt" />
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
@@ -206,6 +216,7 @@
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
         </LinearLayout>
+
 
 
         <TextView
@@ -221,9 +232,7 @@
         android:id="@+id/smartLinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15sp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/phoneLinear">
 
@@ -233,8 +242,9 @@
             android:layout_marginBottom="17dp"
             android:text="스마트워치"
             android:textColor="@color/mainColor"
-            android:textSize="8pt"
+            android:textSize="16.5sp"
             android:textStyle="bold" />
+
 
 
         <LinearLayout
@@ -255,16 +265,17 @@
                     android:gravity="bottom"
                     android:text="진동"
                     android:textColor="@color/mainColor"
-                    android:textSize="8pt"
+                    android:textSize="14.5sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:layout_marginBottom="16dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:text="스마트워치로 진동주기"
                     android:textColor="@color/mainColor"
-                    android:textSize="7pt" />
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
@@ -284,12 +295,9 @@
             android:background="@color/mainColor" />
 
     </LinearLayout>
+    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"></LinearLayout>
-
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/linearLayout14"
@@ -307,7 +315,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="이전"
             android:textColor="@color/mainColorWhite"
-            android:textSize="8pt"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -318,7 +326,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="다음"
             android:textColor="@color/mainColorWhite"
-            android:textSize="8pt"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
 
     </LinearLayout>
