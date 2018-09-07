@@ -3,6 +3,7 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -32,6 +33,7 @@ public class SettingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+
 
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
