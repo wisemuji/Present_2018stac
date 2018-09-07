@@ -62,13 +62,16 @@ public class SettingActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<Script> scripts=new ArrayList<>();
-                ArrayList<KeyPoint> keyPoints=new ArrayList<>();
+                if(pt.getScripts() != null) {
+                    ArrayList<Script> scripts = (ArrayList<Script>) pt.getScripts();
+                    pt.setScripts(scripts);
+                }
+                if(pt.getKeyPoints() != null) {
+                    ArrayList<KeyPoint> keyPoints = new ArrayList<>();
+                    pt.setKeyPoints(keyPoints);
+                }
                 Date date=new Date();
 //              Presentation pt=new Presentation("test2",(long)120000,true,true,true,true,scripts,keyPoints);
-
-                pt.setScripts(scripts);
-                pt.setKeyPoints(keyPoints);
                 pt.setDisplayTime(settingCheck1.isChecked());
                 pt.setDisplayScript(settingCheck2.isChecked());
                 pt.setVibPhone(settingCheck3.isChecked());
