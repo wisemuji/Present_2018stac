@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <!-- 평상시 -->
-    <item android:state_focused="false" android:state_pressed="false">
+    <item android:state_pressed="false">
         <shape>
             <solid android:color="@color/mainColorWhite" />
         </shape>
@@ -10,7 +10,7 @@
     </item>
 
     <!-- 클릭했을 때 -->
-    <item android:state_focused="true" android:state_pressed="true">
+    <item android:state_pressed="true">
         <shape>
             <solid android:color="#eeeeee" />
         </shape>
