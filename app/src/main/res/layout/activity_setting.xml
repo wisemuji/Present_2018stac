@@ -23,7 +23,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
-            android:text="╳"
+            android:text="×"
             android:textColor="@color/mainColor"
             android:textSize="16.2sp"
             android:textStyle="bold" />
@@ -90,7 +90,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_weight="30"
+                >
 
                 <TextView
                     android:id="@+id/time_display"
@@ -115,8 +117,9 @@
 
             <CheckBox
                 android:id="@+id/setting_check1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
         </LinearLayout>
@@ -138,9 +141,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
+                android:layout_weight="30"
+                >
                 <TextView
                     android:layout_marginTop="16dp"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom"
@@ -151,6 +156,7 @@
 
                 <TextView
                     android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
                     android:id="@+id/setting_content2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -163,10 +169,12 @@
 
             <CheckBox
                 android:id="@+id/setting_check2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:button="@null"
-                android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                android:layout_weight="1"
+                />
         </LinearLayout>
 
         <TextView
@@ -186,9 +194,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
+                android:layout_weight="30"
+                >
                 <TextView
                     android:layout_marginTop="16dp"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="bottom"
@@ -199,6 +209,7 @@
 
                 <TextView
                     android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
                     android:id="@+id/setting_content3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -211,10 +222,12 @@
 
             <CheckBox
                 android:id="@+id/setting_check3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:button="@null"
-                android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
+                android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                android:layout_weight="1"
+                />
         </LinearLayout>
 
 
@@ -251,17 +264,20 @@
             android:id="@+id/setting_watch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
+            android:orientation="horizontal"
+            android:background="?android:attr/selectableItemBackground"
+            >
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:layout_weight="30"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
+                    android:layout_weight="1"
                     android:gravity="bottom"
                     android:text="진동"
                     android:textColor="@color/mainColor"
@@ -270,6 +286,7 @@
 
                 <TextView
                     android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -281,10 +298,12 @@
 
             <CheckBox
                 android:id="@+id/setting_check4"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple" />
+                android:layout_weight="1"
+                />
         </LinearLayout>
 
         <TextView

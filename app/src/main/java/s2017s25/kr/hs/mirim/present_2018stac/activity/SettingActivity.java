@@ -24,6 +24,7 @@ public class SettingActivity extends AppCompatActivity {
     LinearLayout settingTime,settingScript,settingVib,settingWatch;
     CheckBox settingCheck1, settingCheck2, settingCheck3, settingCheck4;
     Presentation pt;
+    String mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,9 @@ public class SettingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+        if(intent.getStringExtra("mode")!=null) {
+            mode = intent.getStringExtra("mode");
+        }
 
 
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
@@ -77,7 +81,13 @@ public class SettingActivity extends AppCompatActivity {
                 pt.setVibSmartWatch(settingCheck4.isChecked());
                 pt.setModifiedDate(date.getTime());
 
-                int lastId = dbHelper.insert(pt);
+                int lastId;
+                if(mode.equals("input")) {
+                    lastId = dbHelper.insert(pt);
+                }
+                else if (mode.equals("modify")){
+                    dbHelper.update(pt);
+                }
 //                Toast.makeText(getApplicationContext(), "lastId = "+lastId, Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(SettingActivity.this, PTlistActivity.class);

@@ -113,7 +113,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //PRESENTATION 테이블 수정
         db.execSQL("UPDATE presentation SET\n" +
-                "name='"+pt.getName()+"', presentTime="+pt.getPresentTime()+", displayTime="+pt.isDisplayTime(1)+", displayScript="+pt.isDisplayScript(1)+", vibPhone="+pt.isVibPhone(1)+", vibSmartWatch="+pt.isVibSmartWatch(1)+", modifiedDate="+pt.getModifiedDate()+");" +
+                "name='"+pt.getName()+"', presentTime="+pt.getPresentTime()+", displayTime="+pt.isDisplayTime(1)+", displayScript="+pt.isDisplayScript(1)+", vibPhone="+pt.isVibPhone(1)+", vibSmartWatch="+pt.isVibSmartWatch(1)+", modifiedDate="+pt.getModifiedDate()+" " +
                 "WHERE id="+pt.getId()+";");
 
         //KEYPOINT 테이블 수정

@@ -22,6 +22,12 @@
         <item name="android:amPmTextColor">#ffffff</item>
     </style>
 
+    <style name="NumberPickerText">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColorPrimary">@color/mainColorDark</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <!--<declare-styleable name="mapStyle"><attr name="layout_width"/><attr name="layout_height"/><attr name="layout_weight"/></declare-styleable>-->
 
 </resources>

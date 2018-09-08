@@ -1,62 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="?android:attr/selectableItemBackground"
     >
-    <RelativeLayout
-        android:layout_marginTop="10dp"
+    <!--android:background="?android:attr/selectableItemBackground"-->
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/item_expend"
+        android:background="#ffffff"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@+id/item">
+
+        <LinearLayout
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="9dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/edit"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/edit1"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/play1"
+                android:layout_weight="7"
+                />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/delete1"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/mainColorLight"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
         >
-    <TextView
-        android:id="@+id/title_textView"
+        <TextView
+            android:id="@+id/title_textView"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/start_pt_btn"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textColor="@color/mainColor"
+            android:text="프리젠트"
+            android:textSize="17sp"
+            />
+        <TextView
+            android:id="@+id/PTdate"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainColor"
+            android:text="2018.09.24"
+            android:textSize="13sp"
+            />
+
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@color/mainColorLight"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/mainColor"
-        android:text="프리젠트"
-        android:textSize="13.8sp"/>
+        android:orientation="vertical"
+        android:background="#ffffff"
+        >
 
         <ImageView
             android:id="@+id/option"
-            android:layout_alignParentRight="true"
-            android:layout_width="13.7dp"
-            android:layout_height="7.3dp"
-            android:src="@drawable/option1"
+            android:layout_gravity="right"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/option2"
             />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_marginBottom="10dp"
-        android:id="@+id/bottom"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
         <TextView
-            android:layout_marginTop="8.5dp"
-            android:id="@+id/PTdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2018.09.24"
-            android:textColor="@color/mainColor"
-            android:textSize="10.7sp"
-            />
-
-        <TextView
-
-            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
             android:id="@+id/PTtime_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5:00"
             android:textColor="@color/mainColor"
-            android:textSize="16.7sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             />
-    </RelativeLayout>
 
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,6 +1,8 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.ColorDrawable;
 import android.media.ExifInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,7 +30,7 @@ public class StopwatchActivity extends AppCompatActivity {
     NumberPicker pickerMinute;
     NumberPicker pickerSecond;
     Presentation pt = new Presentation();
-
+    String mode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +39,29 @@ public class StopwatchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent.getSerializableExtra("presentation")!=null)
             pt = (Presentation) intent.getSerializableExtra("presentation");
+        mode="input";
+        if(intent.getStringExtra("mode")!=null) {
+            mode = intent.getStringExtra("mode");
+        }
 
         pickerHour = (NumberPicker)findViewById(R.id.picker_hour);
-        pickerHour.setMinValue(0);
+        pickerHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        setDividerColor(pickerHour, 0xff6767c7);
+        pickerHour.setMinValue(00);
         pickerHour.setMaxValue(99);
+        pickerHour.setFormatter(twoDigitFormatter);
         pickerMinute = (NumberPicker)findViewById(R.id.picker_minute);
-        pickerMinute.setMinValue(0);
+        pickerMinute.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        setDividerColor(pickerMinute, 0xff6767c7);
+        pickerMinute.setMinValue(00);
         pickerMinute.setMaxValue(59);
+        pickerMinute.setFormatter(twoDigitFormatter);
         pickerSecond = (NumberPicker)findViewById(R.id.picker_second);
+        pickerSecond.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        setDividerColor(pickerSecond, 0xff6767c7);
         pickerSecond.setMinValue(0);
         pickerSecond.setMaxValue(59);
+        pickerSecond.setFormatter(twoDigitFormatter);
 
         inputTitle = (EditText) findViewById(R.id.input_title);
         inputTitle.setText(pt.getName());
@@ -84,6 +99,7 @@ public class StopwatchActivity extends AppCompatActivity {
                     Intent intent = new Intent(StopwatchActivity.this, ScriptInputActivity.class);
 
                     intent.putExtra("presentation", pt);
+                    intent.putExtra("mode", mode);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
@@ -92,4 +108,32 @@ public class StopwatchActivity extends AppCompatActivity {
         });
 
     }
+    private void setDividerColor(NumberPicker picker, int color){
+        java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
+        for(java.lang.reflect.Field pf : pickerFields){
+            if(pf.getName().equals("mSelectionDivider")){
+                pf.setAccessible(true);
+                try{
+                    ColorDrawable colorDrawable = new ColorDrawable(color);
+                    pf.set(picker, colorDrawable);
+                } catch (IllegalArgumentException e){
+                    e.printStackTrace();
+                } catch (Resources.NotFoundException e){
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+        }
+    }
+    NumberPicker.Formatter twoDigitFormatter = new NumberPicker.Formatter() {
+        @Override
+        public String format(int value) {
+            if(value < 10)
+                return String.format("0%d",value);
+            else
+                return String.format("%d",value);
+        }
+    };
 }
