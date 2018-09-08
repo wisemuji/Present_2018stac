@@ -204,7 +204,7 @@ public class ptPlayActivity extends AppCompatActivity {
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myBtnStart.setText("시작");
                 myOutput.setText("00:00");
-                myRec.setText("STAC 발표\nPRE-SENT");
+//                myRec.setText("STAC 발표\nPRE-SENT");
                 cur_Status = Init;
                 break;
 
@@ -226,11 +226,18 @@ public class ptPlayActivity extends AppCompatActivity {
         long outTime = now - myBaseTime;
         String easy_outTime;
         if(outTime >= 3600000)
-            easy_outTime = String.format("%d:%02d:%02d", (outTime/1000) / 3600, ((outTime/1000) % 3600) / 60, (outTime/1000) % 60);
+            easy_outTime = String.format("%02d:%02d:%02d", (outTime/1000) / 3600, ((outTime/1000) % 3600) / 60, (outTime/1000) % 60);
         else
             easy_outTime = String.format("%02d:%02d", outTime/1000 / 60, (outTime/1000)%60);
         String minute = String.format("%02d", outTime/1000 / 60);
         String second = String.format("%02d", (outTime/1000)%60);
+
+        if(outTime/1000 == pt.getPresentTime()/1000){
+            myTimer.removeMessages(0); //핸들러 메세지 제거
+            myRec.setText("PT가 종료되었습니다.");
+            outTime=0;
+            cur_Status=Run;
+        }
 
         for(KeyPoint kp : pt.getKeyPoints()){
             if((outTime/1000) == (kp.getVibTime()/1000)){
