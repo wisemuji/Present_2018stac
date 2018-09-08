@@ -258,6 +258,17 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return ptList;
     }
+    public boolean isDoubleExists(String name) {
+        ArrayList<Presentation> ptList = this.getResult();
+
+        for(Presentation ptTmp:ptList){
+            if(ptTmp.getName().equals(name)){
+                return true;
+            }
+        }
+        return false;
+
+    }
 
 
 

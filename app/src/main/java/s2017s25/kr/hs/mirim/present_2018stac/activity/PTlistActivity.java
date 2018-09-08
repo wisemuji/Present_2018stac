@@ -188,6 +188,8 @@ public class PTlistActivity extends AppCompatActivity {
         for(Presentation ptTmp : ptList){
             if(ptTmp.getPresentTime()>=3600000){
                 df = new SimpleDateFormat("hh:mm:ss");
+            } else {
+                df = new SimpleDateFormat("mm:ss");
             }
             list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option2,R.drawable.edit1,R.drawable.play1,R.drawable.delete1));
         }

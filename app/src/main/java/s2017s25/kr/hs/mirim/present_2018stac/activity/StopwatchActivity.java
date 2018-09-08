@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import s2017s25.kr.hs.mirim.present_2018stac.db.DBHelper;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
@@ -35,6 +36,7 @@ public class StopwatchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stopwatch);
+        final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         Intent intent = getIntent();
         if(intent.getSerializableExtra("presentation")!=null)
@@ -91,6 +93,9 @@ public class StopwatchActivity extends AppCompatActivity {
                 }
                 else if(time==0){
                     Toast.makeText(getApplicationContext(),"시간을 설정해주세요",Toast.LENGTH_SHORT).show();
+                }
+                else if(dbHelper.isDoubleExists(title)){
+                    Toast.makeText(getApplicationContext(),"같은 제목의 PT가 이미 존재합니다.",Toast.LENGTH_SHORT).show();
                 }
                 else {
                     pt.setName(title);

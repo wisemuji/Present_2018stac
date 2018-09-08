@@ -68,6 +68,7 @@ public class ptPlayActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+//        Toast.makeText(getApplicationContext(),pt.getPresentTime().toString(),Toast.LENGTH_LONG).show();
 
         //테스트
 //        ArrayList<Script> scripts=new ArrayList<>();
@@ -85,6 +86,13 @@ public class ptPlayActivity extends AppCompatActivity {
         ptTitle.setText(pt.getName());
 
         myBtnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myOnClick(v);
+            }
+        });
+
+        myBtnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myOnClick(v);
