@@ -19,7 +19,6 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
-
 public class SettingActivity extends AppCompatActivity {
     TextView nextBtn, prevBtn, exitBtn;
     LinearLayout settingTime,settingScript,settingVib,settingWatch;
