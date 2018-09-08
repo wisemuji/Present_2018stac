@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
@@ -62,21 +64,20 @@ public class ScriptInputActivity extends AppCompatActivity {
 
         ArrayList<KeyPoint> key = pt.getKeyPoints();
         ArrayList<Script> sc = pt.getScripts();
-       if(key != null) {
 
-               for (int i = 0; i < keyPoints.size(); i++) {
-                   adapter.addItem(keyPoints.get(i).getName(), keyPoints.get(i).getVibTime().toString());
+       if(key != null && key.size() != 0) {
+
+               for (int i = 0; i < key.size(); i++) {
+                   adapter.addItem(key.get(i).getName(), key.get(i).getVibTime().toString());
                }
            }
 
-        if(sc != null) {
-            if (scripts.size() != 0) {
-                for (int i = 0; i < scripts.size(); i++) {
-                    adapter.addItem(scripts.get(i).getStartTime().toString(), scripts.get(i).getEndTime().toString(),
-                            scripts.get(i).getContent());
+            if (sc != null && sc.size() != 0) {
+                for (int i = 0; i < sc.size(); i++) {
+                    adapter.addItem(sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(),
+                            sc.get(i).getContent());
                 }
             }
-        }
 
         ImageView itemSet = (ImageView) findViewById(R.id.item_set);
         itemSet.setOnClickListener(new View.OnClickListener() {
@@ -150,8 +151,16 @@ public class ScriptInputActivity extends AppCompatActivity {
                 case 0:
                     Script sc = (Script) data.getSerializableExtra("script");
                     scripts.add(sc);
+                    long StartSecond = (sc.getStartTime() / 1000) % 60;
+                    long StartMinute = (sc.getStartTime() / (1000 * 60)) % 60;
 
-                    adapter.addItem(sc.getStartTime().toString(), sc.getEndTime().toString(), sc.getContent());
+                    long endSecond = (sc.getEndTime() / 1000) % 60;
+                    long endMinute = (sc.getEndTime() / (1000 * 60)) % 60;
+
+                    String startTime = String.format("%02d : %02d",StartMinute, StartSecond);
+                    String endTime = String.format("%02d : %02d",endMinute, endSecond);
+
+                    adapter.addItem(startTime, endTime, sc.getContent());
                     adapter.notifyDataSetChanged();
                     break;
                 case 1:
@@ -159,8 +168,13 @@ public class ScriptInputActivity extends AppCompatActivity {
                     Log.e("pttest", key.getName());
                         keyPoints.add(key);
 
-                        adapter.addItem(key.getName(), key.getVibTime().toString());
-                        adapter.notifyDataSetChanged();
+                    long keypointSecond = (key.getVibTime() / 1000) % 60;
+                    long keypointMinute = (key.getVibTime() / (1000 * 60)) % 60;
+
+                    String keypointTime = String.format("%02d : %02d",keypointMinute, keypointSecond);
+
+                    adapter.addItem(key.getName(), key.getVibTime().toString());
+                    adapter.notifyDataSetChanged();
 
                     break;
             }

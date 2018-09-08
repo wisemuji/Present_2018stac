@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
             android:textColor="@color/mainColorWhite"
-            android:textSize="9pt"
+            android:textSize="16.2sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -57,13 +57,13 @@
         app:layout_constraintTop_toBottomOf="@+id/sctitlevar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-<android.support.constraint.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-        android:textSize="15dp"
+        android:textSize="13.8sp"
         android:id="@+id/text_script"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="스크립트"
@@ -74,9 +74,8 @@
         android:textColor="@color/mainColorWhite"
         android:textColorHint="#fefeff"
         android:id="@+id/script_content"
-        android:textSize="13dp"
+        android:textSize="12.5sp"
         android:hint="발표시 사용할 발표대폰을 입력해주세요."
-        app:layout_constraintTop_toBottomOf="@+id/text_script"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -84,11 +83,10 @@
     <TextView
         android:layout_marginTop="38dp"
         android:id="@+id/start_textView"
-        app:layout_constraintTop_toBottomOf="@+id/script_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="시작"
-        android:textSize="15dp"
+        android:textSize="13.8sp"
         android:textColor="@color/mainColorWhite"
         />
 
@@ -99,8 +97,7 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/start_textView">
+        android:layout_height="wrap_content">
 
         <NumberPicker
             android:id="@+id/start_picker_hour"
@@ -125,10 +122,9 @@
             />
     </LinearLayout>
     <TextView
-        android:textSize="15dp"
-        android:layout_marginTop="38dp"
+        android:textSize="13.8sp"
+        android:layout_marginTop="30dp"
         android:id="@+id/end_textView"
-        app:layout_constraintTop_toBottomOf="@+id/script_StartTimePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="종료"
@@ -142,7 +138,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/end_textView">
+      >
 
         <NumberPicker
             android:id="@+id/end_picker_hour"
@@ -168,7 +164,7 @@
     </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
     </ScrollView>
 
     <LinearLayout

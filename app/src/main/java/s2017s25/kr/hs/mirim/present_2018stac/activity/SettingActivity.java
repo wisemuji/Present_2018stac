@@ -3,6 +3,7 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -20,7 +21,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 
 public class SettingActivity extends AppCompatActivity {
-    TextView nextBtn, prevBtn;
+    TextView nextBtn, prevBtn, exitBtn;
     LinearLayout settingTime,settingScript,settingVib,settingWatch;
     CheckBox settingCheck1, settingCheck2, settingCheck3, settingCheck4;
     Presentation pt;
@@ -36,6 +37,7 @@ public class SettingActivity extends AppCompatActivity {
         if(intent.getStringExtra("mode")!=null) {
             mode = intent.getStringExtra("mode");
         }
+
 
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
@@ -64,13 +66,16 @@ public class SettingActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<Script> scripts=new ArrayList<>();
-                ArrayList<KeyPoint> keyPoints=new ArrayList<>();
+                if(pt.getScripts() != null) {
+                    ArrayList<Script> scripts = (ArrayList<Script>) pt.getScripts();
+                    pt.setScripts(scripts);
+                }
+                if(pt.getKeyPoints() != null) {
+                    ArrayList<KeyPoint> keyPoints = new ArrayList<>();
+                    pt.setKeyPoints(keyPoints);
+                }
                 Date date=new Date();
 //              Presentation pt=new Presentation("test2",(long)120000,true,true,true,true,scripts,keyPoints);
-
-                pt.setScripts(scripts);
-                pt.setKeyPoints(keyPoints);
                 pt.setDisplayTime(settingCheck1.isChecked());
                 pt.setDisplayScript(settingCheck2.isChecked());
                 pt.setVibPhone(settingCheck3.isChecked());
@@ -109,7 +114,13 @@ public class SettingActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.activity_slide_enter, R.anim.activity_slide_exit);
             }
         });
+        exitBtn = findViewById(R.id.exitBtn);
+        exitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {finish();}
+        });
     }
+
 
     View.OnClickListener setCheck = new View.OnClickListener() {
         @Override
@@ -142,4 +153,5 @@ public class SettingActivity extends AppCompatActivity {
             }
         }
     };
+
 }

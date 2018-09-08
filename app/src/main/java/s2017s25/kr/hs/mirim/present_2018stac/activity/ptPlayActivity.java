@@ -84,6 +84,13 @@ public class ptPlayActivity extends AppCompatActivity {
 
         ptTitle.setText(pt.getName());
 
+        myBtnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myOnClick(v);
+            }
+        });
+
         layoutPlay=findViewById(R.id.layout_play);
         btnLock=findViewById(R.id.btn_lock);
         btnLock.setOnClickListener(new View.OnClickListener() {
