@@ -4,7 +4,7 @@
     <!-- 평상시 -->
     <item android:state_focused="false" android:state_pressed="false">
         <shape>
-            <solid android:color="@color/mainColorWhite" />
+            <solid android:color="@color/mainColor" />
         </shape>
 
     </item>
@@ -12,7 +12,7 @@
     <!-- 클릭했을 때 -->
     <item android:state_focused="true" android:state_pressed="true">
         <shape>
-            <solid android:color="#eeeeee" />
+            <solid android:color="@color/mainColorDark" />
         </shape>
     </item>
 </selector>

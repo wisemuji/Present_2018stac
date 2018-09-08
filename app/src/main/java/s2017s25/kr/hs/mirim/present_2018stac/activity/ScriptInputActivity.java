@@ -36,11 +36,18 @@ public class ScriptInputActivity extends AppCompatActivity {
     ArrayList<script_list_item> list_itemArrayList;
     TextView nextBtn, prevBtn, exitBtn;
     Presentation pt;
+    String mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_input);
+
+        Intent intent = getIntent();
+        pt = (Presentation) intent.getSerializableExtra("presentation");
+        if(intent.getStringExtra("mode")!=null) {
+            mode = intent.getStringExtra("mode");
+        }
 
         scripts = new ArrayList<Script>();
         keyPoints = new ArrayList<KeyPoint>();
@@ -48,12 +55,12 @@ public class ScriptInputActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listview522);
         listView.setAdapter(adapter);
 
+//        listView = (ListView)findViewById(R.id.script_listview);
+//
+//        list_itemArrayList = new ArrayList<script_list_item>();
+
         final CharSequence[] items = {"스크립트", "키포인트"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
-
-        Intent intent = getIntent();
-
-        pt = (Presentation) intent.getSerializableExtra("presentation");
 
         ArrayList<KeyPoint> key = pt.getKeyPoints();
         ArrayList<Script> sc = pt.getScripts();
@@ -108,6 +115,7 @@ public class ScriptInputActivity extends AppCompatActivity {
                 pt.setKeyPoints(keyPoints);
                 pt.setScripts(scripts);
                 intent.putExtra("presentation", pt);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.activity_slide_in, R.anim.activity_slide_out);
@@ -120,6 +128,7 @@ public class ScriptInputActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
                 intent.putExtra("presentation", pt);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.activity_slide_enter, R.anim.activity_slide_exit);

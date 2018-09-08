@@ -26,6 +26,9 @@ public class PTListAdapter extends BaseAdapter{
     TextView PTtime_textView;
     TextView PTdate_textView;
     ImageView option_ImageView;
+    ImageView edit_ImageView;
+    ImageView play_ImageView;
+    ImageView delete_ImageView;
 
     @Override
     public int getCount() {
@@ -50,11 +53,18 @@ public class PTListAdapter extends BaseAdapter{
             PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
             PTdate_textView = (TextView)convertView.findViewById(R.id.PTdate);
             option_ImageView = (ImageView)convertView.findViewById(R.id.option);
+            edit_ImageView = (ImageView)convertView.findViewById(R.id.edit);
+            play_ImageView = (ImageView)convertView.findViewById(R.id.play);
+            delete_ImageView = (ImageView)convertView.findViewById(R.id.delete);
         }
-      title_textView.setText(list_itemArrayList.get(position).getTitle());
+      edit_ImageView.setImageResource(list_itemArrayList.get(position).getPTedit());
+        play_ImageView.setImageResource(list_itemArrayList.get(position).getPTplay());
+        delete_ImageView.setImageResource(list_itemArrayList.get(position).getPTdelete());
+        title_textView.setText(list_itemArrayList.get(position).getTitle());
         PTtime_textView.setText(list_itemArrayList.get(position).getPTtime());
         PTdate_textView.setText(list_itemArrayList.get(position).getPTdate());
         option_ImageView.setImageResource(list_itemArrayList.get(position).getOption());
+
         return convertView;
 
 //=======

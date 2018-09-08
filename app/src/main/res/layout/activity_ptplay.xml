@@ -47,6 +47,21 @@
     <!--android:textSize="35sp"-->
     <!--/>-->
 
+    <!--<ImageButton-->
+        <!--android:id="@+id/btn_lock"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:src="@drawable/lock_opened"-->
+        <!--android:background="@color/ptplayBG"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:onClick="appFinish"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/titleVar" />-->
+
     <TextView
         android:id="@+id/sc_title"
         android:layout_width="wrap_content"
@@ -107,11 +122,11 @@
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@drawable/ptplay_btn"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
+            android:background="@drawable/ptplay_btn"
             android:id="@+id/btn_start"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -123,6 +138,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:background="@drawable/ptplay_btn"
             android:id="@+id/btn_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
