@@ -3,10 +3,11 @@
     package="s2017s25.kr.hs.mirim.present_2018stac">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/appicon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -25,6 +26,7 @@
         <activity android:name=".activity.ScriptInputActivity" />
         <activity android:name=".activity.ScriptContentInput" />
         <activity android:name=".activity.keypointInputActivity"/>
+        <activity android:name=".activity.KeypointActivity" />
     </application>
 
 </manifest>

@@ -23,7 +23,7 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
-            android:text="╳"
+            android:text="×"
             android:textColor="@color/mainColor"
             android:textSize="16.3sp"
             android:textStyle="bold" />
@@ -104,43 +104,241 @@
         <!--app:layout_constraintEnd_toEndOf="parent"-->
         <!--app:layout_constraintStart_toStartOf="parent"-->
         <!--app:layout_constraintTop_toTopOf="@+id/textView2" />-->
-    <LinearLayout
+
+
+    <RelativeLayout
         android:id="@+id/timePicker"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:layout_marginTop="9dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" >
+        app:layout_constraintTop_toTopOf="@+id/textView">
 
-        <NumberPicker
-            android:id="@+id/picker_hour"
+        <RelativeLayout
+            android:id="@+id/relative"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginTop="45dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
-            />
-        <NumberPicker
-            android:id="@+id/picker_minute"
+            android:layout_height="180dp" >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/mainColorDark"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_height="2dp"
+                android:background="@color/mainColorDark"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
-            />
-        <NumberPicker
-            android:id="@+id/picker_second"
+            android:layout_height="wrap_content" >
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/mainColorDark"
+                android:gravity="center"
+                android:text="시간"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/mainColorDark"
+                android:gravity="center"
+                android:text="분"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/mainColorDark"
+                android:gravity="center"
+                android:text="초"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="45dp"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:text=":"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|left"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:text=":"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:text=":"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|left"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:text=":"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:orientation="horizontal"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp">
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:text=":"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|right"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    />
+                <TextView
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/mainColorLight"
+                    android:gravity="center_vertical|left"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:text=":"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/number_pickers"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:layout_marginTop="45dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="2dp"
-            />
-    </LinearLayout>
+            android:layout_height="wrap_content" >
+
+            <NumberPicker
+                android:id="@+id/picker_hour"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/NumberPickerText"
+                android:fadeScrollbars="false"
+                />
+            <NumberPicker
+                android:id="@+id/picker_minute"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/NumberPickerText"
+                android:fadeScrollbars="false"
+                />
+            <NumberPicker
+                android:id="@+id/picker_second"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/NumberPickerText"
+                android:fadeScrollbars="false"
+                />
+        </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/stopwatch_next_btn"
