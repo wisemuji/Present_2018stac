@@ -47,6 +47,8 @@ public class ScriptListAdapter extends BaseAdapter {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) ;
 
+            item.render(view);
+
             switch (viewType) {
                 case ITEM_VIEW_TYPE_Script:
                     if(convertView == null) {

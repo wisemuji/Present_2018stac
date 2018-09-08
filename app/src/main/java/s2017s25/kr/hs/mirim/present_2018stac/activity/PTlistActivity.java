@@ -181,6 +181,7 @@ public class PTlistActivity extends AppCompatActivity {
 
         ArrayList<Presentation> ptList;
         ptList = dbHelper.getResult();
+
         list_itemArrayList = new ArrayList<pt_list_item>();
 
         DateFormat df = new SimpleDateFormat("mm:ss"); // HH=24h, hh=12h

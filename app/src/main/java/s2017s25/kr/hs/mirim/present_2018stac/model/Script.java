@@ -1,17 +1,22 @@
 package s2017s25.kr.hs.mirim.present_2018stac.model;
 
+import android.view.View;
+import android.widget.Button;
+
 import java.io.Serializable;
 
-public class Script implements Serializable{
+import s2017s25.kr.hs.mirim.present_2018stac.R;
+
+public class Script implements Serializable, PresentationItem
+{
     int id;
     int ScriptId;
-   // String scriptTitle;
+
     Long startTime;
     Long endTime;
     String content;
 
     public Script(Long startTime, Long endTime, String content) {
-       // this.scriptTitle = scriptTitle;
         this.startTime = startTime;
         this.endTime = endTime;
         this.content = content;
@@ -28,11 +33,7 @@ public class Script implements Serializable{
 
     public Script() {
     }
-/*
-    public String getScriptTitle() { return scriptTitle; }
 
-    public void setScriptTitle(String scriptTitle) { this.scriptTitle = scriptTitle; }
-*/
     public int getId() {
         return id;
     }
@@ -49,7 +50,7 @@ public class Script implements Serializable{
         ScriptId = scriptId;
     }
 
-    public Long getStartTime() {
+    public long getStartTime() {
         return startTime;
     }
 
@@ -71,5 +72,12 @@ public class Script implements Serializable{
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+
+    @Override
+    public void render(View view) {
+        Button button = view.findViewById(R.id.btn_destroy);
+        button.setText(content);
     }
 }

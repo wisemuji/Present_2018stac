@@ -65,6 +65,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         ArrayList<KeyPoint> key = pt.getKeyPoints();
         ArrayList<Script> sc = pt.getScripts();
 
+
        if(key != null && key.size() != 0) {
 
                for (int i = 0; i < key.size(); i++) {
