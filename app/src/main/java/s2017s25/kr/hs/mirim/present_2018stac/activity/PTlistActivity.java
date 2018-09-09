@@ -29,7 +29,6 @@ import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.item.pt_list_item;
 
-
 public class PTlistActivity extends AppCompatActivity {
     private Animation animShow, animHide, animSlideUp;
     TextView exitBtn;
