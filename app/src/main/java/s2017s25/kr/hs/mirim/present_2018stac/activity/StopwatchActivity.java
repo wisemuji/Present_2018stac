@@ -45,28 +45,39 @@ public class StopwatchActivity extends AppCompatActivity {
         if(intent.getStringExtra("mode")!=null) {
             mode = intent.getStringExtra("mode");
         }
+        if(mode.equals("modify")){
+            pt = dbHelper.getPresentation(pt.getName());
+        }
 
         pickerHour = (NumberPicker)findViewById(R.id.picker_hour);
         pickerHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(pickerHour, 0xff6767c7);
         pickerHour.setMinValue(00);
         pickerHour.setMaxValue(99);
+        if(pt.getPresentTime()!=null)
+            pickerHour.setValue((int)(pt.getPresentTime()/1000/3600));
         pickerHour.setFormatter(twoDigitFormatter);
         pickerMinute = (NumberPicker)findViewById(R.id.picker_minute);
         pickerMinute.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(pickerMinute, 0xff6767c7);
         pickerMinute.setMinValue(00);
         pickerMinute.setMaxValue(59);
+        if(pt.getPresentTime()!=null)
+            pickerMinute.setValue((int)(((pt.getPresentTime() / 1000) % 3600) / 60));
         pickerMinute.setFormatter(twoDigitFormatter);
         pickerSecond = (NumberPicker)findViewById(R.id.picker_second);
         pickerSecond.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(pickerSecond, 0xff6767c7);
         pickerSecond.setMinValue(0);
         pickerSecond.setMaxValue(59);
+        if(pt.getPresentTime()!=null)
+            pickerSecond.setValue((int)(pt.getPresentTime() / 1000 % 60));
         pickerSecond.setFormatter(twoDigitFormatter);
 
         inputTitle = (EditText) findViewById(R.id.input_title);
         inputTitle.setText(pt.getName());
+
+
 
         exitBtn = (TextView) findViewById(R.id.exitBtn);
         exitBtn.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +105,7 @@ public class StopwatchActivity extends AppCompatActivity {
                 else if(time==0){
                     Toast.makeText(getApplicationContext(),"시간을 설정해주세요",Toast.LENGTH_SHORT).show();
                 }
-                else if(dbHelper.isDoubleExists(title)){
+                else if(dbHelper.isDoubleExists(title)&&mode.equals("input")){
                     Toast.makeText(getApplicationContext(),"같은 제목의 PT가 이미 존재합니다.",Toast.LENGTH_SHORT).show();
                 }
                 else {

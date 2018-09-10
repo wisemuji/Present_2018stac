@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,9 +54,21 @@ public class SettingActivity extends AppCompatActivity {
         settingCheck4=(CheckBox)findViewById(R.id.setting_check4);
 
         if(pt.isDisplayTime()) settingCheck1.setChecked(true);
+        else settingCheck1.setChecked(false);
         if(pt.isDisplayScript()) settingCheck2.setChecked(true);
+        else settingCheck2.setChecked(false);
         if(pt.isVibPhone()) settingCheck3.setChecked(true);
+        else settingCheck3.setChecked(false);
         if(pt.isVibSmartWatch()) settingCheck4.setChecked(true);
+        else settingCheck4.setChecked(false);
+
+        if(mode.equals("input")){
+            settingCheck1.setChecked(true);
+            settingCheck2.setChecked(true);
+            settingCheck3.setChecked(true);
+        }
+
+//        Toast.makeText(getApplicationContext(),(pt.isDisplayTime()+" "+pt.isDisplayScript()+" "+pt.isVibPhone()+" "+pt.isVibSmartWatch()),Toast.LENGTH_SHORT).show();
 
         settingTime.setOnClickListener(setCheck);
         settingScript.setOnClickListener(setCheck);
@@ -108,6 +121,7 @@ public class SettingActivity extends AppCompatActivity {
                 pt.setVibSmartWatch(settingCheck4.isChecked());
                 Intent intent = new Intent(SettingActivity.this, ScriptInputActivity.class);
                 intent.putExtra("presentation", pt);
+                intent.putExtra("mode", mode);
                 startActivity(intent);
                 finish();
                 overridePendingTransition(R.anim.activity_slide_enter, R.anim.activity_slide_exit);
