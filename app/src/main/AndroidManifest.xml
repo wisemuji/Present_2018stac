@@ -26,7 +26,6 @@
         <activity android:name=".activity.ScriptInputActivity" />
         <activity android:name=".activity.ScriptContentInput" />
         <activity android:name=".activity.keypointInputActivity"/>
-        <activity android:name=".activity.KeypointActivity" />
     </application>
 
 </manifest>

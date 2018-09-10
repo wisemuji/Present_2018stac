@@ -327,6 +327,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
+            android:background="@drawable/prev_next_btn"
             android:id="@+id/setting_prev_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -338,6 +339,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:background="@drawable/prev_next_btn"
             android:id="@+id/setting_next_btn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

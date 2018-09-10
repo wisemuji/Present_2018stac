@@ -344,7 +344,7 @@
         android:id="@+id/stopwatch_next_btn"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="@color/mainColor"
+        android:background="@drawable/prev_next_btn"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent">
