@@ -83,6 +83,13 @@ public class ptPlayActivity extends AppCompatActivity {
         btnFinish = (TextView) findViewById(R.id.btn_destroy);
         ptTitle = (TextView) findViewById(R.id.pt_title);
 
+        if(!pt.isDisplayTime()){
+            myOutput.setVisibility(View.INVISIBLE);
+        }
+        if(!pt.isDisplayScript()){
+            myRec.setVisibility(View.INVISIBLE);
+        }
+
         ptTitle.setText(pt.getName());
 
         myBtnStart.setOnClickListener(new View.OnClickListener() {
@@ -242,7 +249,9 @@ public class ptPlayActivity extends AppCompatActivity {
         for(KeyPoint kp : pt.getKeyPoints()){
             if((outTime/1000) == (kp.getVibTime()/1000)){
                 myRec.setText(kp.getName());
-                vibe.vibrate(1000);
+                if(pt.isVibPhone()) {
+                    vibe.vibrate(1000);
+                }
             }
         }
 //

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
@@ -79,6 +80,27 @@ public class ScriptContentInput extends AppCompatActivity {
                 endTime += endPickerHour.getValue()*1000*3600;
                 endTime += endPickerMinute.getValue() * 1000 * 60;
                 endTime += endPickerSecond.getValue() * 1000;
+
+                if(content.isEmpty()){
+                    Toast.makeText(getApplicationContext(),"내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(startTime==0){
+                    Toast.makeText(getApplicationContext(),"시작 시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(endTime==0){
+                    Toast.makeText(getApplicationContext(),"종료 시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(endTime==startTime){
+                    Toast.makeText(getApplicationContext(),"시작 시간이 종료 시간과 같습니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(startTime>endTime){
+                    Toast.makeText(getApplicationContext(),"시작 시간이 종료 시간보다 뒤에 있습니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Script script = new Script(startTime, endTime, content);
                 intent.putExtra("script", script);
