@@ -44,16 +44,19 @@ public class keypointInputActivity extends AppCompatActivity {
         setDividerColor(pickerHour, 0xffffffff);
         pickerHour.setMinValue(0);
         pickerHour.setMaxValue(99);
+        pickerHour.setFormatter(twoDigitFormatter);
         pickerMinute = (NumberPicker) findViewById(R.id.picker_minute);
         pickerMinute.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(pickerMinute, 0xffffffff);
         pickerMinute.setMinValue(0);
         pickerMinute.setMaxValue(59);
+        pickerMinute.setFormatter(twoDigitFormatter);
         pickerSecond = (NumberPicker) findViewById(R.id.picker_second);
         pickerSecond.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(pickerSecond, 0xffffffff);
         pickerSecond.setMinValue(0);
         pickerSecond.setMaxValue(59);
+        pickerSecond.setFormatter(twoDigitFormatter);
 
         OKbtn.setOnClickListener(new View.OnClickListener() {
             @Override

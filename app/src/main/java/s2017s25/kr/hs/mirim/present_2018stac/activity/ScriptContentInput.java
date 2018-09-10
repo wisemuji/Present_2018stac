@@ -37,32 +37,38 @@ public class ScriptContentInput extends AppCompatActivity {
         setDividerColor(startPickerHour, 0xffffffff);
         startPickerHour.setMinValue(0);
         startPickerHour.setMaxValue(99);
+        startPickerHour.setFormatter(twoDigitFormatter);
         startPickerMinute = (NumberPicker)findViewById(R.id.picker_minute_start);
         startPickerMinute.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(startPickerMinute, 0xffffffff);
         startPickerMinute.setMinValue(0);
         startPickerMinute.setMaxValue(59);
+        startPickerMinute.setFormatter(twoDigitFormatter);
         startPickerSecond = (NumberPicker)findViewById(R.id.picker_second_start);
         startPickerSecond.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(startPickerSecond, 0xffffffff);
         startPickerSecond.setMinValue(0);
         startPickerSecond.setMaxValue(59);
+        startPickerSecond.setFormatter(twoDigitFormatter);
 
         endPickerHour = (NumberPicker)findViewById(R.id.picker_hour_end);
         endPickerHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(endPickerHour, 0xffffffff);
         endPickerHour.setMinValue(0);
         endPickerHour.setMaxValue(99);
+        endPickerHour.setFormatter(twoDigitFormatter);
         endPickerMinute = (NumberPicker)findViewById(R.id.picker_minute_end);
         endPickerMinute.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(endPickerMinute, 0xffffffff);
         endPickerMinute.setMinValue(0);
         endPickerMinute.setMaxValue(59);
+        endPickerMinute.setFormatter(twoDigitFormatter);
         endPickerSecond = (NumberPicker)findViewById(R.id.picker_second_end);
         endPickerSecond.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(endPickerSecond, 0xffffffff);
         endPickerSecond.setMinValue(0);
         endPickerSecond.setMaxValue(59);
+        endPickerSecond.setFormatter(twoDigitFormatter);
 
 
         TextView OKbtn = findViewById(R.id.sc_ok_btn);
