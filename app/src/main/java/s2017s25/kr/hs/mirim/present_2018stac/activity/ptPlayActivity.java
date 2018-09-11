@@ -184,6 +184,13 @@ public class ptPlayActivity extends AppCompatActivity {
             case R.id.btn_start: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
                 switch(cur_Status){
                     case Init:
+                        myTimer = new Handler(){
+                            public void handleMessage(Message msg){
+                                myOutput.setText(getTimeOut());
+                                //sendEmptyMessage 는 비어있는 메세지를 Handler 에게 전송하는겁니다.
+                                myTimer.sendEmptyMessage(0);
+                            }
+                        };
                         myBaseTime = SystemClock.elapsedRealtime();
                         System.out.println(myBaseTime);
                         //myTimer이라는 핸들러를 빈 메세지를 보내서 호출
@@ -240,10 +247,15 @@ public class ptPlayActivity extends AppCompatActivity {
         String second = String.format("%02d", (outTime/1000)%60);
 
         if(outTime/1000 == pt.getPresentTime()/1000){
-            myTimer.removeMessages(0); //핸들러 메세지 제거
-            myRec.setText("PT가 종료되었습니다.");
+            myTimer=new Handler(){
+                public void handleMessage(Message msg){
+
+                }
+            };
+            Toast.makeText(getApplicationContext(),"PT가 종료되었습니다.",Toast.LENGTH_LONG).show();
+            myBtnStart.setText("재시작");
             outTime=0;
-            cur_Status=Run;
+            cur_Status=Init;
         }
 
         for(KeyPoint kp : pt.getKeyPoints()){
