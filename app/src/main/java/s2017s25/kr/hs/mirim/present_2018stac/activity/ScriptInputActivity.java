@@ -59,7 +59,6 @@ public class ScriptInputActivity extends AppCompatActivity {
         keyPoints = new ArrayList<KeyPoint>();
         adapter = new ScriptListAdapter();
         listView = (ListView) findViewById(R.id.listview522);
-
 //        listView = (ListView)findViewById(R.id.script_listview);
 //
 //        list_itemArrayList = new ArrayList<script_list_item>();
@@ -68,6 +67,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
 
         refresh();
+        listView.setAdapter(adapter);
 
 
         ImageView itemSet = (ImageView) findViewById(R.id.item_set);
@@ -81,10 +81,12 @@ public class ScriptInputActivity extends AppCompatActivity {
                                 switch (index){
                                     case 0:
                                         Intent intent = new Intent(ScriptInputActivity.this, ScriptContentInput.class);
+                                        intent.putExtra("presentation", pt);
                                         startActivityForResult(intent,0);
                                         break;
                                     case 1:
                                         intent = new Intent(ScriptInputActivity.this, keypointInputActivity.class);
+                                        intent.putExtra("presentation", pt);
                                         startActivityForResult(intent, 1);
                                         break;
                                 }
@@ -150,21 +152,21 @@ public class ScriptInputActivity extends AppCompatActivity {
                     long endMinute = (sc.getEndTime() / (1000 * 60)) % 60;
                     long endHour = (sc.getEndTime() / (1000 * 60 * 60)) % 100;
 
-                    String startTime = String.format("%02d : %02d : %02d",StartHour, StartMinute, StartSecond);
-                    String endTime = String.format("%02d : %02d : %02d",endHour, endMinute, endSecond);
+                    String startTime = String.format("%02d:%02d:%02d",StartHour, StartMinute, StartSecond);
+                    String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
 
                     adapter.addItem(startTime, endTime, sc.getContent());
                     adapter.notifyDataSetChanged();
                     break;
                 case 1:
                     KeyPoint key = (KeyPoint) data.getSerializableExtra("key");
-                        keyPoints.add(key);
+                    keyPoints.add(key);
 
                     long keypointSecond = (key.getVibTime() / 1000) % 60;
                     long keypointMinute = (key.getVibTime() / (1000 * 60)) % 60;
                     long keypointHour = (key.getVibTime() / 1000*60*60) % 100;
 
-                    String keypointTime = String.format("%02d : %02d : %02d",keypointHour, keypointSecond, keypointMinute);
+                    String keypointTime = String.format("%02d:%02d:%02d",keypointHour, keypointMinute, keypointSecond);
 
                     adapter.addItem(key.getName(), keypointTime);
                     adapter.notifyDataSetChanged();
@@ -176,7 +178,6 @@ public class ScriptInputActivity extends AppCompatActivity {
     }
 
     public void refresh(){
-        listView.setAdapter(adapter);
         ArrayList<KeyPoint> key = pt.getKeyPoints();
         ArrayList<Script> sc = pt.getScripts();
         if(key != null && key.size() != 0) {
@@ -195,45 +196,45 @@ public class ScriptInputActivity extends AppCompatActivity {
             }
         }
 
-        if(list_item != null){
+        if(list_item != null) {
             Collections.sort(list_item, new Comparator<Object>() {
                 @Override
                 public int compare(Object o1, Object o2) {
-                    long num1=0, num2=0;
-                    if(o1.getClass().getSimpleName().contains("KeyPoint")){
+                    long num1 = 0, num2 = 0;
+                    if (o1.getClass().getSimpleName().contains("KeyPoint")) {
                         KeyPoint k = (KeyPoint) o1;
                         num1 = k.getVibTime();
-                    }else if(o1.getClass().getSimpleName().contains("Script")){
-                        Script s = (Script)o1;
+                    } else if (o1.getClass().getSimpleName().contains("Script")) {
+                        Script s = (Script) o1;
                         num1 = s.getStartTime();
-                    }else{
+                    } else {
                     }
 
-                    if(o2.getClass().getSimpleName().contains("KeyPoint")){
+                    if (o2.getClass().getSimpleName().contains("KeyPoint")) {
                         KeyPoint k = (KeyPoint) o2;
                         num2 = k.getVibTime();
-                    }else if(o2.getClass().getSimpleName().contains("Script")){
-                        Script s = (Script)o2;
+                    } else if (o2.getClass().getSimpleName().contains("Script")) {
+                        Script s = (Script) o2;
                         num2 = s.getStartTime();
-                    }else{
+                    } else {
                     }
 
-                    return (int)(num1-num2);
+                    return (int) (num1 - num2);
                 }
             }); // 정렬
 
-            for(int i = 0; i < list_item.size(); i++){
-                if(list_item.get(i).getClass().getSimpleName().contains("KeyPoint")){
+            for (int i = 0; i < list_item.size(); i++) {
+                if (list_item.get(i).getClass().getSimpleName().contains("KeyPoint")) {
                     KeyPoint kk = (KeyPoint) list_item.get(i);
 
                     long keypointSecond = (kk.getVibTime() / 1000) % 60;
                     long keypointMinute = (kk.getVibTime() / (1000 * 60)) % 60;
-                    long keypointHour = (kk.getVibTime() / (1000*60*60)) % 100;
+                    long keypointHour = (kk.getVibTime() / (1000 * 60 * 60)) % 100;
 
-                    String keypointTime = String.format("%02d : %02d : %02d",keypointHour, keypointSecond, keypointMinute);
+                    String keypointTime = String.format("%02d:%02d:%02d", keypointHour, keypointMinute, keypointSecond);
 
                     adapter.addItem(kk.getName(), keypointTime);
-                } else if(list_item.get(i).getClass().getSimpleName().contains("Script")){
+                } else if (list_item.get(i).getClass().getSimpleName().contains("Script")) {
                     Script ss = (Script) list_item.get(i);
 
                     long StartSecond = (ss.getStartTime() / 1000) % 60;
@@ -244,15 +245,13 @@ public class ScriptInputActivity extends AppCompatActivity {
                     long endSecond = (ss.getEndTime() / 1000) % 60;
                     long endMinute = (ss.getEndTime() / (1000 * 60)) % 60;
 
-                    String startTime = String.format("%02d : %02d : %02d",StartHour, StartMinute, StartSecond);
-                    String endTime = String.format("%02d :%02d : %02d",endHour, endMinute, endSecond);
+                    String startTime = String.format("%02d:%02d:%02d", StartHour, StartMinute, StartSecond);
+                    String endTime = String.format("%02d:%02d:%02d", endHour, endMinute, endSecond);
 
                     adapter.addItem(startTime, endTime, ss.getContent());
                 }
             }
-
         }
-        listView.setAdapter(adapter);
 
     }
 }

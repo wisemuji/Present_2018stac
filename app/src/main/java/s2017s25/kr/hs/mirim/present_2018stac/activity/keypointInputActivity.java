@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,14 +24,14 @@ public class keypointInputActivity extends AppCompatActivity {
 
     EditText keyContent;
     NumberPicker pickerHour, pickerMinute, pickerSecond;
+    Presentation pt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keypt_input);
-
         Intent intent = getIntent();
-        final Presentation pt= (Presentation) intent.getSerializableExtra("presentation");
+        pt = (Presentation) intent.getSerializableExtra("presentation");
 
         TextView OKbtn = (TextView) findViewById(R.id.kpt_ok_btn);
 
@@ -68,6 +69,10 @@ public class keypointInputActivity extends AppCompatActivity {
                 keyptTime += pickerHour.getValue() * 1000 * 3600;
                 keyptTime += pickerMinute.getValue() * 1000 * 60;
                 keyptTime += pickerSecond.getValue() * 1000;
+                if(keyptTime>pt.getPresentTime()){
+                    Toast.makeText(getApplicationContext(),"발표 시간을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 KeyPoint dataKey = new KeyPoint(content,keyptTime);
 

@@ -16,17 +16,20 @@ import android.widget.Toast;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 public class ScriptContentInput extends AppCompatActivity {
 
     NumberPicker startPickerHour, startPickerMinute, startPickerSecond,
     endPickerHour, endPickerMinute, endPickerSecond;
-
+    Presentation pt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_content_input);
+        Intent intent = getIntent();
+        pt = (Presentation) intent.getSerializableExtra("presentation");
 
         final EditText scriptContent = findViewById(R.id.script_content);
         int color = Color.parseColor("#ffffff");
@@ -91,12 +94,12 @@ public class ScriptContentInput extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(startTime==0){
-                    Toast.makeText(getApplicationContext(),"시작 시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 if(endTime==0){
                     Toast.makeText(getApplicationContext(),"종료 시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(endTime>pt.getPresentTime()||startTime>pt.getPresentTime()){
+                    Toast.makeText(getApplicationContext(),"발표 시간을 확인해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(endTime==startTime){
