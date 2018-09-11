@@ -21,6 +21,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.db.DBHelper;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 public class StopwatchActivity extends AppCompatActivity {
     EditText inputTitle;
@@ -41,6 +42,10 @@ public class StopwatchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent.getSerializableExtra("presentation")!=null)
             pt = (Presentation) intent.getSerializableExtra("presentation");
+        else{
+            pt.setScripts(new ArrayList<Script>());
+            pt.setKeyPoints(new ArrayList<KeyPoint>());
+        }
         mode="input";
         if(intent.getStringExtra("mode")!=null) {
             mode = intent.getStringExtra("mode");
