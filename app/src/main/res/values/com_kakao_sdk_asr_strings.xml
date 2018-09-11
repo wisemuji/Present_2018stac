@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <string name="com_kakao_sdk_asr_voice_search_error_network">네트워크 연결이 불안정해요.</string>
+    <string name="com_kakao_sdk_asr_voice_search_tip_retry_after_a_while">잠시 후 다시 시도해주세요.</string>
+
+    <string name="com_kakao_sdk_asr_voice_search_please_speak">검색어를 말해주세요.</string>
+    <string name="com_kakao_sdk_asr_voice_search_warn_not_support_device">현재 사용중인 기기는 음성 분석이 제대로 되지 않을 수 있습니다.</string>
+
+    <string name="com_kakao_sdk_asr_voice_search_suggest_guide">혹시 아래와 같은 내용을 말씀하셨나요?</string>
+
+    <string name="com_kakao_sdk_asr_voice_search_tip_retry_button">버튼을 누른 후 다시 말해주세요.</string>
+    <string name="com_kakao_sdk_asr_voice_search_tip_natural">단어를 끊지 말고 자연스럽게 말해주세요.</string>
+    <string name="com_kakao_sdk_asr_voice_search_tip_instant_search">현재까지 입력된 검색어를 바로 검색하시려면 버튼을 눌러주세요.</string>
+
+    <!-- Voice Error -->
+    <string name="com_kakao_sdk_asr_voice_search_recognition_failed">죄송해요. 인식하지 못했어요.</string>
+
+    <!-- description -->
+    <string name="com_kakao_sdk_asr_close_button_description">close</string>
+    <string name="com_kakao_sdk_asr_refresh_button_description">refresh</string>
+    <string name="com_kakao_sdk_asr_kakao_button_description">kakao</string>
+    <string name="com_kakao_sdk_asr_voice_button_description">voice recognition</string>
+</resources>
