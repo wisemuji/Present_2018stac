@@ -23,7 +23,7 @@
             android:text="00:00"
             android:textStyle="bold"
             android:textColor="@color/mainColor"
-            android:textSize="16.7sp"/>
+            android:textSize="16.8sp"/>
 
         <TextView
             android:id="@+id/time_aa"
@@ -44,14 +44,14 @@
             android:layout_toEndOf="@+id/time_aa"
             android:text="00:00"
             android:textColor="@color/mainColor"
-            android:textSize="16.7sp"
+            android:textSize="16.8sp"
             android:textStyle="bold" />
 
         <ImageView
             android:layout_toLeftOf="@+id/script_list_delete"
             android:id="@+id/script_list_insert"
-            android:layout_width="16.7dp"
-            android:layout_height="16.7dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/script_modi"
             android:textColor="@color/mainColor"
             android:textSize="11dp"
@@ -62,11 +62,10 @@
             android:layout_marginLeft="8dp"
             android:layout_alignParentRight="true"
             android:id="@+id/script_list_delete"
-            android:layout_width="12dp"
-            android:layout_height="16.7dp"
+            android:layout_width="16dp"
+            android:layout_height="20dp"
             android:src="@drawable/script_delete"
             android:textColor="@color/mainColor"
-            android:textSize="11dp"
             />
 
     </RelativeLayout>
@@ -81,6 +80,6 @@
         android:layout_marginRight="100dp"
         android:text="저희의 앱 pre-sent는 미리를 뜻하는 pre와 보내다라는 뜻의 sent를 합친 단어로"
         android:textColor="@color/mainColor"
-        android:textSize="12.5sp" />
+        android:textSize="14sp" />
 
 </LinearLayout>

@@ -23,9 +23,9 @@
             android:layout_width="50dp"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
-            android:text="×"
+            android:text="╳"
             android:textColor="@color/mainColor"
-            android:textSize="16.2sp"
+            android:textSize="19.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="발표세팅"
             android:textColor="@color/mainColor"
-            android:textSize="16.2sp"
+            android:textSize="19.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -75,7 +75,7 @@
             android:layout_marginBottom="17dp"
             android:text="핸드폰"
             android:textColor="@color/mainColor"
-            android:textSize="16.5sp"
+            android:textSize="17.5sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -101,7 +101,7 @@
                     android:layout_weight="1"
                     android:text="시간 표시"
                     android:textColor="@color/mainColor"
-                    android:textSize="14.5sp"
+                    android:textSize="15.5sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -112,7 +112,7 @@
                     android:layout_weight="1"
                     android:text="꺼진 화면에 발표 시간 표시 "
                     android:textColor="@color/mainColor"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <CheckBox
@@ -151,7 +151,7 @@
                     android:gravity="bottom"
                     android:text="스크립트 표시"
                     android:textColor="@color/mainColor"
-                    android:textSize="14.5sp"
+                    android:textSize="15.5sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -163,7 +163,7 @@
                     android:layout_centerHorizontal="true"
                     android:text="꺼진 화면에 스크립트 표시 "
                     android:textColor="@color/mainColor"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -204,7 +204,7 @@
                     android:gravity="bottom"
                     android:text="진동"
                     android:textColor="@color/mainColor"
-                    android:textSize="14.5sp"
+                    android:textSize="15.5sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -216,7 +216,7 @@
                     android:layout_centerHorizontal="true"
                     android:text="핸드폰으로 진동 주기 "
                     android:textColor="@color/mainColor"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -255,7 +255,7 @@
             android:layout_marginBottom="17dp"
             android:text="스마트워치"
             android:textColor="@color/mainColor"
-            android:textSize="16.5sp"
+            android:textSize="17.5sp"
             android:textStyle="bold" />
 
 
@@ -281,7 +281,7 @@
                     android:gravity="bottom"
                     android:text="진동"
                     android:textColor="@color/mainColor"
-                    android:textSize="14.5sp"
+                    android:textSize="15.5sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -292,7 +292,7 @@
                     android:layout_centerHorizontal="true"
                     android:text="스마트워치로 진동주기"
                     android:textColor="@color/mainColor"
-                    android:textSize="11sp" />
+                    android:textSize="12sp" />
 
             </LinearLayout>
 
@@ -335,7 +335,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="이전"
             android:textColor="@color/mainColorWhite"
-            android:textSize="16.2sp"
+            android:textSize="17.6sp"
             android:textStyle="bold" />
 
         <TextView
@@ -347,7 +347,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="다음"
             android:textColor="@color/mainColorWhite"
-            android:textSize="16.2sp"
+            android:textSize="17.6sp"
             android:textStyle="bold" />
 
     </LinearLayout>

@@ -24,7 +24,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="╳"
             android:textColor="@color/mainColorWhite"
-            android:textSize="16dp"
+            android:textSize="19.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -35,7 +35,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="키포인트 등록"
             android:textColor="@color/mainColorWhite"
-            android:textSize="15dp"
+            android:textSize="19.2sp"
             android:textStyle="bold" />
 
         <TextView
@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         >
         <TextView
+            android:textSize="15.8sp"
             android:id="@+id/text_key"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,7 +67,7 @@
 
             android:textColorHint="#fefeff"
             android:id="@+id/keypoint_content"
-            android:textSize="15dp"
+            android:textSize="14.5sp"
             android:hint="키포인트를 나타내는 내용을 입력해주세요."
             app:layout_constraintTop_toBottomOf="@+id/text_key"
             android:layout_width="match_parent"
@@ -126,7 +127,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="확인"
             android:textColor="@color/mainColor"
-            android:textSize="16.2sp"
+            android:textSize="17.6sp"
             android:textStyle="bold" />
 
     </LinearLayout>

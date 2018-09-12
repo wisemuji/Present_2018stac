@@ -75,8 +75,6 @@ public class ScriptContentInput extends AppCompatActivity {
             }
         });
 
-
-
         //kakao 뉴톤 API
 
 

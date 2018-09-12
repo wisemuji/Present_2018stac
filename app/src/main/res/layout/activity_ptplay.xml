@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:paddingTop="16.2sp"
+            android:paddingTop="18.2sp"
             android:text="STAC 본선"
             android:textColor="@color/ptplayWhite"
             android:textSize="20sp" />
@@ -134,7 +134,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="시작"
             android:textColor="@color/bg_black"
-            android:textSize="8pt"
+            android:textSize="17.6sp"
             android:textStyle="bold" />
 
         <TextView
@@ -146,7 +146,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="초기화"
             android:textColor="@color/bg_black"
-            android:textSize="8pt"
+            android:textSize="17.6sp"
             android:textStyle="bold" />
 
     </LinearLayout>
