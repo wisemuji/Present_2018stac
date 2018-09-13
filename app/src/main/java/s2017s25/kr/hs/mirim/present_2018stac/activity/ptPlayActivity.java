@@ -35,6 +35,7 @@ public class ptPlayActivity extends AppCompatActivity {
     TextView myOutput;
     TextView ptTitle;
     TextView myRec;
+    TextView myTitle;
     ImageButton btnLock;
     TextView myBtnStart;
     TextView myBtnRefresh;
@@ -68,6 +69,7 @@ public class ptPlayActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+//        Toast.makeText(getApplicationContext(),pt.getPresentTime().toString(),Toast.LENGTH_LONG).show();
 
         //테스트
 //        ArrayList<Script> scripts=new ArrayList<>();
@@ -77,14 +79,29 @@ public class ptPlayActivity extends AppCompatActivity {
 
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
+        myTitle = (TextView) findViewById(R.id.sc_title);
         myBtnStart = (TextView) findViewById(R.id.btn_start);
         myBtnRefresh = (TextView) findViewById(R.id.btn_refresh);
         btnFinish = (TextView) findViewById(R.id.btn_destroy);
         ptTitle = (TextView) findViewById(R.id.pt_title);
 
+        if(!pt.isDisplayTime()){
+            myOutput.setVisibility(View.INVISIBLE);
+        }
+        if(!pt.isDisplayScript()){
+            myRec.setVisibility(View.INVISIBLE);
+        }
+
         ptTitle.setText(pt.getName());
 
         myBtnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myOnClick(v);
+            }
+        });
+
+        myBtnRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 myOnClick(v);
@@ -147,6 +164,7 @@ public class ptPlayActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if(btnFinish.isClickable()) {
+            myTimer=new Handler(){public void handleMessage(Message msg){}};
             super.onBackPressed();
         }
     }
@@ -169,6 +187,13 @@ public class ptPlayActivity extends AppCompatActivity {
             case R.id.btn_start: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
                 switch(cur_Status){
                     case Init:
+                        myTimer = new Handler(){
+                            public void handleMessage(Message msg){
+                                myOutput.setText(getTimeOut());
+                                //sendEmptyMessage 는 비어있는 메세지를 Handler 에게 전송하는겁니다.
+                                myTimer.sendEmptyMessage(0);
+                            }
+                        };
                         myBaseTime = SystemClock.elapsedRealtime();
                         System.out.println(myBaseTime);
                         //myTimer이라는 핸들러를 빈 메세지를 보내서 호출
@@ -196,7 +221,8 @@ public class ptPlayActivity extends AppCompatActivity {
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myBtnStart.setText("시작");
                 myOutput.setText("00:00");
-                myRec.setText("STAC 발표\nPRE-SENT");
+                myTitle.setText("여기에 키포인트가 표시됩니다");
+//                myRec.setText("STAC 발표\nPRE-SENT");
                 cur_Status = Init;
                 break;
 
@@ -218,16 +244,27 @@ public class ptPlayActivity extends AppCompatActivity {
         long outTime = now - myBaseTime;
         String easy_outTime;
         if(outTime >= 3600000)
-            easy_outTime = String.format("%d:%02d:%02d", (outTime/1000) / 3600, ((outTime/1000) % 3600) / 60, (outTime/1000) % 60);
+            easy_outTime = String.format("%02d:%02d:%02d", (outTime/1000) / 3600, ((outTime/1000) % 3600) / 60, (outTime/1000) % 60);
         else
             easy_outTime = String.format("%02d:%02d", outTime/1000 / 60, (outTime/1000)%60);
         String minute = String.format("%02d", outTime/1000 / 60);
         String second = String.format("%02d", (outTime/1000)%60);
 
+        if(outTime/1000 == pt.getPresentTime()/1000){
+            myTimer=new Handler(){public void handleMessage(Message msg){}};
+            Toast.makeText(getApplicationContext(),"PT가 종료되었습니다.",Toast.LENGTH_LONG).show();
+            myBtnStart.setText("재시작");
+            outTime=0;
+            cur_Status=Init;
+        }
+
         for(KeyPoint kp : pt.getKeyPoints()){
             if((outTime/1000) == (kp.getVibTime()/1000)){
-                myRec.setText(kp.getName());
-                vibe.vibrate(1000);
+                Toast.makeText(getApplicationContext(),"2123",Toast.LENGTH_SHORT);
+                myTitle.setText(kp.getName());
+                if(pt.isVibPhone()) {
+                    vibe.vibrate(1000);
+                }
             }
         }
 //
