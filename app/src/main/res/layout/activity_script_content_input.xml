@@ -56,8 +56,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
             android:layout_marginTop="30dp"
             android:orientation="vertical">
 
@@ -119,8 +119,6 @@
 
                 <RelativeLayout
                     android:id="@+id/relative1"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp"
                     android:layout_marginTop="45dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
@@ -184,9 +182,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_weight="1"
                             android:textStyle="bold"
@@ -221,9 +217,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_weight="1"
                             android:textStyle="bold"
@@ -258,9 +252,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_weight="1"
                             android:textStyle="bold"
@@ -370,8 +362,6 @@
 
                 <RelativeLayout
                     android:id="@+id/relative2"
-                    android:paddingLeft="30dp"
-                    android:paddingRight="30dp"
                     android:layout_marginTop="45dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
@@ -435,9 +425,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_weight="1"
                             android:textStyle="bold"
@@ -472,9 +460,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_weight="1"
                             android:textStyle="bold"
@@ -509,9 +495,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
-                        android:orientation="horizontal"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp">
+                        android:orientation="horizontal">
                         <TextView
                             android:layout_weight="1"
                             android:textStyle="bold"

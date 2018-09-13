@@ -50,28 +50,26 @@
 
     <TextView
 
-        android:textStyle="bold"
-        android:layout_marginTop="40dp"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="3dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginTop="40dp"
         android:text="PT 제목"
         android:textColor="@color/mainColor"
         android:textSize="15.8sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/input_title"
-        app:layout_constraintStart_toStartOf="@+id/input_title"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout12"
+        tools:layout_editor_absoluteX="21dp" />
 
     <EditText
         android:textSize="14.5sp"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:id="@+id/input_title"
         android:layout_height="wrap_content"
         android:layout_marginBottom="37dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginStart="21dp"
         android:hint="제목을 입력해주세요"
         android:textColor="@color/mainColor"
         android:textColorHint="@color/mainColorLight"
@@ -85,8 +83,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="315dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
         android:text="PT 시간"
         android:textColor="@color/mainColor"
         android:textSize="15.8sp"
@@ -111,14 +109,14 @@
 
     <RelativeLayout
         android:id="@+id/timePicker"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:paddingLeft="21dp"
+        android:paddingRight="21dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,8 +124,6 @@
 
         <RelativeLayout
             android:id="@+id/relative"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
             android:layout_marginTop="45dp"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -147,8 +143,6 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -193,9 +187,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:orientation="horizontal"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp">
+                android:orientation="horizontal">
                 <TextView
                     android:layout_weight="1"
                     android:textStyle="bold"
@@ -230,9 +222,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp">
+                android:orientation="horizontal">
                 <TextView
                     android:layout_weight="1"
                     android:textStyle="bold"
@@ -267,9 +257,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-                android:orientation="horizontal"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp">
+                android:orientation="horizontal">
                 <TextView
                     android:layout_weight="1"
                     android:textStyle="bold"
@@ -307,8 +295,6 @@
 
         <LinearLayout
             android:id="@+id/number_pickers"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
             android:layout_marginTop="45dp"
             android:layout_gravity="center"
             android:layout_weight="1"
