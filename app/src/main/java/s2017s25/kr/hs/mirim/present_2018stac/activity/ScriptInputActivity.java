@@ -57,9 +57,11 @@ public class ScriptInputActivity extends AppCompatActivity {
         list_item = new ArrayList<Object>();
         scripts=new ArrayList<Script>();
         keyPoints=new ArrayList<KeyPoint>();
-        if(pt.getKeyPoints().size()!=0 && pt.getScripts().size()!=0) {
-            scripts = pt.getScripts();
+        if(pt.getKeyPoints().size()!=0) {
             keyPoints = pt.getKeyPoints();
+        }
+        if(pt.getScripts().size()!=0) {
+            scripts = pt.getScripts();
         }
         adapter = new ScriptListAdapter();
         listView = (ListView) findViewById(R.id.listview522);
@@ -111,6 +113,8 @@ public class ScriptInputActivity extends AppCompatActivity {
                 Intent intent = new Intent(ScriptInputActivity.this, SettingActivity.class);
                 if(keyPoints.size()!=0) {
                     pt.setKeyPoints(keyPoints);
+                }
+                if(scripts.size()!=0) {
                     pt.setScripts(scripts);
                 }
                 intent.putExtra("presentation", pt);
@@ -128,6 +132,8 @@ public class ScriptInputActivity extends AppCompatActivity {
                 Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
                 if(keyPoints.size()!=0) {
                     pt.setKeyPoints(keyPoints);
+                }
+                if(scripts.size()!=0) {
                     pt.setScripts(scripts);
                 }
                 intent.putExtra("presentation", pt);
@@ -183,8 +189,6 @@ public class ScriptInputActivity extends AppCompatActivity {
 
                     break;
             }
-            refresh();
-            listView.setAdapter(adapter);
         }
     }
 
@@ -203,7 +207,18 @@ public class ScriptInputActivity extends AppCompatActivity {
         if (sc != null && sc.size() != 0) {
             for (int i = 0; i < sc.size(); i++) {
                 list_item.add(sc.get(i));
-                //adapter.addItem(sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
+                //adapter.addItem(
+                //        }
+                //        if(keyPoints.size()!=0) {
+                //            pt.setKeyPoints(keyPoints);
+                //        }
+                //        if(scripts.size()!=0) {sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
+            }
+            if(keyPoints.size()!=0) {
+                pt.setKeyPoints(keyPoints);
+            }
+            if(scripts.size()!=0) {
+                pt.setScripts(scripts);
             }
         }
 
@@ -263,6 +278,5 @@ public class ScriptInputActivity extends AppCompatActivity {
                 }
             }
         }
-        adapter.notifyDataSetChanged();
     }
 }

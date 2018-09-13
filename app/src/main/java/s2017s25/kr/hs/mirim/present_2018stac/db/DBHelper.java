@@ -202,7 +202,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ArrayList<Script> scripts = new ArrayList<>();
         Script sc;
 
-        Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION WHERE name='"+name+"'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION WHERE name='"+name+"' ORDER BY modifiedDate", null);
         while (cursor.moveToNext()) {
             pt=new Presentation(
                     cursor.getInt(0),
@@ -250,7 +250,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Presentation ptTmp;
 
         // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
-        Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM PRESENTATION ORDER BY modifiedDate DESC", null);
         while (cursor.moveToNext()) {
             ptTmp=new Presentation(cursor.getInt(0),cursor.getString(1),cursor.getLong(2),cursor.getLong(7));
             ptList.add(ptTmp);

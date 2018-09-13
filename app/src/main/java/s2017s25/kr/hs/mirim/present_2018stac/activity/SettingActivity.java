@@ -83,7 +83,7 @@ public class SettingActivity extends AppCompatActivity {
                     pt.setScripts(scripts);
                 }
                 if(pt.getKeyPoints() != null) {
-                    ArrayList<KeyPoint> keyPoints = new ArrayList<>();
+                    ArrayList<KeyPoint> keyPoints = (ArrayList<KeyPoint>) pt.getKeyPoints();
                     pt.setKeyPoints(keyPoints);
                 }
                 Date date=new Date();

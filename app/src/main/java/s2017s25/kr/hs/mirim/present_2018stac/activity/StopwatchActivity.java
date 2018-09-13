@@ -42,7 +42,7 @@ public class StopwatchActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent.getSerializableExtra("presentation")!=null)
             pt = (Presentation) intent.getSerializableExtra("presentation");
-        else{
+        else {
             pt.setScripts(new ArrayList<Script>());
             pt.setKeyPoints(new ArrayList<KeyPoint>());
         }

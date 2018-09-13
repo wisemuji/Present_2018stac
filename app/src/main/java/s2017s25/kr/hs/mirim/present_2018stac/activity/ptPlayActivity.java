@@ -35,6 +35,7 @@ public class ptPlayActivity extends AppCompatActivity {
     TextView myOutput;
     TextView ptTitle;
     TextView myRec;
+    TextView myTitle;
     ImageButton btnLock;
     TextView myBtnStart;
     TextView myBtnRefresh;
@@ -78,6 +79,7 @@ public class ptPlayActivity extends AppCompatActivity {
 
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
+        myTitle = (TextView) findViewById(R.id.sc_title);
         myBtnStart = (TextView) findViewById(R.id.btn_start);
         myBtnRefresh = (TextView) findViewById(R.id.btn_refresh);
         btnFinish = (TextView) findViewById(R.id.btn_destroy);
@@ -162,6 +164,7 @@ public class ptPlayActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if(btnFinish.isClickable()) {
+            myTimer=new Handler(){public void handleMessage(Message msg){}};
             super.onBackPressed();
         }
     }
@@ -218,6 +221,7 @@ public class ptPlayActivity extends AppCompatActivity {
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myBtnStart.setText("시작");
                 myOutput.setText("00:00");
+                myTitle.setText("여기에 키포인트가 표시됩니다");
 //                myRec.setText("STAC 발표\nPRE-SENT");
                 cur_Status = Init;
                 break;
@@ -247,11 +251,7 @@ public class ptPlayActivity extends AppCompatActivity {
         String second = String.format("%02d", (outTime/1000)%60);
 
         if(outTime/1000 == pt.getPresentTime()/1000){
-            myTimer=new Handler(){
-                public void handleMessage(Message msg){
-
-                }
-            };
+            myTimer=new Handler(){public void handleMessage(Message msg){}};
             Toast.makeText(getApplicationContext(),"PT가 종료되었습니다.",Toast.LENGTH_LONG).show();
             myBtnStart.setText("재시작");
             outTime=0;
@@ -260,7 +260,8 @@ public class ptPlayActivity extends AppCompatActivity {
 
         for(KeyPoint kp : pt.getKeyPoints()){
             if((outTime/1000) == (kp.getVibTime()/1000)){
-                myRec.setText(kp.getName());
+                Toast.makeText(getApplicationContext(),"2123",Toast.LENGTH_SHORT);
+                myTitle.setText(kp.getName());
                 if(pt.isVibPhone()) {
                     vibe.vibrate(1000);
                 }
