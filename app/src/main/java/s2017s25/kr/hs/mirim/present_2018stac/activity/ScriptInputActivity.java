@@ -172,7 +172,8 @@ public class ScriptInputActivity extends AppCompatActivity {
                     String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
 
                     adapter.addItem(startTime, endTime, sc.getContent());
-                    adapter.notifyDataSetChanged();
+                    refresh();
+                    listView.setAdapter(adapter);
                     break;
                 case 1:
                     KeyPoint key = (KeyPoint) data.getSerializableExtra("key");
