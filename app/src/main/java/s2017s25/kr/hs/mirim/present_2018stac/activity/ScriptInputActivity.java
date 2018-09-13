@@ -171,7 +171,8 @@ public class ScriptInputActivity extends AppCompatActivity {
                     String startTime = String.format("%02d:%02d:%02d",StartHour, StartMinute, StartSecond);
                     String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
 
-                    adapter.addItem(startTime, endTime, sc.getContent());
+//                    adapter.addItem(startTime, endTime, sc.getContent());
+                    list_item.add(sc);
                     refresh();
                     listView.setAdapter(adapter);
                     break;
@@ -186,7 +187,8 @@ public class ScriptInputActivity extends AppCompatActivity {
                     String keypointTime = String.format("%02d:%02d:%02d",keypointHour, keypointMinute, keypointSecond);
 
                     adapter.addItem(key.getName(), keypointTime);
-                    adapter.notifyDataSetChanged();
+                    refresh();
+                    listView.setAdapter(adapter);
 
                     break;
             }
