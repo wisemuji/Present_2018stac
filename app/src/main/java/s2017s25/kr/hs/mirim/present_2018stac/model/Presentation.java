@@ -111,7 +111,7 @@ public class Presentation implements Serializable{
     }
 
     public int isDisplayScript(int tmp) {
-        if(displayTime){
+        if(displayScript){
             return 1;
         }
         return 0;
@@ -126,7 +126,7 @@ public class Presentation implements Serializable{
     }
 
     public int isVibPhone(int tmp) {
-        if(displayTime){
+        if(vibPhone){
             return 1;
         }
         return 0;
@@ -142,7 +142,7 @@ public class Presentation implements Serializable{
     }
 
     public int isVibSmartWatch(int tmp) {
-        if(displayTime){
+        if(vibSmartWatch){
             return 1;
         }
         return 0;

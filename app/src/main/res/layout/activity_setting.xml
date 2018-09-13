@@ -117,6 +117,7 @@
 
             <CheckBox
                 android:id="@+id/setting_check1"
+                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -171,6 +172,7 @@
                 android:id="@+id/setting_check2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:checked="true"
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                 android:layout_weight="1"
@@ -224,6 +226,7 @@
                 android:id="@+id/setting_check3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:checked="true"
                 android:button="@null"
                 android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
                 android:layout_weight="1"
