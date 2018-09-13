@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item android:state_pressed="true" android:drawable="@drawable/com_kakao_sdk_asr_top_daum_on" />-->
+    <!--<item android:drawable="@drawable/com_kakao_sdk_asr_top_daum" />-->
+    <item android:state_pressed="true" android:drawable="@drawable/kakao_api_endorsedmark_screen" />
+    <item android:drawable="@drawable/kakao_api_endorsedmark_screen" />
+</selector>

@@ -5,6 +5,8 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
@@ -12,6 +14,16 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+    }
+}
+
+subprojects {
+    repositories {
+        jcenter()
+        maven { url 'http://repo.maven.apache.org/maven2' }
+
+        mavenCentral()      // kakao api
+        maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' } // 추가
     }
 }
 

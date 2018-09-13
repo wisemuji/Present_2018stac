@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="키포인트"
-            android:textSize="11.8sp"
+            android:textSize="16.8sp"
             android:textColor="@color/mainColorWhite"
             />
         <TextView
@@ -34,13 +34,13 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="00:00"
-            android:textSize="13.8sp"/>
+            android:textSize="16.8sp"/>
 
         <ImageView
             android:layout_toLeftOf="@+id/keypoint_delete"
             android:id="@+id/script_list_insert"
-            android:layout_width="12dp"
-            android:layout_height="17dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/keypoint_modi"
             android:textColor="@color/mainColorWhite"
             android:textSize="11dp"
@@ -51,8 +51,8 @@
             android:layout_marginLeft="8dp"
             android:layout_alignParentRight="true"
             android:id="@+id/keypoint_delete"
-            android:layout_width="12dp"
-            android:layout_height="16dp"
+            android:layout_width="16dp"
+            android:layout_height="20dp"
             android:src="@drawable/keypoint_delete"
             android:textColor="@color/mainColorWhite"
             android:textSize="11dp"
@@ -70,7 +70,7 @@
         android:layout_marginRight="100dp"
         android:text="키포인트 간단한 설명"
         android:textColor="@color/mainColorWhite"
-        android:textSize="10.8sp" />
+        android:textSize="14sp" />
 
 
 
