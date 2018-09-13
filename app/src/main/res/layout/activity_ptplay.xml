@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:gravity="center"
-        android:text="스크립트 제목"
+        android:text="여기에 키포인트가 표시됩니다"
         android:textColor="@color/ptplayWhite"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -90,19 +90,28 @@
         android:textSize="50sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time_out"
-        android:id="@+id/record"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:padding="10dp"
-        android:text="이곳에 스크립트가\n표시됩니다."
-        android:textColor="@color/ptplayWhite"
-        android:textSize="25sp" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="40dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/btn_lock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/time_out">
+
+        <TextView
+            android:id="@+id/record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:textColor="@color/ptplayWhite"
+            android:text="여기에 스크립트가 표시됩니다"
+            android:textSize="25sp" />
+    </ScrollView>
 
     <ImageButton
         android:layout_marginRight="17.3dp"
