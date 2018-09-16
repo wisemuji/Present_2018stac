@@ -171,8 +171,8 @@ public class ScriptInputActivity extends AppCompatActivity {
                     String startTime = String.format("%02d:%02d:%02d",StartHour, StartMinute, StartSecond);
                     String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
 
-//                    adapter.addItem(startTime, endTime, sc.getContent());
-                    list_item.add(sc);
+                    adapter=new ScriptListAdapter();
+                    pt.setScripts(scripts);
                     refresh();
                     listView.setAdapter(adapter);
                     break;
@@ -186,7 +186,8 @@ public class ScriptInputActivity extends AppCompatActivity {
 
                     String keypointTime = String.format("%02d:%02d:%02d",keypointHour, keypointMinute, keypointSecond);
 
-                    adapter.addItem(key.getName(), keypointTime);
+                    adapter=new ScriptListAdapter();
+                    pt.setKeyPoints(keyPoints);
                     refresh();
                     listView.setAdapter(adapter);
 
@@ -198,6 +199,7 @@ public class ScriptInputActivity extends AppCompatActivity {
     public void refresh(){
         ArrayList<KeyPoint> key = pt.getKeyPoints();
         ArrayList<Script> sc = pt.getScripts();
+        list_item=new ArrayList<>();
         if(key != null && key.size() != 0) {
 
             for (int i = 0; i < key.size(); i++) {
@@ -217,12 +219,12 @@ public class ScriptInputActivity extends AppCompatActivity {
                 //        }
                 //        if(scripts.size()!=0) {sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
             }
-            if(keyPoints.size()!=0) {
-                pt.setKeyPoints(keyPoints);
-            }
-            if(scripts.size()!=0) {
-                pt.setScripts(scripts);
-            }
+//            if(keyPoints.size()!=0) {
+//                pt.setKeyPoints(keyPoints);
+//            }
+//            if(scripts.size()!=0) {
+//                pt.setScripts(scripts);
+//            }
         }
 
         if(list_item != null) {

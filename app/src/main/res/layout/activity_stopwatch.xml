@@ -59,8 +59,8 @@
         android:textSize="15.8sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/input_title"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout12"
-        tools:layout_editor_absoluteX="21dp" />
+        app:layout_constraintStart_toStartOf="@+id/input_title"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
 
     <EditText
         android:textSize="14.5sp"
