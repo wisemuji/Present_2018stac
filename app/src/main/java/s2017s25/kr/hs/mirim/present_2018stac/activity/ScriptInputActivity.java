@@ -111,12 +111,6 @@ public class ScriptInputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, SettingActivity.class);
-                if(keyPoints.size()!=0) {
-                    pt.setKeyPoints(keyPoints);
-                }
-                if(scripts.size()!=0) {
-                    pt.setScripts(scripts);
-                }
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);
@@ -130,12 +124,6 @@ public class ScriptInputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
-                if(keyPoints.size()!=0) {
-                    pt.setKeyPoints(keyPoints);
-                }
-                if(scripts.size()!=0) {
-                    pt.setScripts(scripts);
-                }
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);
