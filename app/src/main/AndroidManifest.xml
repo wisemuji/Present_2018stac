@@ -16,10 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,12 +29,14 @@
         <activity android:name=".activity.StopwatchActivity" />
         <activity android:name=".activity.ScriptInputActivity" />
         <activity android:name=".activity.ScriptContentInput" />
-        <activity android:name=".activity.keypointInputActivity"/>
+        <activity android:name=".activity.keypointInputActivity" />
         <activity android:name=".activity.VoiceRecoActivity" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
+
+        <activity android:name=".activity.SplashActivity"></activity>
     </application>
 
 </manifest>
