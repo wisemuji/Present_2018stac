@@ -119,7 +119,7 @@ public class ptPlayActivity extends AppCompatActivity {
                     myBtnStart.setClickable(false);
                     myBtnRefresh.setClickable(false);
                     btnLock.setImageResource(R.drawable.lock_closed);
-                    Toast.makeText(getApplicationContext(), "잠금 모드가 활성화되었습니다.", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "잠금 모드가 활성화되었습니다.", Toast.LENGTH_LONG).show();
 
                     //Immersive full screen mode[[
                     if (osVersion >= 19){
@@ -146,7 +146,7 @@ public class ptPlayActivity extends AppCompatActivity {
                     myBtnStart.setClickable(true);
                     myBtnRefresh.setClickable(true);
                     btnLock.setImageResource(R.drawable.lock_opened);
-                    Toast.makeText(getApplicationContext(), "잠금 모드가 해제되었습니다.", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "잠금 모드가 해제되었습니다.", Toast.LENGTH_LONG).show();
                     //Immersive full screen mode[[
                     if (osVersion >= 19){
                         try {
@@ -259,7 +259,7 @@ public class ptPlayActivity extends AppCompatActivity {
         }
 
         for(KeyPoint kp : pt.getKeyPoints()){
-            if((outTime/1000) == (kp.getVibTime()/1000)){
+            if((outTime/100) == (kp.getVibTime()/100)){
                 Toast.makeText(getApplicationContext(),"2123",Toast.LENGTH_SHORT);
                 myTitle.setText(kp.getName());
                 if(pt.isVibPhone()) {

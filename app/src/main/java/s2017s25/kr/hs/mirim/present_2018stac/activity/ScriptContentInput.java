@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,7 +46,7 @@ public class ScriptContentInput extends AppCompatActivity {
         scriptContent = findViewById(R.id.script_content);
         int color = Color.parseColor("#ffffff");
         scriptContent.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
-        Button STT_btn = (Button)findViewById(R.id.speech_to_text_btn);
+        ImageButton STT_btn = (ImageButton) findViewById(R.id.speech_to_text_btn);
 
         startPickerHour = (NumberPicker)findViewById(R.id.picker_hour_start);
         startPickerHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
