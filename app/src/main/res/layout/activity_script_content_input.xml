@@ -73,12 +73,13 @@
                     android:textColor="@color/mainColorWhite"
                     android:textSize="15.8sp" />
 
-                <Button
+                <ImageButton
                     android:id="@+id/speech_to_text_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="103.5dp"
+                    android:layout_height="28.5dp"
                     android:layout_alignParentEnd="true"
-                    android:text="음성으로 입력"
+                    android:background="@drawable/inputvoice"
+                    android:adjustViewBounds="true"
                     android:textSize="13.8sp" />
             </RelativeLayout>
 
