@@ -136,12 +136,16 @@ public class DBHelper extends SQLiteOpenHelper {
     public void delete(Presentation pt) {
         SQLiteDatabase db = getWritableDatabase();
         // 입력한 항목과 일치하는 행 삭제
+        db.execSQL("DELETE FROM KeyPoint WHERE id=" + pt.getId() + ";");
+        db.execSQL("DELETE FROM Script WHERE id=" + pt.getId() + ";");
         db.execSQL("DELETE FROM PRESENTATION WHERE id=" + pt.getId() + ";");
         db.close();
     }
     public void delete(int id) {
         SQLiteDatabase db = getWritableDatabase();
         // 입력한 항목과 일치하는 행 삭제
+        db.execSQL("DELETE FROM KeyPoint WHERE id=" + id + ";");
+        db.execSQL("DELETE FROM Script WHERE id=" + id + ";");
         db.execSQL("DELETE FROM PRESENTATION WHERE id=" + id + ";");
         db.close();
     }

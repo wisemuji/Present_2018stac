@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,6 +25,7 @@ import java.util.Comparator;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.ScriptListAdapter;
+import s2017s25.kr.hs.mirim.present_2018stac.db.DBHelper;
 import s2017s25.kr.hs.mirim.present_2018stac.item.script_list_item;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
@@ -42,10 +44,14 @@ public class ScriptInputActivity extends AppCompatActivity {
     Presentation pt;
     String mode;
 
+    DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_input);
+
+        dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
@@ -101,6 +107,35 @@ public class ScriptInputActivity extends AppCompatActivity {
                 AlertDialog dialog = builder.create();    // 알림창 객체 생성
 
                 dialog.show();    // 알림창 띄우기
+            }
+        });
+
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, final View view, int position, long id) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptInputActivity.this);
+                alertDialogBuilder.setTitle("항목 삭제");
+                alertDialogBuilder
+                        .setMessage("선택한 항목을 삭제하시겠습니까?")
+                        .setPositiveButton("삭제",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        TextView v=(TextView)view.findViewById(R.id.title_textView);
+                                        Presentation pt = dbHelper.getPresentation(v.getText().toString());
+                                        dbHelper.delete(pt.getId());
+                                        refresh();
+                                    }
+                                })
+                        .setNegativeButton("취소",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // 다이얼로그를 취소한다
+                                        dialog.cancel();
+                                    }
+                                });
+                alertDialogBuilder.show();
+                return true;
             }
         });
 
