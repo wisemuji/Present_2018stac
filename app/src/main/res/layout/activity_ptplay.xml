@@ -128,6 +128,13 @@
         android:scaleType="centerCrop"
         android:src="@drawable/lock_opened" />
 
+    <TextView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/upper_shadow_todo_black"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent" />
     <LinearLayout
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
