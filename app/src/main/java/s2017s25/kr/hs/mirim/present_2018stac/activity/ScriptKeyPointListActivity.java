@@ -3,21 +3,13 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.Image;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -29,7 +21,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
-public class ScriptInputActivity extends AppCompatActivity {
+public class ScriptKeyPointListActivity extends AppCompatActivity {
     ArrayList<KeyPoint> keyPoints;
     ArrayList<Script> scripts;
     ArrayList<Object> list_item;
@@ -45,7 +37,7 @@ public class ScriptInputActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_script_input);
+        setContentView(R.layout.activity_script_keypoint);
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
@@ -65,9 +57,6 @@ public class ScriptInputActivity extends AppCompatActivity {
         }
         adapter = new ScriptListAdapter();
         listView = (ListView) findViewById(R.id.listview522);
-//        listView = (ListView)findViewById(R.id.script_listview);
-//
-//        list_itemArrayList = new ArrayList<script_list_item>();
 
         final CharSequence[] items = {"스크립트", "키포인트"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
@@ -86,12 +75,12 @@ public class ScriptInputActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int index){
                                 switch (index){
                                     case 0:
-                                        Intent intent = new Intent(ScriptInputActivity.this, ScriptContentInput.class);
+                                        Intent intent = new Intent(ScriptKeyPointListActivity.this, ScriptContentInput.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent,0);
                                         break;
                                     case 1:
-                                        intent = new Intent(ScriptInputActivity.this, keypointInputActivity.class);
+                                        intent = new Intent(ScriptKeyPointListActivity.this, keypointInputActivity.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent, 1);
                                         break;
@@ -110,7 +99,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, SettingActivity.class);
+                Intent intent = new Intent(ScriptKeyPointListActivity.this, SettingActivity.class);
                 if(keyPoints.size()!=0) {
                     pt.setKeyPoints(keyPoints);
                 }
@@ -129,7 +118,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
+                Intent intent = new Intent(ScriptKeyPointListActivity.this, StopwatchActivity.class);
                 if(keyPoints.size()!=0) {
                     pt.setKeyPoints(keyPoints);
                 }
@@ -197,8 +186,8 @@ public class ScriptInputActivity extends AppCompatActivity {
 
     public void refresh(){
         ArrayList<KeyPoint> key = pt.getKeyPoints();
-        ArrayList<Script> sc = pt.getScripts();
-        if(key != null && key.size() != 0) {
+            ArrayList<Script> sc = pt.getScripts();
+            if(key != null && key.size() != 0) {
 
             for (int i = 0; i < key.size(); i++) {
 

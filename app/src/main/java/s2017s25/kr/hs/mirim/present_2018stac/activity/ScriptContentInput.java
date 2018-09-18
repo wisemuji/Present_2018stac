@@ -1,10 +1,7 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -19,13 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kakao.sdk.newtoneapi.SpeechRecognizerActivity;
-import com.kakao.sdk.newtoneapi.SpeechRecognizerClient;
-import com.kakao.sdk.newtoneapi.SpeechRecognizerManager;
 
 import java.util.ArrayList;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
-import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
@@ -107,7 +101,7 @@ public class ScriptContentInput extends AppCompatActivity {
         OKbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptContentInput.this, ScriptInputActivity.class);
+                Intent intent = new Intent(ScriptContentInput.this, ScriptKeyPointListActivity.class);
                 String content = scriptContent.getText().toString();
                 long startTime = 0, endTime = 0;
 
@@ -138,6 +132,18 @@ public class ScriptContentInput extends AppCompatActivity {
                 if(startTime>endTime){
                     Toast.makeText(getApplicationContext(),"시작 시간이 종료 시간보다 뒤에 있습니다.", Toast.LENGTH_SHORT).show();
                     return;
+                }
+
+                if(pt.getScripts() != null) {
+                    for (int i = 0; i < pt.getScripts().size(); i++) {
+                        if ((pt.getScripts().get(i).getStartTime() <= startTime
+                                && pt.getScripts().get(i).getEndTime() > startTime) ||
+                                (pt.getScripts().get(i).getStartTime() < endTime &&
+                                        pt.getScripts().get(i).getEndTime() >= endTime)) {
+                            Toast.makeText(getApplicationContext(), "다른 스크립트와 시간이 겹칩니다.", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
                 }
 
                 Script script = new Script(startTime, endTime, content);
