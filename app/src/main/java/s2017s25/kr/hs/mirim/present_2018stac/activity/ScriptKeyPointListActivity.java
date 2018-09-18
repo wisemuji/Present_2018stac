@@ -3,6 +3,24 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+
+import android.content.SharedPreferences;
+import android.media.Image;
+import android.support.annotation.IdRes;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,10 +34,14 @@ import java.util.Comparator;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.ScriptListAdapter;
+
+import s2017s25.kr.hs.mirim.present_2018stac.db.DBHelper;
+
 import s2017s25.kr.hs.mirim.present_2018stac.item.script_list_item;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
+
 
 public class ScriptKeyPointListActivity extends AppCompatActivity {
     ArrayList<KeyPoint> keyPoints;
@@ -34,10 +56,15 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
     Presentation pt;
     String mode;
 
-    @Override
+    DBHelper dbHelper;
+
+   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_keypoint);
+
+        dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
+
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
@@ -58,6 +85,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         adapter = new ScriptListAdapter();
         listView = (ListView) findViewById(R.id.listview522);
 
+
         final CharSequence[] items = {"스크립트", "키포인트"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
 
@@ -75,11 +103,13 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int index){
                                 switch (index){
                                     case 0:
+
                                         Intent intent = new Intent(ScriptKeyPointListActivity.this, ScriptContentInput.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent,0);
                                         break;
                                     case 1:
+
                                         intent = new Intent(ScriptKeyPointListActivity.this, keypointInputActivity.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent, 1);
@@ -94,11 +124,43 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         });
 
 
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, final View view, int position, long id) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptInputActivity.this);
+                alertDialogBuilder.setTitle("항목 삭제");
+                alertDialogBuilder
+                        .setMessage("선택한 항목을 삭제하시겠습니까?")
+                        .setPositiveButton("삭제",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        TextView v=(TextView)view.findViewById(R.id.title_textView);
+                                        Presentation pt = dbHelper.getPresentation(v.getText().toString());
+                                        dbHelper.delete(pt.getId());
+                                        refresh();
+                                    }
+                                })
+                        .setNegativeButton("취소",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        // 다이얼로그를 취소한다
+                                        dialog.cancel();
+                                    }
+                                });
+                alertDialogBuilder.show();
+                return true;
+            }
+        });
+
+
+
         nextBtn = (TextView) findViewById(R.id.script_next_btn);
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(ScriptKeyPointListActivity.this, SettingActivity.class);
                 if(keyPoints.size()!=0) {
                     pt.setKeyPoints(keyPoints);
@@ -118,6 +180,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(ScriptKeyPointListActivity.this, StopwatchActivity.class);
                 if(keyPoints.size()!=0) {
                     pt.setKeyPoints(keyPoints);
@@ -125,6 +188,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                 if(scripts.size()!=0) {
                     pt.setScripts(scripts);
                 }
+
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);
@@ -160,8 +224,9 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                     String startTime = String.format("%02d:%02d:%02d",StartHour, StartMinute, StartSecond);
                     String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
 
-//                    adapter.addItem(startTime, endTime, sc.getContent());
-                    list_item.add(sc);
+                    adapter=new ScriptListAdapter();
+                    pt.setScripts(scripts);
+
                     refresh();
                     listView.setAdapter(adapter);
                     break;
@@ -175,7 +240,8 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
 
                     String keypointTime = String.format("%02d:%02d:%02d",keypointHour, keypointMinute, keypointSecond);
 
-                    adapter.addItem(key.getName(), keypointTime);
+                    adapter=new ScriptListAdapter();
+                    pt.setKeyPoints(keyPoints);
                     refresh();
                     listView.setAdapter(adapter);
 
@@ -186,8 +252,11 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
 
     public void refresh(){
         ArrayList<KeyPoint> key = pt.getKeyPoints();
-            ArrayList<Script> sc = pt.getScripts();
-            if(key != null && key.size() != 0) {
+
+        ArrayList<Script> sc = pt.getScripts();
+        list_item=new ArrayList<>();
+        if(key != null && key.size() != 0) {
+
 
             for (int i = 0; i < key.size(); i++) {
 
@@ -205,12 +274,6 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                 //            pt.setKeyPoints(keyPoints);
                 //        }
                 //        if(scripts.size()!=0) {sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
-            }
-            if(keyPoints.size()!=0) {
-                pt.setKeyPoints(keyPoints);
-            }
-            if(scripts.size()!=0) {
-                pt.setScripts(scripts);
             }
         }
 
