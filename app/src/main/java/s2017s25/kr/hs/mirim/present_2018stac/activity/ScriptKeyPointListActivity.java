@@ -3,6 +3,7 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.annotation.IdRes;
@@ -19,19 +20,30 @@ import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.Adapter.ScriptListAdapter;
+
 import s2017s25.kr.hs.mirim.present_2018stac.db.DBHelper;
+
 import s2017s25.kr.hs.mirim.present_2018stac.item.script_list_item;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
-public class ScriptInputActivity extends AppCompatActivity {
+
+public class ScriptKeyPointListActivity extends AppCompatActivity {
     ArrayList<KeyPoint> keyPoints;
     ArrayList<Script> scripts;
     ArrayList<Object> list_item;
@@ -46,12 +58,13 @@ public class ScriptInputActivity extends AppCompatActivity {
 
     DBHelper dbHelper;
 
-    @Override
+   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_script_input);
+        setContentView(R.layout.activity_script_keypoint);
 
         dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
+
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
@@ -71,9 +84,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         }
         adapter = new ScriptListAdapter();
         listView = (ListView) findViewById(R.id.listview522);
-//        listView = (ListView)findViewById(R.id.script_listview);
-//
-//        list_itemArrayList = new ArrayList<script_list_item>();
+
 
         final CharSequence[] items = {"스크립트", "키포인트"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
@@ -92,12 +103,14 @@ public class ScriptInputActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int index){
                                 switch (index){
                                     case 0:
-                                        Intent intent = new Intent(ScriptInputActivity.this, ScriptContentInput.class);
+
+                                        Intent intent = new Intent(ScriptKeyPointListActivity.this, ScriptContentInput.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent,0);
                                         break;
                                     case 1:
-                                        intent = new Intent(ScriptInputActivity.this, keypointInputActivity.class);
+
+                                        intent = new Intent(ScriptKeyPointListActivity.this, keypointInputActivity.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent, 1);
                                         break;
@@ -109,6 +122,7 @@ public class ScriptInputActivity extends AppCompatActivity {
                 dialog.show();    // 알림창 띄우기
             }
         });
+
 
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -140,12 +154,20 @@ public class ScriptInputActivity extends AppCompatActivity {
         });
 
 
+
         nextBtn = (TextView) findViewById(R.id.script_next_btn);
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, SettingActivity.class);
+
+                Intent intent = new Intent(ScriptKeyPointListActivity.this, SettingActivity.class);
+                if(keyPoints.size()!=0) {
+                    pt.setKeyPoints(keyPoints);
+                }
+                if(scripts.size()!=0) {
+                    pt.setScripts(scripts);
+                }
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);
@@ -158,7 +180,15 @@ public class ScriptInputActivity extends AppCompatActivity {
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
+
+                Intent intent = new Intent(ScriptKeyPointListActivity.this, StopwatchActivity.class);
+                if(keyPoints.size()!=0) {
+                    pt.setKeyPoints(keyPoints);
+                }
+                if(scripts.size()!=0) {
+                    pt.setScripts(scripts);
+                }
+
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);
@@ -196,6 +226,7 @@ public class ScriptInputActivity extends AppCompatActivity {
 
                     adapter=new ScriptListAdapter();
                     pt.setScripts(scripts);
+
                     refresh();
                     listView.setAdapter(adapter);
                     break;
@@ -221,9 +252,11 @@ public class ScriptInputActivity extends AppCompatActivity {
 
     public void refresh(){
         ArrayList<KeyPoint> key = pt.getKeyPoints();
+
         ArrayList<Script> sc = pt.getScripts();
         list_item=new ArrayList<>();
         if(key != null && key.size() != 0) {
+
 
             for (int i = 0; i < key.size(); i++) {
 
@@ -242,12 +275,6 @@ public class ScriptInputActivity extends AppCompatActivity {
                 //        }
                 //        if(scripts.size()!=0) {sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
             }
-//            if(keyPoints.size()!=0) {
-//                pt.setKeyPoints(keyPoints);
-//            }
-//            if(scripts.size()!=0) {
-//                pt.setScripts(scripts);
-//            }
         }
 
         if(list_item != null) {

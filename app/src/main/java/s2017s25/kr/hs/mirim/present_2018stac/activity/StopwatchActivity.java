@@ -3,10 +3,8 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
-import android.media.ExifInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -117,7 +115,7 @@ public class StopwatchActivity extends AppCompatActivity {
                     pt.setName(title);
                     pt.setPresentTime(time);
 
-                    Intent intent = new Intent(StopwatchActivity.this, ScriptInputActivity.class);
+                    Intent intent = new Intent(StopwatchActivity.this, ScriptKeyPointListActivity.class);
 
                     intent.putExtra("presentation", pt);
                     intent.putExtra("mode", mode);

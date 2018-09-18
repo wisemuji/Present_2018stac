@@ -27,7 +27,7 @@
         <activity android:name=".activity.ptPlayActivity" />
         <activity android:name=".activity.PTlistActivity" />
         <activity android:name=".activity.StopwatchActivity" />
-        <activity android:name=".activity.ScriptInputActivity" />
+        <activity android:name=".activity.ScriptKeyPointListActivity" />
         <activity android:name=".activity.ScriptContentInput" />
         <activity android:name=".activity.keypointInputActivity" />
         <activity android:name=".activity.VoiceRecoActivity" />
@@ -36,7 +36,8 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
 
-        <activity android:name=".activity.SplashActivity"></activity>
+        <activity android:name=".activity.SplashActivity" />
+        <activity android:name=".activity.ScriptContent"></activity>
     </application>
 
 </manifest>

@@ -60,9 +60,11 @@ public class keypointInputActivity extends AppCompatActivity {
         OKbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(keypointInputActivity.this, ScriptInputActivity.class);
+                Intent intent = new Intent(keypointInputActivity.this, ScriptKeyPointListActivity.class);
                 String content = keyContent.getText().toString();
                 long keyptTime = 0;
+
+
 
                 keyptTime += pickerHour.getValue() * 1000 * 3600;
                 keyptTime += pickerMinute.getValue() * 1000 * 60;
