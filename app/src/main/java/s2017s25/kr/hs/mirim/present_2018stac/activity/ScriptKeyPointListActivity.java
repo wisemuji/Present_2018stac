@@ -199,12 +199,6 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         if (sc != null && sc.size() != 0) {
             for (int i = 0; i < sc.size(); i++) {
                 list_item.add(sc.get(i));
-                //adapter.addItem(
-                //        }
-                //        if(keyPoints.size()!=0) {
-                //            pt.setKeyPoints(keyPoints);
-                //        }
-                //        if(scripts.size()!=0) {sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
             }
             if(keyPoints.size()!=0) {
                 pt.setKeyPoints(keyPoints);
