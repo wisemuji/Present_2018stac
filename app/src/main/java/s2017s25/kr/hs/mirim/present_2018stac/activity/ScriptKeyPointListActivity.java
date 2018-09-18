@@ -4,29 +4,17 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 
-import android.content.SharedPreferences;
-import android.media.Image;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -128,7 +116,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, final View view, int position, long id) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptInputActivity.this);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptKeyPointListActivity.this);
                 alertDialogBuilder.setTitle("항목 삭제");
                 alertDialogBuilder
                         .setMessage("선택한 항목을 삭제하시겠습니까?")
