@@ -112,12 +112,6 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
             }
         });
 
-    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            scripts.get(position)
-        }
-    });
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

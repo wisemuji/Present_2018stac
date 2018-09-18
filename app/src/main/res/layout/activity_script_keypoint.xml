@@ -39,13 +39,13 @@
             android:textSize="19.2sp"
             android:textStyle="bold" />
 
-        <TextView
+
+        <ImageView
+            android:id="@+id/inforBtn"
             android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:textColor="@color/mainColorWhite"
-            android:textSize="15dp"
-            android:textStyle="bold" />
+            android:layout_height="30dp"
+            android:src="@drawable/inforbtn"
+            />
 
     </LinearLayout>
     <TextView

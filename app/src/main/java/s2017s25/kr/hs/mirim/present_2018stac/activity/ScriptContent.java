@@ -33,8 +33,8 @@ public class ScriptContent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ScriptContent.this, ScriptContentInput.class);
-                intent.putExtra();
-                startActivity();
+               // intent.putExtra();
+               // startActivity();
 
             }
         });

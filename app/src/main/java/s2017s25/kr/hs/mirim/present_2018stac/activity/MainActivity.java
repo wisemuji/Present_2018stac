@@ -1,6 +1,8 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -25,26 +27,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        SharedPreferences prefs = getSharedPreferences("Pref", Activity.MODE_PRIVATE);
+
+        boolean isFirstRun = prefs.getBoolean("isFirstRun",false);
+
+        if(!isFirstRun){
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("isFirstRun", true);
+            editor.commit();
+          Intent intent = new Intent(MainActivity.this, AppInfo.class);
+          startActivity(intent);
+        }
+
+
         Intent splash = new Intent(this, SplashActivity.class);
         startActivity(splash);
 
-        ///해시코드
-//
-//        try {
-//            PackageInfo info = getPackageManager().getPackageInfo("s2017s25.kr.hs.mirim.present_2018stac", PackageManager.GET_SIGNATURES);
-//            for (Signature signature : info.signatures) {
-//                MessageDigest md = MessageDigest.getInstance("SHA");
-//                md.update(signature.toByteArray());
-//                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-//
-//            }
-//        } catch (PackageManager.NameNotFoundException e) {
-//            Toast.makeText(getApplicationContext(),"no1",Toast.LENGTH_LONG).show();
-//            e.printStackTrace();
-//        } catch (NoSuchAlgorithmException e) {
-//            Toast.makeText(getApplicationContext(),"no2",Toast.LENGTH_LONG).show();
-//            e.printStackTrace();
-//        }
 
         Button startPT = (Button)findViewById(R.id.startPT);
         Button PTlist = (Button)findViewById(R.id.PTlist);
