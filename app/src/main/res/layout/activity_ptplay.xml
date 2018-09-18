@@ -33,6 +33,7 @@
             android:gravity="center"
             android:paddingTop="18.2sp"
             android:text="STAC 본선"
+            android:textStyle="bold"
             android:textColor="@color/ptplayWhite"
             android:textSize="20sp" />
     </RelativeLayout>
