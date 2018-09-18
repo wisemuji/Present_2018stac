@@ -323,7 +323,7 @@
     <TextView
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         android:background="@drawable/upper_shadow_todo"
         android:gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent" />
