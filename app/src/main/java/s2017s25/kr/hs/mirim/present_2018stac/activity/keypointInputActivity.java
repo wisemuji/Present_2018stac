@@ -67,6 +67,10 @@ public class keypointInputActivity extends AppCompatActivity {
                 keyptTime += pickerHour.getValue() * 1000 * 3600;
                 keyptTime += pickerMinute.getValue() * 1000 * 60;
                 keyptTime += pickerSecond.getValue() * 1000;
+                if(keyptTime==0){
+                    Toast.makeText(getApplicationContext(),"시간을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(keyptTime>pt.getPresentTime()){
                     Toast.makeText(getApplicationContext(),"발표 시간을 확인해주세요.", Toast.LENGTH_SHORT).show();
                     return;

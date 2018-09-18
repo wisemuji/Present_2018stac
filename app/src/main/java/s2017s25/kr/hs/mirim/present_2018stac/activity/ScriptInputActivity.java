@@ -44,14 +44,10 @@ public class ScriptInputActivity extends AppCompatActivity {
     Presentation pt;
     String mode;
 
-    DBHelper dbHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_input);
-
-        dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
@@ -113,7 +109,7 @@ public class ScriptInputActivity extends AppCompatActivity {
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, final View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, final View view, final int position, long id) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptInputActivity.this);
                 alertDialogBuilder.setTitle("항목 삭제");
                 alertDialogBuilder
@@ -121,10 +117,22 @@ public class ScriptInputActivity extends AppCompatActivity {
                         .setPositiveButton("삭제",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        TextView v=(TextView)view.findViewById(R.id.title_textView);
-                                        Presentation pt = dbHelper.getPresentation(v.getText().toString());
-                                        dbHelper.delete(pt.getId());
+                                        ArrayList<KeyPoint> key = new ArrayList<>();
+                                        ArrayList<Script> sc = new ArrayList<>();
+                                        list_item.remove(position);
+                                        for(Object o:list_item){
+                                            if(o instanceof KeyPoint){
+                                                key.add((KeyPoint) o);
+                                            }
+                                            else {
+                                                sc.add((Script) o);
+                                            }
+                                        }
+                                        pt.setKeyPoints(key);
+                                        pt.setScripts(sc);
+                                        adapter=new ScriptListAdapter();
                                         refresh();
+                                        listView.setAdapter(adapter);
                                     }
                                 })
                         .setNegativeButton("취소",
