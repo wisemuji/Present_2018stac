@@ -64,6 +64,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         list_item = new ArrayList<Object>();
         scripts=new ArrayList<Script>();
         keyPoints=new ArrayList<KeyPoint>();
+
         if(pt.getKeyPoints().size()!=0) {
             keyPoints = pt.getKeyPoints();
         }
@@ -111,7 +112,12 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
             }
         });
 
-
+    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            scripts.get(position)
+        }
+    });
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -123,6 +129,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                         .setPositiveButton("삭제",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
+
                                         TextView v=(TextView)view.findViewById(R.id.title_textView);
                                         Presentation pt = dbHelper.getPresentation(v.getText().toString());
                                         dbHelper.delete(pt.getId());
