@@ -71,11 +71,6 @@ public class ptPlayActivity extends AppCompatActivity {
         pt = (Presentation) intent.getSerializableExtra("presentation");
 //        Toast.makeText(getApplicationContext(),pt.getPresentTime().toString(),Toast.LENGTH_LONG).show();
 
-        //테스트
-//        ArrayList<Script> scripts=new ArrayList<>();
-//        ArrayList<KeyPoint> keyPoints=new ArrayList<>();
-//        keyPoints.add(0, new KeyPoint("테스트 키포인트", (long)2000));
-//        pt = new Presentation("test",(long)60,true,true,true,true,scripts,keyPoints);
 
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -81,6 +82,15 @@ public class StopwatchActivity extends AppCompatActivity {
         inputTitle.setText(pt.getName());
 
 
+
+        ImageView inforBtn = findViewById(R.id.inforBtn);
+        inforBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StopwatchActivity.this, AppInfo.class);
+                startActivity(intent);
+            }
+        });
 
         exitBtn = (TextView) findViewById(R.id.exitBtn);
         exitBtn.setOnClickListener(new View.OnClickListener() {

@@ -81,6 +81,15 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         refresh();
         listView.setAdapter(adapter);
 
+       ImageView inforBtn = findViewById(R.id.inforBtn);
+       inforBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(ScriptKeyPointListActivity.this, AppInfo.class);
+               startActivity(intent);
+           }
+       });
+
 
         ImageView itemSet = (ImageView) findViewById(R.id.item_set);
         itemSet.setOnClickListener(new View.OnClickListener() {
