@@ -3,15 +3,12 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 import s2017s25.kr.hs.mirim.present_2018stac.db.DBHelper;
@@ -119,7 +116,7 @@ public class SettingActivity extends AppCompatActivity {
                 pt.setDisplayScript(settingCheck2.isChecked());
                 pt.setVibPhone(settingCheck3.isChecked());
                 pt.setVibSmartWatch(settingCheck4.isChecked());
-                Intent intent = new Intent(SettingActivity.this, ScriptInputActivity.class);
+                Intent intent = new Intent(SettingActivity.this, ScriptKeyPointListActivity.class);
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);

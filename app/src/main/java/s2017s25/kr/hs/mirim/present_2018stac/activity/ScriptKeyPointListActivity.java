@@ -31,7 +31,7 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
-public class ScriptInputActivity extends AppCompatActivity {
+public class ScriptKeyPointListActivity extends AppCompatActivity {
     ArrayList<KeyPoint> keyPoints;
     ArrayList<Script> scripts;
     ArrayList<Object> list_item;
@@ -88,12 +88,12 @@ public class ScriptInputActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int index){
                                 switch (index){
                                     case 0:
-                                        Intent intent = new Intent(ScriptInputActivity.this, ScriptContentInput.class);
+                                        Intent intent = new Intent(ScriptKeyPointListActivity.this, ScriptContentInput.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent,0);
                                         break;
                                     case 1:
-                                        intent = new Intent(ScriptInputActivity.this, keypointInputActivity.class);
+                                        intent = new Intent(ScriptKeyPointListActivity.this, keypointInputActivity.class);
                                         intent.putExtra("presentation", pt);
                                         startActivityForResult(intent, 1);
                                         break;
@@ -110,7 +110,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, final View view, final int position, long id) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptInputActivity.this);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptKeyPointListActivity.this);
                 alertDialogBuilder.setTitle("항목 삭제");
                 alertDialogBuilder
                         .setMessage("선택한 항목을 삭제하시겠습니까?")
@@ -153,7 +153,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, SettingActivity.class);
+                Intent intent = new Intent(ScriptKeyPointListActivity.this, SettingActivity.class);
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);
@@ -166,7 +166,7 @@ public class ScriptInputActivity extends AppCompatActivity {
         prevBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScriptInputActivity.this, StopwatchActivity.class);
+                Intent intent = new Intent(ScriptKeyPointListActivity.this, StopwatchActivity.class);
                 intent.putExtra("presentation", pt);
                 intent.putExtra("mode", mode);
                 startActivity(intent);

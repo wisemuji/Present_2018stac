@@ -5,7 +5,8 @@
     android:id="@+id/linearLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ScriptInputActivity"
+
+    tools:context=".activity.ScriptKeyPointListActivity"
     android:background="@color/mainColorWhite"
     >
 
@@ -137,3 +138,4 @@
 
 
 </android.support.constraint.ConstraintLayout>
+

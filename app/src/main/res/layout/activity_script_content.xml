@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ScriptContent"
+    android:background="@color/mainColorWhite"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@color/bgcolor">
+
+        <TextView
+            android:id="@+id/exitBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="╳"
+            android:textColor="@color/mainColor"
+            android:textSize="19.2sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="스크립트 내용"
+            android:textColor="@color/mainColor"
+            android:textSize="19.2sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/mainColor"
+            android:textSize="9pt"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:textSize="15.3sp"
+        android:id="@+id/script_area"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="38dp"
+        android:layout_below="@+id/linearLayout2"
+        android:textColor="@color/mainColor"
+        android:text="여기에 텍스트 표시"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout14"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/mainColor"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:background="@drawable/prev_next_btn"
+            android:id="@+id/script_delete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="삭제"
+            android:textColor="@color/mainColorWhite"
+            android:textSize="17.6sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:background="@drawable/prev_next_btn"
+            android:id="@+id/script_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="수정"
+            android:textColor="@color/mainColorWhite"
+            android:textSize="17.6sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>
