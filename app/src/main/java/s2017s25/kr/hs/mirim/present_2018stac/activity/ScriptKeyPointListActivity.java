@@ -4,29 +4,17 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 
-import android.content.SharedPreferences;
-import android.media.Image;
-import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -76,6 +64,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         list_item = new ArrayList<Object>();
         scripts=new ArrayList<Script>();
         keyPoints=new ArrayList<KeyPoint>();
+
         if(pt.getKeyPoints().size()!=0) {
             keyPoints = pt.getKeyPoints();
         }
@@ -123,18 +112,24 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
             }
         });
 
-
+    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            scripts.get(position)
+        }
+    });
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, final View view, int position, long id) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptInputActivity.this);
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptKeyPointListActivity.this);
                 alertDialogBuilder.setTitle("항목 삭제");
                 alertDialogBuilder
                         .setMessage("선택한 항목을 삭제하시겠습니까?")
                         .setPositiveButton("삭제",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
+
                                         TextView v=(TextView)view.findViewById(R.id.title_textView);
                                         Presentation pt = dbHelper.getPresentation(v.getText().toString());
                                         dbHelper.delete(pt.getId());
@@ -268,12 +263,6 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         if (sc != null && sc.size() != 0) {
             for (int i = 0; i < sc.size(); i++) {
                 list_item.add(sc.get(i));
-                //adapter.addItem(
-                //        }
-                //        if(keyPoints.size()!=0) {
-                //            pt.setKeyPoints(keyPoints);
-                //        }
-                //        if(scripts.size()!=0) {sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
             }
         }
 
