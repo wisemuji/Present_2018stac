@@ -72,7 +72,7 @@ public class ptPlayActivity extends AppCompatActivity {
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
 //        Toast.makeText(getApplicationContext(),pt.getPresentTime().toString(),Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getApplicationContext(),"발표 중에는 화면이 꺼지지 않습니다.",Toast.LENGTH_LONG).show();
 
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
