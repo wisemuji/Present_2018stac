@@ -37,10 +37,10 @@
             android:textSize="16.8sp"/>
 
         <ImageView
-            android:layout_toLeftOf="@+id/keypoint_delete"
-            android:id="@+id/script_list_insert"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_toLeftOf="@+id/list_delete"
+            android:id="@+id/list_insert"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/keypoint_modi"
             android:textColor="@color/mainColorWhite"
             android:textSize="11dp"
@@ -50,9 +50,9 @@
             android:layout_marginRight="5dp"
             android:layout_marginLeft="8dp"
             android:layout_alignParentRight="true"
-            android:id="@+id/keypoint_delete"
-            android:layout_width="16dp"
-            android:layout_height="20dp"
+            android:id="@+id/list_delete"
+            android:layout_width="20dp"
+            android:layout_height="24dp"
             android:src="@drawable/keypoint_delete"
             android:textColor="@color/mainColorWhite"
             android:textSize="11dp"

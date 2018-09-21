@@ -66,6 +66,7 @@
         <EditText
             android:textColor="@color/mainColorWhite"
             android:textColorHint="#fefeff"
+            android:textColor="#fefeff"
             android:id="@+id/keypoint_content"
             android:textSize="14.5sp"
             android:hint="키포인트를 나타내는 내용을 입력해주세요."
@@ -302,6 +303,14 @@
 
     </android.support.constraint.ConstraintLayout>
 
+
+    <TextView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/upper_shadow_todo"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <LinearLayout
         android:id="@+id/kp_next_prev_btn"
