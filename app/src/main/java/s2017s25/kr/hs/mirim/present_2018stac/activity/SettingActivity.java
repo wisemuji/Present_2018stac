@@ -102,7 +102,12 @@ public class SettingActivity extends AppCompatActivity {
                 else if (mode.equals("modify")){
                     dbHelper.update(pt);
                 }
-                Toast.makeText(getApplicationContext(), "새로운 PT가 생성되었습니다.", Toast.LENGTH_LONG).show();
+                if(mode.equals("modify")){
+                    Toast.makeText(getApplicationContext(), "PT가 수정되었습니다.", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "새로운 PT가 생성되었습니다.", Toast.LENGTH_LONG).show();
+                }
 
                 Intent intent = new Intent(SettingActivity.this, PTlistActivity.class);
                 startActivity(intent);
