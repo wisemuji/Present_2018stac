@@ -43,6 +43,9 @@ public class SettingActivity extends AppCompatActivity {
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         nextBtn = (TextView) findViewById(R.id.setting_next_btn);
+        if(mode.equals("modify")){
+            nextBtn.setText("PT 수정하기");
+        }
 
         settingTime=(LinearLayout)findViewById(R.id.setting_time);
         settingScript=(LinearLayout)findViewById(R.id.setting_script);
