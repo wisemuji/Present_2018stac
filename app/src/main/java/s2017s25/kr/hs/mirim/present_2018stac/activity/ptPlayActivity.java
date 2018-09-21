@@ -211,6 +211,8 @@ public class ptPlayActivity extends AppCompatActivity {
                                 myTimer.sendEmptyMessage(0);
                             }
                         };
+                        myRec.setText("");
+                        myTitle.setText("");
                         myBaseTime = SystemClock.elapsedRealtime();
                         System.out.println(myBaseTime);
                         //myTimer이라는 핸들러를 빈 메세지를 보내서 호출
@@ -238,6 +240,7 @@ public class ptPlayActivity extends AppCompatActivity {
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myBtnStart.setText("시작");
                 myOutput.setText("00:00");
+                myRec.setText("여기에 스크립트가 표시됩니다");
                 myTitle.setText("여기에 키포인트가 표시됩니다");
 //                myRec.setText("STAC 발표\nPRE-SENT");
                 cur_Status = Init;
