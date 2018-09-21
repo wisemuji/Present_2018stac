@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -101,7 +102,7 @@ public class SettingActivity extends AppCompatActivity {
                 else if (mode.equals("modify")){
                     dbHelper.update(pt);
                 }
-//                Toast.makeText(getApplicationContext(), "lastId = "+lastId, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "새로운 PT가 생성되었습니다.", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(SettingActivity.this, PTlistActivity.class);
                 startActivity(intent);

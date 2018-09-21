@@ -75,6 +75,7 @@ public class PTlistActivity extends AppCompatActivity {
                                 Intent intent = new Intent(PTlistActivity.this, StopwatchActivity.class);
                                 intent.putExtra("presentation", pt);
                                 intent.putExtra("mode", "modify");
+                                finish();
                                 startActivity(intent);
                             }
                         });
