@@ -353,7 +353,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
-            android:text="다음"
+            android:text="새 PT 만들기"
             android:textColor="@color/mainColorWhite"
             android:textSize="17.6sp"
             android:textStyle="bold" />
