@@ -1,5 +1,5 @@
 <resources>
-    <string name="script_infor">스크립트에 대한 설명입니다</string>
+    <string name="script_infor">발표 시 필요한 스크립트를 작성하고,\n진동 알람인 키포인트를 설정해보세요.</string>
     <string name="keypoint_infor">키포인트에 대한 설명입니다</string>
     <string name="app_name">프리젠트</string>
 </resources>
