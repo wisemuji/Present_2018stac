@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/titleLinear"
         android:layout_width="match_parent"
-        android:layout_height="27dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:background="@color/bgcolor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,14 +38,12 @@
             android:textSize="19.2sp"
             android:textStyle="bold" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/inforBtn"
             android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:textColor="@color/mainColorWhite"
-            android:textSize="9pt"
-            android:textStyle="bold" />
-
+            android:layout_height="30dp"
+            android:src="@drawable/inforbtn"
+            />
     </LinearLayout>
 
     <ScrollView
@@ -355,7 +353,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
-            android:text="다음"
+            android:text="새 PT 만들기"
             android:textColor="@color/mainColorWhite"
             android:textSize="17.6sp"
             android:textStyle="bold" />

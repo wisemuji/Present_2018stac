@@ -80,6 +80,15 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         refresh();
         listView.setAdapter(adapter);
 
+       ImageView inforBtn = findViewById(R.id.inforBtn);
+       inforBtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(ScriptKeyPointListActivity.this, AppInfo.class);
+               startActivity(intent);
+           }
+       });
+
 
         ImageView itemSet = (ImageView) findViewById(R.id.item_set);
         itemSet.setOnClickListener(new View.OnClickListener() {
@@ -393,6 +402,28 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                                 adapter=new ScriptListAdapter();
                                 refresh();
                                 listView.setAdapter(adapter);
+                            }
+                        })
+                .setNegativeButton("취소",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // 다이얼로그를 취소한다
+                                dialog.cancel();
+                            }
+                        });
+        alertDialogBuilder.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptKeyPointListActivity.this);
+        alertDialogBuilder.setTitle("PT 생성 중단");
+        alertDialogBuilder
+                .setMessage("PT 생성을 중단하시겠습니까?")
+                .setPositiveButton("중단",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                finish();
                             }
                         })
                 .setNegativeButton("취소",

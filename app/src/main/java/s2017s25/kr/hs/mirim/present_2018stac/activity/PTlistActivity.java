@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -74,6 +75,7 @@ public class PTlistActivity extends AppCompatActivity {
                                 Intent intent = new Intent(PTlistActivity.this, StopwatchActivity.class);
                                 intent.putExtra("presentation", pt);
                                 intent.putExtra("mode", "modify");
+                                finish();
                                 startActivity(intent);
                             }
                         });
@@ -172,6 +174,15 @@ public class PTlistActivity extends AppCompatActivity {
                                 });
                 alertDialogBuilder.show();
                 return true;
+            }
+        });
+
+        ImageView inforBtn = findViewById(R.id.inforBtn);
+        inforBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PTlistActivity.this, AppInfo.class);
+                startActivity(intent);
             }
         });
     }
