@@ -1,8 +1,12 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -137,6 +141,29 @@ public class StopwatchActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(StopwatchActivity.this);
+        alertDialogBuilder.setTitle("PT 생성 중단");
+        alertDialogBuilder
+                .setMessage("PT 생성을 중단하시겠습니까?")
+                .setPositiveButton("중단",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                finish();
+                            }
+                        })
+                .setNegativeButton("취소",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // 다이얼로그를 취소한다
+                                dialog.cancel();
+                            }
+                        });
+        alertDialogBuilder.show();
+    }
+
     private void setDividerColor(NumberPicker picker, int color){
         java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
         for(java.lang.reflect.Field pf : pickerFields){

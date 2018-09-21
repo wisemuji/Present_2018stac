@@ -1,6 +1,8 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -159,8 +161,28 @@ public class ptPlayActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if(btnFinish.isClickable()) {
-            myTimer=new Handler(){public void handleMessage(Message msg){}};
-            super.onBackPressed();
+            myTimer = new Handler() {
+                public void handleMessage(Message msg) {
+                }
+            };
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ptPlayActivity.this);
+            alertDialogBuilder.setTitle("PT 중단하기");
+            alertDialogBuilder
+                    .setMessage("PT를 중단하시겠습니까?")
+                    .setPositiveButton("중단",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    finish();
+                                }
+                            })
+                    .setNegativeButton("취소",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // 다이얼로그를 취소한다
+                                    dialog.cancel();
+                                }
+                            });
+            alertDialogBuilder.show();
         }
     }
 
