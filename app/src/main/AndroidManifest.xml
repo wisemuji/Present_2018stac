@@ -37,7 +37,8 @@
             android:value="@string/kakao_app_key" />
 
         <activity android:name=".activity.SplashActivity" />
-        <activity android:name=".activity.ScriptContent"></activity>
+        <activity android:name=".activity.ScriptContent" />
+        <activity android:name=".activity.AppInfo"></activity>
     </application>
 
 </manifest>

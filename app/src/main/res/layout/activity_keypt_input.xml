@@ -64,7 +64,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
         <EditText
-
+            android:textColor="@color/mainColorWhite"
             android:textColorHint="#fefeff"
             android:textColor="#fefeff"
             android:id="@+id/keypoint_content"
