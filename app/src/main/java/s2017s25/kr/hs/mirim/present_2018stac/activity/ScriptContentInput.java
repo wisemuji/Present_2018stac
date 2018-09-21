@@ -140,7 +140,9 @@ public class ScriptContentInput extends AppCompatActivity {
                         if ((pt.getScripts().get(i).getStartTime() <= startTime
                                 && pt.getScripts().get(i).getEndTime() > startTime) ||
                                 (pt.getScripts().get(i).getStartTime() < endTime &&
-                                        pt.getScripts().get(i).getEndTime() >= endTime)) {
+                                        pt.getScripts().get(i).getEndTime() >= endTime) ||
+                                (pt.getScripts().get(i).getStartTime() >= startTime && pt.getScripts().get(i).getEndTime() <= endTime)
+                                ) {
                             Toast.makeText(getApplicationContext(), "다른 스크립트와 시간이 겹칩니다.", Toast.LENGTH_SHORT).show();
                             return;
                         }
