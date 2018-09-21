@@ -7,6 +7,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
@@ -17,12 +18,16 @@ import android.widget.Toast;
 import s2017s25.kr.hs.mirim.present_2018stac.R;
 import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
+import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
 public class keypointInputActivity extends AppCompatActivity {
 
     EditText keyContent;
     NumberPicker pickerHour, pickerMinute, pickerSecond;
     Presentation pt;
+    KeyPoint kp;
+    String mode;
+    int KeyPointId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,8 @@ public class keypointInputActivity extends AppCompatActivity {
         setContentView(R.layout.activity_keypt_input);
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+        mode="insert";
+        mode=intent.getStringExtra("mode");
 
         TextView OKbtn = (TextView) findViewById(R.id.kpt_ok_btn);
 
@@ -57,6 +64,18 @@ public class keypointInputActivity extends AppCompatActivity {
         pickerSecond.setMaxValue(59);
         pickerSecond.setFormatter(twoDigitFormatter);
 
+        if(intent.getSerializableExtra("object")!=null){
+            mode="modify";
+            KeyPointId = intent.getIntExtra("id",0);
+            kp=(KeyPoint) intent.getSerializableExtra("object");
+
+            pickerHour.setValue((int)(kp.getVibTime()/1000/3600));
+            pickerMinute.setValue((int)(((kp.getVibTime() / 1000) % 3600) / 60));
+            pickerSecond.setValue((int)(kp.getVibTime() / 1000 % 60));
+
+            keyContent.setText(kp.getName());
+        }
+
         OKbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +100,8 @@ public class keypointInputActivity extends AppCompatActivity {
                 KeyPoint dataKey = new KeyPoint(content,keyptTime);
 
                 intent.putExtra("key", dataKey);
+                intent.putExtra("mode1", mode);
+                intent.putExtra("id",KeyPointId);
 
                 setResult(RESULT_OK,intent);
                 finish();

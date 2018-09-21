@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.security.Key;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -43,11 +44,13 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
     TextView nextBtn, prevBtn, exitBtn;
     Presentation pt;
     String mode;
+    private int ScriptId=0;
+    private int KeyPointId=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_script_input);
+        setContentView(R.layout.activity_script_keypoint);
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
@@ -90,11 +93,13 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                                     case 0:
                                         Intent intent = new Intent(ScriptKeyPointListActivity.this, ScriptContentInput.class);
                                         intent.putExtra("presentation", pt);
+                                        intent.putExtra("mode", "input");
                                         startActivityForResult(intent,0);
                                         break;
                                     case 1:
                                         intent = new Intent(ScriptKeyPointListActivity.this, keypointInputActivity.class);
                                         intent.putExtra("presentation", pt);
+                                        intent.putExtra("mode", "input");
                                         startActivityForResult(intent, 1);
                                         break;
                                 }
@@ -110,40 +115,52 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, final View view, final int position, long id) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptKeyPointListActivity.this);
-                alertDialogBuilder.setTitle("항목 삭제");
-                alertDialogBuilder
-                        .setMessage("선택한 항목을 삭제하시겠습니까?")
-                        .setPositiveButton("삭제",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        ArrayList<KeyPoint> key = new ArrayList<>();
-                                        ArrayList<Script> sc = new ArrayList<>();
-                                        list_item.remove(position);
-                                        for(Object o:list_item){
-                                            if(o instanceof KeyPoint){
-                                                key.add((KeyPoint) o);
-                                            }
-                                            else {
-                                                sc.add((Script) o);
-                                            }
-                                        }
-                                        pt.setKeyPoints(key);
-                                        pt.setScripts(sc);
-                                        adapter=new ScriptListAdapter();
-                                        refresh();
-                                        listView.setAdapter(adapter);
-                                    }
-                                })
-                        .setNegativeButton("취소",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        // 다이얼로그를 취소한다
-                                        dialog.cancel();
-                                    }
-                                });
-                alertDialogBuilder.show();
+                deleteItem(position);
                 return true;
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final Object o = list_item.get(position);
+//                Intent intent = new Intent(ScriptKeyPointListActivity.this, ScriptContent.class);
+//                if(o instanceof KeyPoint){
+//                    intent.putExtra("item", (KeyPoint)o);
+//                }
+//                else {
+//                    intent.putExtra("item", (Script)o);
+//                }
+//                startActivity(intent);
+                view.findViewById(R.id.list_insert).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent;
+                        if(o instanceof KeyPoint){
+                            intent = new Intent(ScriptKeyPointListActivity.this, keypointInputActivity.class);
+                            intent.putExtra("object",(KeyPoint)o);
+                            intent.putExtra("mode", "modify");
+                            intent.putExtra("id", ((KeyPoint) o).getKeyId());
+                            intent.putExtra("presentation", pt);
+                            startActivityForResult(intent, 1);
+                        }
+                        else {
+                            intent = new Intent(ScriptKeyPointListActivity.this, ScriptContentInput.class);
+                            intent.putExtra("object",(Script)o);
+                            intent.putExtra("mode", "modify");
+                            intent.putExtra("id", ((Script) o).getScriptId());
+                            intent.putExtra("presentation", pt);
+                            startActivityForResult(intent, 0);
+                        }
+                    }
+                });
+                view.findViewById(R.id.list_delete).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        deleteItem(position);
+                    }
+                });
+
             }
         });
 
@@ -190,17 +207,36 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
             switch (requestCode){
                 case 0:
                     Script sc = (Script) data.getSerializableExtra("script");
-                    scripts.add(sc);
-                    long StartSecond = (sc.getStartTime() / 1000) % 60;
-                    long StartMinute = (sc.getStartTime() / (1000 * 60)) % 60;
-                    long StartHour = (sc.getStartTime() / (1000 * 60*60)) % 100;
-
-                    long endSecond = (sc.getEndTime() / 1000) % 60;
-                    long endMinute = (sc.getEndTime() / (1000 * 60)) % 60;
-                    long endHour = (sc.getEndTime() / (1000 * 60 * 60)) % 100;
-
-                    String startTime = String.format("%02d:%02d:%02d",StartHour, StartMinute, StartSecond);
-                    String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
+                    String mode = data.getStringExtra("mode1");
+                    int ScriptIdTmp;
+                    if(mode.equals("modify")){
+                        ScriptIdTmp=data.getIntExtra("id", 0);
+                        int index=0;
+                        for(Script s:scripts){
+                            if(s.getScriptId()==ScriptIdTmp){
+                                Log.d("scscsc11","ScriptRightId: "+s.getScriptId()+" +"+ScriptIdTmp);
+                                s.setContent(sc.getContent());
+                                s.setEndTime(sc.getEndTime());
+                                s.setStartTime(sc.getStartTime());
+                                scripts.set(index,s);
+                            }
+                            index++;
+                        }
+                    }else {
+                        sc.setScriptId(ScriptId++);
+                        Log.d("scscsc","ScriptId: "+ScriptId);
+                        scripts.add(sc);
+                    }
+//                    long StartSecond = (sc.getStartTime() / 1000) % 60;
+//                    long StartMinute = (sc.getStartTime() / (1000 * 60)) % 60;
+//                    long StartHour = (sc.getStartTime() / (1000 * 60*60)) % 100;
+//
+//                    long endSecond = (sc.getEndTime() / 1000) % 60;
+//                    long endMinute = (sc.getEndTime() / (1000 * 60)) % 60;
+//                    long endHour = (sc.getEndTime() / (1000 * 60 * 60)) % 100;
+//
+//                    String startTime = String.format("%02d:%02d:%02d",StartHour, StartMinute, StartSecond);
+//                    String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
 
                     adapter=new ScriptListAdapter();
                     pt.setScripts(scripts);
@@ -209,13 +245,31 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                     break;
                 case 1:
                     KeyPoint key = (KeyPoint) data.getSerializableExtra("key");
-                    keyPoints.add(key);
+                    mode = data.getStringExtra("mode1");
+                    int KeyPointIdTmp;
+                    if(mode.equals("modify")) {
+                        KeyPointIdTmp=data.getIntExtra("id", 0);
+                        int index=0;
+                        for(KeyPoint k:keyPoints){
+                            Log.d("scscsc12","KeyIndex: "+keyPoints.get(index).getName());
+                            if(k.getKeyId()==KeyPointIdTmp){
+                                Log.d("scscsc11","KeyPointRightId: "+k.getKeyId()+" +"+KeyPointIdTmp);
+                                k.setName(key.getName());
+                                k.setVibTime(key.getVibTime());
+                                keyPoints.set(index,k);
+                            }
+                            index++;
+                        }
+                    } else {
+                        key.setKeyId(KeyPointId++);
+                        keyPoints.add(key);
+                    }
 
-                    long keypointSecond = (key.getVibTime() / 1000) % 60;
-                    long keypointMinute = (key.getVibTime() / (1000 * 60)) % 60;
-                    long keypointHour = (key.getVibTime() / 1000*60*60) % 100;
-
-                    String keypointTime = String.format("%02d:%02d:%02d",keypointHour, keypointMinute, keypointSecond);
+//                    long keypointSecond = (key.getVibTime() / 1000) % 60;
+//                    long keypointMinute = (key.getVibTime() / (1000 * 60)) % 60;
+//                    long keypointHour = (key.getVibTime() / 1000*60*60) % 100;
+//
+//                    String keypointTime = String.format("%02d:%02d:%02d",keypointHour, keypointMinute, keypointSecond);
 
                     adapter=new ScriptListAdapter();
                     pt.setKeyPoints(keyPoints);
@@ -314,5 +368,40 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    public void deleteItem(final int position){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptKeyPointListActivity.this);
+        alertDialogBuilder.setTitle("항목 삭제");
+        alertDialogBuilder
+                .setMessage("선택한 항목을 삭제하시겠습니까?")
+                .setPositiveButton("삭제",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                ArrayList<KeyPoint> key = new ArrayList<>();
+                                ArrayList<Script> sc = new ArrayList<>();
+                                list_item.remove(position);
+                                for(Object o:list_item){
+                                    if(o instanceof KeyPoint){
+                                        key.add((KeyPoint) o);
+                                    }
+                                    else {
+                                        sc.add((Script) o);
+                                    }
+                                }
+                                pt.setKeyPoints(key);
+                                pt.setScripts(sc);
+                                adapter=new ScriptListAdapter();
+                                refresh();
+                                listView.setAdapter(adapter);
+                            }
+                        })
+                .setNegativeButton("취소",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // 다이얼로그를 취소한다
+                                dialog.cancel();
+                            }
+                        });
+        alertDialogBuilder.show();
     }
 }

@@ -8,6 +8,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,15 +28,20 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 public class ScriptContentInput extends AppCompatActivity {
 
     NumberPicker startPickerHour, startPickerMinute, startPickerSecond,
-    endPickerHour, endPickerMinute, endPickerSecond;
+            endPickerHour, endPickerMinute, endPickerSecond;
     EditText scriptContent;
     Presentation pt;
+    Script sc;
+    String mode;
+    int ScriptId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_script_content_input);
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
+        mode="insert";
+        mode=intent.getStringExtra("mode");
 
         scriptContent = findViewById(R.id.script_content);
         int color = Color.parseColor("#ffffff");
@@ -80,6 +86,21 @@ public class ScriptContentInput extends AppCompatActivity {
         endPickerSecond.setMaxValue(59);
         endPickerSecond.setFormatter(twoDigitFormatter);
 
+        if(intent.getSerializableExtra("object")!=null){
+            mode="modify";
+            ScriptId = intent.getIntExtra("id",0);
+            sc=(Script) intent.getSerializableExtra("object");
+            startPickerHour.setValue((int)(sc.getStartTime()/1000/3600));
+            startPickerMinute.setValue((int)(((sc.getStartTime() / 1000) % 3600) / 60));
+            startPickerSecond.setValue((int)(sc.getStartTime() / 1000 % 60));
+
+            endPickerHour.setValue((int)(sc.getEndTime()/1000/3600));
+            endPickerMinute.setValue((int)(((sc.getEndTime() / 1000) % 3600) / 60));
+            endPickerSecond.setValue((int)(sc.getEndTime() / 1000 % 60));
+
+            scriptContent.setText(sc.getContent());
+        }
+
         //kakao 뉴톤 API
 
 
@@ -114,7 +135,7 @@ public class ScriptContentInput extends AppCompatActivity {
                 endTime += endPickerMinute.getValue() * 1000 * 60;
                 endTime += endPickerSecond.getValue() * 1000;
 
-                if(content.isEmpty()){
+                if(mode.equals("input")&&content.isEmpty()){
                     Toast.makeText(getApplicationContext(),"내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -135,7 +156,7 @@ public class ScriptContentInput extends AppCompatActivity {
                     return;
                 }
 
-                if(pt.getScripts() != null) {
+                if(mode.equals("input")&&pt.getScripts() != null) {
                     for (int i = 0; i < pt.getScripts().size(); i++) {
                         if ((pt.getScripts().get(i).getStartTime() <= startTime
                                 && pt.getScripts().get(i).getEndTime() > startTime) ||
@@ -149,6 +170,8 @@ public class ScriptContentInput extends AppCompatActivity {
 
                 Script script = new Script(startTime, endTime, content);
                 intent.putExtra("script", script);
+                intent.putExtra("mode1", mode);
+                intent.putExtra("id",ScriptId);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
             }
@@ -167,7 +190,7 @@ public class ScriptContentInput extends AppCompatActivity {
         if (resultCode == RESULT_OK) { // 성공
             ArrayList<String> results = data.getStringArrayListExtra(VoiceRecoActivity.EXTRA_KEY_RESULT_ARRAY);
 
-        scriptContent.setText(scriptContent.getText().toString() + results.get(0).toString() + "\n");
+            scriptContent.setText(scriptContent.getText().toString() + results.get(0).toString() + "\n");
         }
         else if (requestCode == RESULT_CANCELED) { // 실패
             if (data == null) {
@@ -207,4 +230,3 @@ public class ScriptContentInput extends AppCompatActivity {
         }
     };
 }
-
