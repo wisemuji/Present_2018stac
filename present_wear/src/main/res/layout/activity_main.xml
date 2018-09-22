@@ -10,30 +10,39 @@
     android:background="@color/mainColorWhite"
     >
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding"
-        app:boxedEdges="all"
-        android:orientation="vertical"
-        >
+        app:boxedEdges="all">
+
         <TextView
-            android:textColor="@color/mainColor"
-            android:layout_gravity="center"
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="PT목록"
-            />
+            android:textColor="@color/mainColor"
+            app:layout_constraintBottom_toTopOf="@+id/listScroll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <ScrollView
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:id="@+id/listScroll"
+            android:scrollbars="none"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <ListView
-                android:id="@+id/PTlist_view"
-                android:divider="@color/mainColor"
-                android:dividerHeight="1dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"></ListView>
+            android:layout_height="0dp">
+        <ListView
+
+            android:id="@+id/PTlist_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/mainColor"
+            android:dividerHeight="0.5dp"></ListView>
         </ScrollView>
-    </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
 </android.support.wear.widget.BoxInsetLayout>
