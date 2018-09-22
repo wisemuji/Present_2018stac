@@ -204,8 +204,6 @@ public class PTlistActivity extends AppCompatActivity {
             list_itemArrayList.add(new pt_list_item(ptTmp.getName(),df.format(ptTmp.getPresentTime()),formatter.format(ptTmp.getModifiedDate()),R.drawable.option2,R.drawable.edit1,R.drawable.play1,R.drawable.delete1));
         }
 
-//        list_itemArrayList.add(new ptlist_list_item(R.drawable.start,"앱잼발표","5:00",R.drawable.menu));
-//        list_itemArrayList.add(new ptlist_list_item(R.drawable.start,"앱 디자인 기획서 발표","3:00",R.drawable.menu));
         myListAdapter = new PTListAdapter(PTlistActivity.this,list_itemArrayList);
         listView.setAdapter(myListAdapter);
     }

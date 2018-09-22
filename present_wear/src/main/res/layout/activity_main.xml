@@ -4,22 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
     android:padding="@dimen/box_inset_layout_padding"
-    tools:context=".MainActivity"
-    tools:deviceIds="wear">
+    tools:context=".activity.MainActivity"
+    tools:deviceIds="wear"
+    android:background="@color/mainColorWhite"
+    >
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/inner_frame_layout_padding"
-        app:boxedEdges="all">
-
+        app:boxedEdges="all"
+        android:orientation="vertical"
+        >
         <TextView
-            android:id="@+id/text"
+            android:textColor="@color/mainColor"
+            android:layout_gravity="center"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hello_world" />
-
-    </FrameLayout>
+            android:text="PT목록"
+            />
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/PTlist_view"
+                android:divider="@color/mainColor"
+                android:dividerHeight="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"></ListView>
+        </ScrollView>
+    </LinearLayout>
 </android.support.wear.widget.BoxInsetLayout>
