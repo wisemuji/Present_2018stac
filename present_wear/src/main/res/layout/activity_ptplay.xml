@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".adapter.PTplayActivity"
+    tools:context=".activity.PTplayActivity"
     android:background="#231f20"
     android:orientation="vertical"
     >
