@@ -1,16 +1,19 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -65,6 +68,16 @@ public class keypointInputActivity extends AppCompatActivity {
         pickerSecond.setMinValue(0);
         pickerSecond.setMaxValue(59);
         pickerSecond.setFormatter(twoDigitFormatter);
+
+        ConstraintLayout parentLayout=findViewById(R.id.parentLayout);
+
+        parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(keyContent.getWindowToken(),0);
+            }
+        });
 
         if(intent.getSerializableExtra("object")!=null){
             mode="modify";

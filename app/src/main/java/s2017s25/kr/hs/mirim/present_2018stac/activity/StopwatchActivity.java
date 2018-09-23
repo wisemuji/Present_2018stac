@@ -1,15 +1,18 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import android.os.Message;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,6 +60,7 @@ public class StopwatchActivity extends AppCompatActivity {
             pt = dbHelper.getPresentation(pt.getName());
         }
 
+
         pickerHour = (NumberPicker)findViewById(R.id.picker_hour);
         pickerHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
         setDividerColor(pickerHour, 0xff6767c7);
@@ -84,6 +88,16 @@ public class StopwatchActivity extends AppCompatActivity {
 
         inputTitle = (EditText) findViewById(R.id.input_title);
         inputTitle.setText(pt.getName());
+
+        ConstraintLayout parentLayout=findViewById(R.id.linearLayout11);
+
+        parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(inputTitle.getWindowToken(),0);
+            }
+        });
 
 
 

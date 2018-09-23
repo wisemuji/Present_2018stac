@@ -55,6 +55,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sctitlevar">
 
         <LinearLayout
+            android:id="@+id/linear111"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="21dp"
