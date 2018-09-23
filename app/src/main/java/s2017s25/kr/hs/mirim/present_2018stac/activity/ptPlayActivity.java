@@ -58,6 +58,7 @@ public class ptPlayActivity extends AppCompatActivity {
     String str;
     Presentation pt;
     int osVersion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -66,7 +66,6 @@
             android:id="@+id/my_listView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:divider="#ffffff"
             android:dividerHeight="0dp"
             android:paddingBottom="10dp"
