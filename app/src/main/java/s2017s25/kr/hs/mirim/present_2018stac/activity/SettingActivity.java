@@ -43,6 +43,9 @@ public class SettingActivity extends AppCompatActivity {
         final DBHelper dbHelper = new DBHelper(getApplicationContext(), "Presentation.db", null, 1);
 
         nextBtn = (TextView) findViewById(R.id.setting_next_btn);
+        if(mode.equals("modify")){
+            nextBtn.setText("PT 수정하기");
+        }
 
         settingTime=(LinearLayout)findViewById(R.id.setting_time);
         settingScript=(LinearLayout)findViewById(R.id.setting_script);
@@ -102,7 +105,12 @@ public class SettingActivity extends AppCompatActivity {
                 else if (mode.equals("modify")){
                     dbHelper.update(pt);
                 }
-                Toast.makeText(getApplicationContext(), "새로운 PT가 생성되었습니다.", Toast.LENGTH_LONG).show();
+                if(mode.equals("modify")){
+                    Toast.makeText(getApplicationContext(), "PT가 수정되었습니다.", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "새로운 PT가 생성되었습니다.", Toast.LENGTH_LONG).show();
+                }
 
                 Intent intent = new Intent(SettingActivity.this, PTlistActivity.class);
                 startActivity(intent);
