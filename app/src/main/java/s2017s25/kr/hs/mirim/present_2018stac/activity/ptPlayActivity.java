@@ -281,7 +281,6 @@ public class ptPlayActivity extends AppCompatActivity {
 
         for(KeyPoint kp : pt.getKeyPoints()){
             if((outTime/100) == (kp.getVibTime()/100)){
-                Toast.makeText(getApplicationContext(),"2123",Toast.LENGTH_SHORT);
                 myTitle.setText(kp.getName());
                 if(pt.isVibPhone()) {
                     vibe.vibrate(1000);

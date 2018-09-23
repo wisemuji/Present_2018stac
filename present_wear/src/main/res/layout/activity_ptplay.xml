@@ -7,21 +7,59 @@
     tools:context=".activity.PTplayActivity"
     android:background="#231f20"
     android:orientation="vertical"
+    android:gravity="center"
     >
     <TextView
+        android:id="@+id/pt_title"
         android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="PT 제목"
+        android:textColor="@color/mainColorWhite"
         />
     <TextView
-        android:textSize="20sp"
+        android:id="@+id/time_out"
+        android:textSize="30sp"
+        android:textStyle="bold"
         android:layout_marginTop="12dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/mainColorWhite"
         android:text="00 : 00"
         />
+
+    <LinearLayout
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:background="@drawable/ptplay_btn"
+            android:id="@+id/btn_start"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:text="초기화"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/bg_black"
+            android:textSize="11.6sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:background="@drawable/ptplay_btn"
+            android:id="@+id/btn_refresh"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="일시정지"
+            android:gravity="center"
+            android:textColor="@color/bg_black"
+            android:padding="5dp"
+            android:textSize="11.6sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>
