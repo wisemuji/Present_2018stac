@@ -58,6 +58,7 @@ public class ptPlayActivity extends AppCompatActivity {
     String str;
     Presentation pt;
     int osVersion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +72,6 @@ public class ptPlayActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         pt = (Presentation) intent.getSerializableExtra("presentation");
-//        Toast.makeText(getApplicationContext(),pt.getPresentTime().toString(),Toast.LENGTH_LONG).show();
 
 
         myOutput = (TextView) findViewById(R.id.time_out);

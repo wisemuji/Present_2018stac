@@ -67,22 +67,5 @@ public class PTListAdapter extends BaseAdapter{
 
         return convertView;
 
-//=======
-//
-//            viewHolder = new ViewHolder();
-//            viewHolder.title_textView = (TextView)convertView.findViewById(R.id.title_textView);
-//            viewHolder.PTtime_textView = (TextView)convertView.findViewById(R.id.PTtime_textView);
-//            viewHolder.start_icon_imageYiew = (ImageView)convertView.findViewById(R.id.start_pt_btn);
-//            viewHolder.menu_imageView = (ImageView)convertView.findViewById(R.id.menu_imageView);
-//            convertView.setTag(viewHolder);
-//        }else {
-//            viewHolder = (ViewHolder)convertView.getTag();
-//        }
-//        viewHolder.title_textView.setText(list_itemArrayList.get(position).getTitle());
-//        viewHolder.PTtime_textView.setText(list_itemArrayList.get(position).getPTtime().toString());
-//        viewHolder.start_icon_imageYiew.setImageResource(list_itemArrayList.get(position).getStart_icon());
-//        viewHolder.menu_imageView.setImageResource(list_itemArrayList.get(position).getMenu());
-//        return convertView;
-//>>>>>>> master
     }
 }

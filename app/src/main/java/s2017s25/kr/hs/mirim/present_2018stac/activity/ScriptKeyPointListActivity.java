@@ -70,9 +70,6 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
         }
         adapter = new ScriptListAdapter();
         listView = (ListView) findViewById(R.id.listview522);
-//        listView = (ListView)findViewById(R.id.script_listview);
-//
-//        list_itemArrayList = new ArrayList<script_list_item>();
 
         final CharSequence[] items = {"스크립트", "키포인트"};
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);     // 여기서 this는 Activity의 this
@@ -133,14 +130,7 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 final Object o = list_item.get(position);
-//                Intent intent = new Intent(ScriptKeyPointListActivity.this, ScriptContent.class);
-//                if(o instanceof KeyPoint){
-//                    intent.putExtra("item", (KeyPoint)o);
-//                }
-//                else {
-//                    intent.putExtra("item", (Script)o);
-//                }
-//                startActivity(intent);
+
                 view.findViewById(R.id.list_insert).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -236,16 +226,6 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                         Log.d("scscsc","ScriptId: "+ScriptId);
                         scripts.add(sc);
                     }
-//                    long StartSecond = (sc.getStartTime() / 1000) % 60;
-//                    long StartMinute = (sc.getStartTime() / (1000 * 60)) % 60;
-//                    long StartHour = (sc.getStartTime() / (1000 * 60*60)) % 100;
-//
-//                    long endSecond = (sc.getEndTime() / 1000) % 60;
-//                    long endMinute = (sc.getEndTime() / (1000 * 60)) % 60;
-//                    long endHour = (sc.getEndTime() / (1000 * 60 * 60)) % 100;
-//
-//                    String startTime = String.format("%02d:%02d:%02d",StartHour, StartMinute, StartSecond);
-//                    String endTime = String.format("%02d:%02d:%02d",endHour, endMinute, endSecond);
 
                     adapter=new ScriptListAdapter();
                     pt.setScripts(scripts);
@@ -274,12 +254,6 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
                         keyPoints.add(key);
                     }
 
-//                    long keypointSecond = (key.getVibTime() / 1000) % 60;
-//                    long keypointMinute = (key.getVibTime() / (1000 * 60)) % 60;
-//                    long keypointHour = (key.getVibTime() / 1000*60*60) % 100;
-//
-//                    String keypointTime = String.format("%02d:%02d:%02d",keypointHour, keypointMinute, keypointSecond);
-
                     adapter=new ScriptListAdapter();
                     pt.setKeyPoints(keyPoints);
                     refresh();
@@ -299,25 +273,14 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
             for (int i = 0; i < key.size(); i++) {
 
                 list_item.add(key.get(i));
-                //adapter.addItem(key.get(i).getName(), key.get(i).getVibTime().toString());
             }
         }
 
         if (sc != null && sc.size() != 0) {
             for (int i = 0; i < sc.size(); i++) {
                 list_item.add(sc.get(i));
-                //adapter.addItem(
-                //        }
-                //        if(keyPoints.size()!=0) {
-                //            pt.setKeyPoints(keyPoints);
-                //        }
-                //        if(scripts.size()!=0) {sc.get(i).getStartTime().toString(), sc.get(i).getEndTime().toString(), sc.get(i).getContent());
             }
-//            if(keyPoints.size()!=0) {
-//                pt.setKeyPoints(keyPoints);
-//            }
-//            if(scripts.size()!=0) {
-//                pt.setScripts(scripts);
+
 //            }
         }
 
