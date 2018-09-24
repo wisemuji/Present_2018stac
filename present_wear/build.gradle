@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        applicationId "s2017s25.kr.hs.mirim.present_wear"
+        applicationId "s2017s25.kr.hs.mirim.present_2018stac"
         minSdkVersion 23
         targetSdkVersion 27
         versionCode 1

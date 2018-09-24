@@ -11,7 +11,7 @@
     >
     <TextView
         android:id="@+id/pt_title"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -20,14 +20,14 @@
         />
     <TextView
         android:id="@+id/time_out"
-        android:textSize="30sp"
+        android:textSize="44sp"
         android:textStyle="bold"
         android:layout_marginTop="12dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/mainColorWhite"
-        android:text="00 : 00"
+        android:text="00:00"
         />
 
     <LinearLayout
@@ -38,27 +38,27 @@
         <TextView
             android:background="@drawable/ptplay_btn"
             android:id="@+id/btn_start"
-            android:layout_width="60dp"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="3dp"
-            android:text="초기화"
+            android:text="시작"
             android:gravity="center"
             android:padding="5dp"
             android:textColor="@color/bg_black"
-            android:textSize="11.6sp"
+            android:textSize="12.6sp"
             android:textStyle="bold" />
 
         <TextView
             android:background="@drawable/ptplay_btn"
             android:id="@+id/btn_refresh"
-            android:layout_width="60dp"
+            android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
-            android:text="일시정지"
+            android:text="초기화"
             android:gravity="center"
             android:textColor="@color/bg_black"
             android:padding="5dp"
-            android:textSize="11.6sp"
+            android:textSize="12.6sp"
             android:textStyle="bold" />
     </LinearLayout>
 
