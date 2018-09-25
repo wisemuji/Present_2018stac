@@ -21,10 +21,5 @@ public class PTplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ptplay);
 
-        pt = new Presentation();
-
-
-
-
     }
 }

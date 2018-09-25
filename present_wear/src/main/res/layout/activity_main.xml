@@ -10,40 +10,17 @@
     android:background="@color/mainColorWhite"
     >
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/linearLayout"
+    <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:boxedEdges="all">
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/title"
+            android:textSize="15sp"
+            android:textColor="@color/mainColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="PT목록"
-            android:textColor="@color/mainColor"
-            app:layout_constraintBottom_toTopOf="@+id/listScroll"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <ScrollView
-            android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            android:id="@+id/listScroll"
-            android:scrollbars="none"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp">
-        <ListView
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/PTlist_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@color/mainColor"
-            android:dividerHeight="0.5dp"></ListView>
-        </ScrollView>
-
-    </android.support.constraint.ConstraintLayout>
+            android:text="PT 정보 대기 중입니다."
+            />
+    </LinearLayout>
 </android.support.wear.widget.BoxInsetLayout>
