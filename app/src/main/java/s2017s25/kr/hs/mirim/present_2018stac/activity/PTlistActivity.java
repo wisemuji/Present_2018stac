@@ -109,6 +109,7 @@ public class PTlistActivity extends AppCompatActivity {
                                 DataMap dataMap = putDataMapRequest.getDataMap();
                                 dataMap.putString("name", pt.getName());
                                 dataMap.putLong("time",pt.getPresentTime());
+                                dataMap.putLong("dummy",System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
                                 ArrayList<KeyPoint> keyPoints=pt.getKeyPoints();
 
                                 int keyPointsSize = keyPoints.size();
@@ -129,14 +130,14 @@ public class PTlistActivity extends AppCompatActivity {
                                 task.addOnCompleteListener(new OnCompleteListener<DataItem>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DataItem> task) {
-                                        Toast.makeText(getApplicationContext(), "전송 완료!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "스마트워치와 성공적으로 연결되었습니다.", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 task.addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
                                         e.printStackTrace();
-                                        Toast.makeText(getApplicationContext(), "전송 실패!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
                                     }
                                 });
 

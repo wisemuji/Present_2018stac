@@ -42,6 +42,7 @@ public class PTplayActivity extends WearableActivity
     TextView myOutput;
     TextView myBtnStart;
     TextView myBtnRefresh;
+    TextView watingView;
 
     Vibrator vibe;
     long myBaseTime;
@@ -69,6 +70,8 @@ public class PTplayActivity extends WearableActivity
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        watingView = (TextView) findViewById(R.id.wating_view);
 
         ptTitle = (TextView) findViewById(R.id.pt_title);
         myOutput = (TextView) findViewById(R.id.time_out);
@@ -211,15 +214,30 @@ public class PTplayActivity extends WearableActivity
             // uri로 데이터를 구분할 수 있음
             if(item.getUri().getPath().equals("/present")) {
                 DataMap dataMap = DataMap.fromByteArray(item.getData());
-                String pTName = dataMap.getString("name");
-                long pTTime = dataMap.getLong("time");
-                String[] keyPointNames = dataMap.getStringArray("keypointnames");
-                long[] keyPointTimes = dataMap.getLongArray("keypointtimes");
+                if(dataMap.getBoolean("finish")) {
+                    watingView.setVisibility(View.VISIBLE);
+                } else {
+                    String pTName = dataMap.getString("name");
+                    long pTTime = dataMap.getLong("time");
+                    String[] keyPointNames = dataMap.getStringArray("keypointnames");
+                    long[] keyPointTimes = dataMap.getLongArray("keypointtimes");
 //                Toast.makeText(getApplicationContext(),": "+pTName+", "+pTTime, Toast.LENGTH_SHORT).show();
-                pt.setName(pTName);
-                pt.setPresentTime(pTTime);
-                ptTitle.setText(pt.getName());
-                pt.setKeyPoints(makeKeyPoints(keyPointNames, keyPointTimes));
+                    pt.setName(pTName);
+                    pt.setPresentTime(pTTime);
+                    myOutput.setText("00:00");
+                    ptTitle.setText(pt.getName());
+                    pt.setKeyPoints(makeKeyPoints(keyPointNames, keyPointTimes));
+                    watingView.setVisibility(View.GONE);
+                }
+            }
+            else if(item.getUri().getPath().equals("/play")) {
+                DataMap dataMap = DataMap.fromByteArray(item.getData());
+                int status = dataMap.getInt("status");
+                cur_Status = status;
+                if(status == -1)
+                    myOnClick(myBtnRefresh);
+                else
+                    myOnClick(myBtnStart);
 
             }
         }

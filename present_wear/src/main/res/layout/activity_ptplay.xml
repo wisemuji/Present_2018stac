@@ -1,65 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.PTplayActivity"
-    android:background="#231f20"
+    android:background="@color/bg_black"
     android:orientation="vertical"
     android:gravity="center"
     >
-    <TextView
-        android:id="@+id/pt_title"
-        android:textSize="17sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="PT 제목"
-        android:textColor="@color/mainColorWhite"
-        />
-    <TextView
-        android:id="@+id/time_out"
-        android:textSize="44sp"
-        android:textStyle="bold"
-        android:layout_marginTop="12dp"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/mainColorWhite"
-        android:text="00:00"
-        />
-
     <LinearLayout
-        android:gravity="center_vertical|center_horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#231f20">
         <TextView
-            android:background="@drawable/ptplay_btn"
-            android:id="@+id/btn_start"
-            android:layout_width="65dp"
+            android:id="@+id/pt_title"
+            android:textSize="17sp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="3dp"
-            android:text="시작"
-            android:gravity="center"
-            android:padding="5dp"
-            android:textColor="@color/bg_black"
-            android:textSize="12.6sp"
-            android:textStyle="bold" />
+            android:layout_gravity="center"
+            android:text="PT 제목"
+            android:textColor="@color/mainColorWhite"
+            />
+        <TextView
+            android:id="@+id/time_out"
+            android:textSize="44sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mainColorWhite"
+            android:text="00:00"
+            />
 
-        <TextView
-            android:background="@drawable/ptplay_btn"
-            android:id="@+id/btn_refresh"
-            android:layout_width="65dp"
+        <LinearLayout
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:text="초기화"
-            android:gravity="center"
-            android:textColor="@color/bg_black"
-            android:padding="5dp"
-            android:textSize="12.6sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp">
+            <TextView
+                android:background="@drawable/ptplay_btn"
+                android:id="@+id/btn_start"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:text="시작"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/bg_black"
+                android:textSize="12.6sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:background="@drawable/ptplay_btn"
+                android:id="@+id/btn_refresh"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="초기화"
+                android:gravity="center"
+                android:textColor="@color/bg_black"
+                android:padding="5dp"
+                android:textSize="12.6sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/wating_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_black"
+        android:text="발표 화면 수신을 \n대기 중입니다..."
+        android:gravity="center"
+        android:textColor="@color/mainColorWhite"
+        android:visibility="visible"
+        android:textSize="20sp"/>
 
-</LinearLayout>
+</RelativeLayout>
