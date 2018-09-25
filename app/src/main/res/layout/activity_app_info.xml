@@ -14,6 +14,15 @@
         android:layout_height="match_parent">
     </android.support.v4.view.ViewPager>
 
+
+    <TextView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/upper_shadow_todo"
+        android:gravity="bottom"
+        android:layout_alignParentBottom="true"/>
+
     <LinearLayout
         android:id="@+id/linearLayout14"
         android:layout_width="match_parent"
@@ -21,7 +30,6 @@
         android:background="@color/mainColor"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true">
-
 
         <TextView
             android:onClick="mOnClick"

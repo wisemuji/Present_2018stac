@@ -2,19 +2,23 @@ package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -87,6 +91,24 @@ public class ScriptContentInput extends AppCompatActivity {
         endPickerSecond.setMinValue(0);
         endPickerSecond.setMaxValue(59);
         endPickerSecond.setFormatter(twoDigitFormatter);
+
+        ConstraintLayout parentLayout=findViewById(R.id.linearLayout7);
+        LinearLayout parentLayout2=findViewById(R.id.linear111);
+
+        parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(scriptContent.getWindowToken(),0);
+            }
+        });
+        parentLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(scriptContent.getWindowToken(),0);
+            }
+        });
 
         if(intent.getSerializableExtra("object")!=null){
             mode="modify";

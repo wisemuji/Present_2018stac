@@ -5,7 +5,7 @@ android {
 
 
     defaultConfig {
-        applicationId "s2017s25.kr.hs.mirim.present_wear"
+        applicationId "s2017s25.kr.hs.mirim.present_2018stac"
         minSdkVersion 23
         targetSdkVersion 27
         versionCode 1
@@ -28,5 +28,7 @@ dependencies {
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:wear:27.1.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     compileOnly 'com.google.android.wearable:wearable:2.3.0'
 }
