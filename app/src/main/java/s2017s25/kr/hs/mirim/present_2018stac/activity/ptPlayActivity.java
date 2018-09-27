@@ -322,17 +322,18 @@ public class ptPlayActivity extends AppCompatActivity
 
     //현재시간을 계속 구해서 출력하는 메소드
     String getTimeOut(){
+        //진동 알람
         vibe = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
         long now = SystemClock.elapsedRealtime(); //애플리케이션이 실행되고나서 실제로 경과된 시간(??)^^;
         long outTime = now - myBaseTime;
         String easy_outTime;
+        //발표 시간이 1시간이 넘어갈 시
         if(outTime >= 3600000)
             easy_outTime = String.format("%02d:%02d:%02d", (outTime/1000) / 3600, ((outTime/1000) % 3600) / 60, (outTime/1000) % 60);
         else
             easy_outTime = String.format("%02d:%02d", outTime/1000 / 60, (outTime/1000)%60);
-        String minute = String.format("%02d", outTime/1000 / 60);
-        String second = String.format("%02d", (outTime/1000)%60);
 
+        //발표 시간 끝났을 시
         if(outTime/1000 == pt.getPresentTime()/1000){
             myTimer=new Handler(){public void handleMessage(Message msg){}};
             Toast.makeText(getApplicationContext(),"PT가 종료되었습니다.",Toast.LENGTH_LONG).show();
@@ -341,16 +342,17 @@ public class ptPlayActivity extends AppCompatActivity
             cur_Status=Init;
         }
 
+        //키포인트 호출
         for(KeyPoint kp : pt.getKeyPoints()){
             if((outTime/100) == (kp.getVibTime()/100)){
                 myTitle.setText(kp.getName());
                 if(pt.isVibPhone()) {
-                    vibe.vibrate(1000);
+                    vibe.vibrate(1000); //디바이스 진동
                 }
             }
         }
 
-
+        //스크립트 호출
         for(Script sc : pt.getScripts()){
             if((outTime/1000) == (sc.getStartTime()/1000)){
                 myRec.setText(sc.getContent());
@@ -358,6 +360,7 @@ public class ptPlayActivity extends AppCompatActivity
                 myRec.setText("");
             }
         }
+        //시간이 겹치는 복수의 스크립트(예:1초~3초, 3초~5초)의 경우를 고려하여 한번 더 호출
         for(Script sc : pt.getScripts()){
             if((outTime/1000) == (sc.getStartTime()/1000)){
                 myRec.setText(sc.getContent());
@@ -375,8 +378,8 @@ public class ptPlayActivity extends AppCompatActivity
                 .setPositiveButton("중단",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                if(pt.isVibSmartWatch()) {
-                                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present");
+                                if(pt.isVibSmartWatch()) { //만약 스마트워치가 활성화된 기기라면
+                                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present"); //url을 통해 값 넘기기
                                     DataMap dataMap = putDataMapRequest.getDataMap();
                                     dataMap.putBoolean("finish", true);
                                     dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법

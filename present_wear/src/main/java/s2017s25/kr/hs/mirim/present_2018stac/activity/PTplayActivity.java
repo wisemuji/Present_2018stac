@@ -278,18 +278,20 @@ public class PTplayActivity extends WearableActivity
             DataEvent event = dataEventBuffer.get(0);
             DataItem item = event.getDataItem();
 
-            // 데이터가 /text 일 때 문자열 데이터를 가져옴
+            // 데이터가 /present 일 때 문자열 데이터를 가져옴
             // uri로 데이터를 구분할 수 있음
             if(item.getUri().getPath().equals("/present")) {
                 DataMap dataMap = DataMap.fromByteArray(item.getData());
                 if(dataMap.getBoolean("finish")) {
                     watingView.setVisibility(View.VISIBLE);
                 } else {
+                    //데이터 받아오기
                     String pTName = dataMap.getString("name");
                     long pTTime = dataMap.getLong("time");
                     String[] keyPointNames = dataMap.getStringArray("keypointnames");
                     long[] keyPointTimes = dataMap.getLongArray("keypointtimes");
 //                Toast.makeText(getApplicationContext(),": "+pTName+", "+pTTime, Toast.LENGTH_SHORT).show();
+                    //pt화면 구성
                     pt.setName(pTName);
                     pt.setPresentTime(pTTime);
                     myOutput.setText("00:00");
@@ -298,6 +300,7 @@ public class PTplayActivity extends WearableActivity
                     watingView.setVisibility(View.GONE);
                 }
             }
+            // 데이터가 /play 일 때 문자열 데이터를 가져옴
             else if(item.getUri().getPath().equals("/play")) {
                 DataMap dataMap = DataMap.fromByteArray(item.getData());
                 int status = dataMap.getInt("status");
@@ -311,6 +314,7 @@ public class PTplayActivity extends WearableActivity
         }
         dataEventBuffer.release();
     }
+    //이름과 시간 배열을 토대로 keypoint객체 생성
     public ArrayList<KeyPoint> makeKeyPoints(String[] names, long[] times){
        ArrayList<KeyPoint> keyPoints = new ArrayList<KeyPoint>();
        for(int i=0;i<names.length;i++){

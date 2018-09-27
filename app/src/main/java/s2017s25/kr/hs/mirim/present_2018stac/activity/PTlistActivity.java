@@ -103,13 +103,13 @@ public class PTlistActivity extends AppCompatActivity {
                                 intent.putExtra("presentation", pt);
 
                                 // 워치랑 연결
-                                if(pt.isVibSmartWatch()) {
+                                if(pt.isVibSmartWatch()) {//만약 스마트워치가 활성화된 기기라면
                                     // 보낼 데이터 생성
-                                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present");
+                                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present"); //url로 데이터 넘기기
                                     DataMap dataMap = putDataMapRequest.getDataMap();
                                     dataMap.putString("name", pt.getName());
                                     dataMap.putLong("time", pt.getPresentTime());
-                                    dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                                    dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법(안 쓰면 데이터가 제대로 전달 안 될 수 있음)
                                     ArrayList<KeyPoint> keyPoints = pt.getKeyPoints();
 
                                     int keyPointsSize = keyPoints.size();
