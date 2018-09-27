@@ -349,9 +349,9 @@ public class ptPlayActivity extends AppCompatActivity {
 
 
         for(Script sc : pt.getScripts()){
-            if((outTime/1000) >= (sc.getStartTime()/1000) && (outTime/1000) <= (sc.getEndTime()/1000)){
+            if((outTime/1000) == (sc.getStartTime()/1000)){
                 myRec.setText(sc.getContent());
-            } else {
+            } else if ((outTime/1000) == (sc.getEndTime()/1000)){
                 myRec.setText("");
             }
         }
