@@ -103,44 +103,44 @@ public class PTlistActivity extends AppCompatActivity {
                                 intent.putExtra("presentation", pt);
 
                                 // 워치랑 연결
+                                if(pt.isVibSmartWatch()) {
+                                    // 보낼 데이터 생성
+                                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present");
+                                    DataMap dataMap = putDataMapRequest.getDataMap();
+                                    dataMap.putString("name", pt.getName());
+                                    dataMap.putLong("time", pt.getPresentTime());
+                                    dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                                    ArrayList<KeyPoint> keyPoints = pt.getKeyPoints();
 
-                                // 보낼 데이터 생성
-                                PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present");
-                                DataMap dataMap = putDataMapRequest.getDataMap();
-                                dataMap.putString("name", pt.getName());
-                                dataMap.putLong("time",pt.getPresentTime());
-                                dataMap.putLong("dummy",System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
-                                ArrayList<KeyPoint> keyPoints=pt.getKeyPoints();
+                                    int keyPointsSize = keyPoints.size();
+                                    String[] keyPointNames = new String[keyPointsSize];
+                                    long[] keyPointTimes = new long[keyPointsSize];
+                                    for (int i = 0; i < keyPointsSize; i++) {
+                                        keyPointNames[i] = keyPoints.get(i).getName();
+                                        keyPointTimes[i] = keyPoints.get(i).getVibTime();
+                                    }
+                                    dataMap.putStringArray("keypointnames", keyPointNames);
+                                    dataMap.putLongArray("keypointtimes", keyPointTimes);
 
-                                int keyPointsSize = keyPoints.size();
-                                String[] keyPointNames = new String[keyPointsSize];
-                                long[] keyPointTimes = new long[keyPointsSize];
-                                for(int i=0;i<keyPointsSize;i++){
-                                    keyPointNames[i]=keyPoints.get(i).getName();
-                                    keyPointTimes[i]=keyPoints.get(i).getVibTime();
+                                    // 데이터 전송
+                                    PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                                    Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+
+                                    // 리스너 등록(안해도됨)
+                                    task.addOnCompleteListener(new OnCompleteListener<DataItem>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataItem> task) {
+                                            Toast.makeText(getApplicationContext(), "스마트워치와의 연결을 시도합니다.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    task.addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            e.printStackTrace();
+                                            Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
-                                dataMap.putStringArray("keypointnames", keyPointNames);
-                                dataMap.putLongArray("keypointtimes", keyPointTimes);
-
-                                // 데이터 전송
-                                PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
-                                Task<DataItem> task = dataClient.putDataItem(putDataRequest);
-
-                                // 리스너 등록(안해도됨)
-                                task.addOnCompleteListener(new OnCompleteListener<DataItem>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DataItem> task) {
-                                        Toast.makeText(getApplicationContext(), "스마트워치와 성공적으로 연결되었습니다.", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                                task.addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        e.printStackTrace();
-                                        Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-
                                 startActivity(intent);
                             }
                         });

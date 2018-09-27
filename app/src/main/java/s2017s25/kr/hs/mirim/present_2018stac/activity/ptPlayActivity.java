@@ -174,10 +174,6 @@ public class ptPlayActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if(btnFinish.isClickable()) {
-            myTimer = new Handler() {
-                public void handleMessage(Message msg) {
-                }
-            };
             appFinish(btnFinish);
         }
     }
@@ -200,20 +196,22 @@ public class ptPlayActivity extends AppCompatActivity {
             case R.id.btn_start: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
                 switch(cur_Status){
                     case Init:
-                        PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
-                        DataMap dataMap = putDataMapRequest.getDataMap();
-                        dataMap.putInt("status", Init);
-                        dataMap.putLong("dummy",System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
-                        // 데이터 전송
-                        PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
-                        Task<DataItem> task = dataClient.putDataItem(putDataRequest);
-                        task.addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                e.printStackTrace();
-                                Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        if(pt.isVibSmartWatch()) {
+                            PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                            DataMap dataMap = putDataMapRequest.getDataMap();
+                            dataMap.putInt("status", Init);
+                            dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                            // 데이터 전송
+                            PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                            Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
 
                         myTimer = new Handler(){
                             public void handleMessage(Message msg){
@@ -232,20 +230,22 @@ public class ptPlayActivity extends AppCompatActivity {
                         cur_Status = Run; //현재상태를 런상태로 변경
                         break;
                     case Run:
-                        putDataMapRequest = PutDataMapRequest.create("/play");
-                        dataMap = putDataMapRequest.getDataMap();
-                        dataMap.putInt("status", Run);
-                        dataMap.putLong("dummy",System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
-                        // 데이터 전송
-                        putDataRequest = putDataMapRequest.asPutDataRequest();
-                        task = dataClient.putDataItem(putDataRequest);
-                        task.addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                e.printStackTrace();
-                                Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        if(pt.isVibSmartWatch()) {
+                            PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                            DataMap dataMap = putDataMapRequest.getDataMap();
+                            dataMap.putInt("status", Run);
+                            dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                            // 데이터 전송
+                            PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                            Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
 
                         myTimer.removeMessages(0); //핸들러 메세지 제거
                         myPauseTime = SystemClock.elapsedRealtime();
@@ -254,20 +254,22 @@ public class ptPlayActivity extends AppCompatActivity {
 
                         break;
                     case Pause:
-                        putDataMapRequest = PutDataMapRequest.create("/play");
-                        dataMap = putDataMapRequest.getDataMap();
-                        dataMap.putInt("status", Pause);
-                        dataMap.putLong("dummy",System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
-                        // 데이터 전송
-                        putDataRequest = putDataMapRequest.asPutDataRequest();
-                        task = dataClient.putDataItem(putDataRequest);
-                        task.addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                e.printStackTrace();
-                                Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        if(pt.isVibSmartWatch()) {
+                            PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                            DataMap dataMap = putDataMapRequest.getDataMap();
+                            dataMap.putInt("status", Pause);
+                            dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                            // 데이터 전송
+                            PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                            Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
 
                         long now = SystemClock.elapsedRealtime();
                         myTimer.sendEmptyMessage(0);
@@ -278,20 +280,22 @@ public class ptPlayActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.btn_refresh: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
-                PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
-                DataMap dataMap = putDataMapRequest.getDataMap();
-                dataMap.putInt("status", -1);
-                dataMap.putLong("dummy",System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
-                // 데이터 전송
-                PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
-                Task<DataItem> task = dataClient.putDataItem(putDataRequest);
-                task.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        e.printStackTrace();
-                        Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                if(pt.isVibSmartWatch()) {
+                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                    DataMap dataMap = putDataMapRequest.getDataMap();
+                    dataMap.putInt("status", -1);
+                    dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                    // 데이터 전송
+                    PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                    Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                    task.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
 
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myBtnStart.setText("시작");
@@ -356,6 +360,10 @@ public class ptPlayActivity extends AppCompatActivity {
     }
 
     public void appFinish(View v){
+        myTimer = new Handler() {
+            public void handleMessage(Message msg) {
+            }
+        };
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ptPlayActivity.this);
         alertDialogBuilder.setTitle("PT 중단하기");
         alertDialogBuilder
@@ -363,20 +371,22 @@ public class ptPlayActivity extends AppCompatActivity {
                 .setPositiveButton("중단",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present");
-                                DataMap dataMap = putDataMapRequest.getDataMap();
-                                dataMap.putBoolean("finish", true);
-                                dataMap.putLong("dummy",System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
-                                // 데이터 전송
-                                PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
-                                Task<DataItem> task = dataClient.putDataItem(putDataRequest);
-                                task.addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        e.printStackTrace();
-                                        Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
-                                    }
-                                });
+                                if(pt.isVibSmartWatch()) {
+                                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/present");
+                                    DataMap dataMap = putDataMapRequest.getDataMap();
+                                    dataMap.putBoolean("finish", true);
+                                    dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                                    // 데이터 전송
+                                    PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                                    Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                                    task.addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            e.printStackTrace();
+                                            Toast.makeText(getApplicationContext(), "스마트워치와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
                                 finish();
                             }
                         })
