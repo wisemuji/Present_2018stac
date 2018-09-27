@@ -355,6 +355,11 @@ public class ptPlayActivity extends AppCompatActivity {
                 myRec.setText("");
             }
         }
+        for(Script sc : pt.getScripts()){
+            if((outTime/1000) == (sc.getStartTime()/1000)){
+                myRec.setText(sc.getContent());
+            }
+        }
 
         return easy_outTime;
     }
