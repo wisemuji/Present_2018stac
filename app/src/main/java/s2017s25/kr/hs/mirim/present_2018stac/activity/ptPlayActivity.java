@@ -360,10 +360,6 @@ public class ptPlayActivity extends AppCompatActivity {
     }
 
     public void appFinish(View v){
-        myTimer = new Handler() {
-            public void handleMessage(Message msg) {
-            }
-        };
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ptPlayActivity.this);
         alertDialogBuilder.setTitle("PT 중단하기");
         alertDialogBuilder
@@ -387,6 +383,10 @@ public class ptPlayActivity extends AppCompatActivity {
                                         }
                                     });
                                 }
+                                myTimer = new Handler() {
+                                    public void handleMessage(Message msg) {
+                                    }
+                                };
                                 finish();
                             }
                         })
