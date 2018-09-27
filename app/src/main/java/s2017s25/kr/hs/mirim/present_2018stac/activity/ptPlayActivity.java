@@ -26,6 +26,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.wearable.DataClient;
+import com.google.android.gms.wearable.DataEvent;
+import com.google.android.gms.wearable.DataEventBuffer;
 import com.google.android.gms.wearable.DataItem;
 import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.PutDataMapRequest;
@@ -41,7 +43,8 @@ import s2017s25.kr.hs.mirim.present_2018stac.model.KeyPoint;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Presentation;
 import s2017s25.kr.hs.mirim.present_2018stac.model.Script;
 
-public class ptPlayActivity extends AppCompatActivity {
+public class ptPlayActivity extends AppCompatActivity
+        implements DataClient.OnDataChangedListener{
     private TimerTask mTask;
     private Timer mTimer;
     TextView myOutput;
@@ -434,4 +437,31 @@ public class ptPlayActivity extends AppCompatActivity {
             }
         }
     };
+    @Override
+    public void onDataChanged(@NonNull DataEventBuffer dataEventBuffer) {
+        Toast.makeText(getApplicationContext(), "1",Toast.LENGTH_SHORT).show();
+        // 받은 데이터가 1개 이상일 때
+        if(dataEventBuffer.getCount() > 0) {
+            Toast.makeText(getApplicationContext(), "2",Toast.LENGTH_SHORT).show();
+            // 첫번째 데이터를 가져옴
+            DataEvent event = dataEventBuffer.get(0);
+            DataItem item = event.getDataItem();
+
+            // 데이터가 /text 일 때 문자열 데이터를 가져옴
+            // uri로 데이터를 구분할 수 있음
+            if(item.getUri().getPath().equals("/play")) {
+                Toast.makeText(getApplicationContext(), "3",Toast.LENGTH_SHORT).show();
+                DataMap dataMap = DataMap.fromByteArray(item.getData());
+                int status = dataMap.getInt("status");
+                cur_Status = status;
+                if(status == -1)
+                    myOnClick(myBtnRefresh);
+                else
+                    myOnClick(myBtnStart);
+
+            }
+        }
+        dataEventBuffer.release();
+    }
+
 }

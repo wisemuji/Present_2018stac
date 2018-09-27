@@ -19,11 +19,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.gms.wearable.DataClient;
 import com.google.android.gms.wearable.DataEvent;
 import com.google.android.gms.wearable.DataEventBuffer;
 import com.google.android.gms.wearable.DataItem;
 import com.google.android.gms.wearable.DataMap;
+import com.google.android.gms.wearable.PutDataMapRequest;
+import com.google.android.gms.wearable.PutDataRequest;
 import com.google.android.gms.wearable.Wearable;
 
 import java.util.ArrayList;
@@ -117,6 +121,22 @@ public class PTplayActivity extends WearableActivity
             case R.id.btn_start: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
                 switch(cur_Status){
                     case Init:
+                        if(pt.isVibSmartWatch()) {
+                            PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                            DataMap dataMap = putDataMapRequest.getDataMap();
+                            dataMap.putInt("status", Init);
+                            dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                            // 데이터 전송
+                            PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                            Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "디바이스와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                         myTimer = new Handler(){
                             public void handleMessage(Message msg){
                                 myOutput.setText(getTimeOut());
@@ -132,6 +152,22 @@ public class PTplayActivity extends WearableActivity
                         cur_Status = Run; //현재상태를 런상태로 변경
                         break;
                     case Run:
+                        if(pt.isVibSmartWatch()) {
+                            PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                            DataMap dataMap = putDataMapRequest.getDataMap();
+                            dataMap.putInt("status", Run);
+                            dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                            // 데이터 전송
+                            PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                            Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "디바이스와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                         myTimer.removeMessages(0); //핸들러 메세지 제거
                         myPauseTime = SystemClock.elapsedRealtime();
                         myBtnStart.setText("시작");
@@ -139,6 +175,22 @@ public class PTplayActivity extends WearableActivity
 
                         break;
                     case Pause:
+                        if(pt.isVibSmartWatch()) {
+                            PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                            DataMap dataMap = putDataMapRequest.getDataMap();
+                            dataMap.putInt("status", Pause);
+                            dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                            // 데이터 전송
+                            PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                            Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                            task.addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), "디바이스와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                         long now = SystemClock.elapsedRealtime();
                         myTimer.sendEmptyMessage(0);
                         myBaseTime += (now- myPauseTime);
@@ -148,6 +200,22 @@ public class PTplayActivity extends WearableActivity
                 }
                 break;
             case R.id.btn_refresh: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
+                if(pt.isVibSmartWatch()) {
+                    PutDataMapRequest putDataMapRequest = PutDataMapRequest.create("/play");
+                    DataMap dataMap = putDataMapRequest.getDataMap();
+                    dataMap.putInt("status", -1);
+                    dataMap.putLong("dummy", System.currentTimeMillis()); //항상 새로운 값을 주기 위한 방법
+                    // 데이터 전송
+                    PutDataRequest putDataRequest = putDataMapRequest.asPutDataRequest();
+                    Task<DataItem> task = dataClient.putDataItem(putDataRequest);
+                    task.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "디바이스와의 연결이 불안정합니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myBtnStart.setText("시작");
                 myOutput.setText("00:00");

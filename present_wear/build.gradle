@@ -8,8 +8,9 @@ android {
         applicationId "s2017s25.kr.hs.mirim.present_2018stac"
         minSdkVersion 23
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 101
+        versionName "1.0.1"
+        wearAppUnbundled true
     }
     buildTypes {
         release {
