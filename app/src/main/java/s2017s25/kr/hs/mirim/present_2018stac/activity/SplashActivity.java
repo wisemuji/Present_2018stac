@@ -23,6 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         ImageView splash = (ImageView) findViewById(R.id.splash_image);
         GlideDrawableImageViewTarget gifImage = new GlideDrawableImageViewTarget(splash);
         Glide.with(this).load(R.drawable.splash).into(gifImage);
+
         startLoading();
     }
 

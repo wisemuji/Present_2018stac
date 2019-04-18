@@ -341,6 +341,8 @@ public class ScriptKeyPointListActivity extends AppCompatActivity {
             }
         }
     }
+
+
     public void deleteItem(final int position){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ScriptKeyPointListActivity.this);
         alertDialogBuilder.setTitle("항목 삭제");
