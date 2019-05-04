@@ -92,6 +92,7 @@
         android:textStyle="bold" />
 
     <ScrollView
+        android:id="@+id/txtScrollView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -103,15 +104,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/time_out">
 
-        <TextView
-            android:id="@+id/record"
+        <FrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:padding="10dp"
-            android:textColor="@color/ptplayWhite"
-            android:text="여기에 스크립트가 표시됩니다"
-            android:textSize="25sp" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/hereTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:textColor="@color/ptplayWhite"
+                android:text="여기에 스크립트가 표시됩니다"
+                android:textSize="25sp" />
+
+            <s2017s25.kr.hs.mirim.present_2018stac.VerticalMarqueeTextView
+                android:text="tmzmflqxm dlㅇ럳"
+                android:visibility="invisible"
+                android:id="@+id/record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:textColor="@color/ptplayWhite"
+                android:textSize="25sp" />
+        </FrameLayout>
     </ScrollView>
 
     <ImageButton
@@ -157,7 +173,6 @@
             android:textColor="@color/bg_black"
             android:textSize="17.6sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
 

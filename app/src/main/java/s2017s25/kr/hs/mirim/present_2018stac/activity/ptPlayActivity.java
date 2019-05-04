@@ -1,5 +1,6 @@
 package s2017s25.kr.hs.mirim.present_2018stac.activity;
 
+import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,12 +15,14 @@ import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,10 +57,12 @@ public class ptPlayActivity extends AppCompatActivity
     ImageButton btnLock;
     TextView myBtnStart;
     TextView myBtnRefresh;
+    TextView hereTxt;
     TextView btnFinish;
     Button myBtnRec;
     Vibrator vibe;
     ConstraintLayout layoutPlay;
+    ScrollView scroll;
 
     final static int Init =0;
     final static int Run =1;
@@ -89,7 +94,7 @@ public class ptPlayActivity extends AppCompatActivity
 //        Toast.makeText(getApplicationContext(),pt.getPresentTime().toString(),Toast.LENGTH_LONG).show();
         Toast.makeText(getApplicationContext(),"발표 중에는 화면이 꺼지지 않습니다.",Toast.LENGTH_LONG).show();
         dataClient = Wearable.getDataClient(this);
-
+        hereTxt = findViewById(R.id.hereTxt);
         myOutput = (TextView) findViewById(R.id.time_out);
         myRec = (TextView) findViewById(R.id.record);
         myTitle = (TextView) findViewById(R.id.sc_title);
@@ -97,6 +102,7 @@ public class ptPlayActivity extends AppCompatActivity
         myBtnRefresh = (TextView) findViewById(R.id.btn_refresh);
         btnFinish = (TextView) findViewById(R.id.btn_destroy);
         ptTitle = (TextView) findViewById(R.id.pt_title);
+        scroll = findViewById(R.id.txtScrollView);
 
         if(!pt.isDisplayTime()){
             myOutput.setVisibility(View.INVISIBLE);
@@ -197,6 +203,8 @@ public class ptPlayActivity extends AppCompatActivity
     public void myOnClick(View v){
         switch(v.getId()){
             case R.id.btn_start: //시작버튼을 클릭했을때 현재 상태값에 따라 다른 동작을 할수있게끔 구현.
+                hereTxt.setVisibility(View.INVISIBLE);
+                myRec.setVisibility(View.VISIBLE);
                 switch(cur_Status){
                     case Init:
                         if(pt.isVibSmartWatch()) {
@@ -223,6 +231,7 @@ public class ptPlayActivity extends AppCompatActivity
                                 myTimer.sendEmptyMessage(0);
                             }
                         };
+
                         myRec.setText("");
                         myTitle.setText("");
                         myBaseTime = SystemClock.elapsedRealtime();
@@ -249,7 +258,6 @@ public class ptPlayActivity extends AppCompatActivity
                                 }
                             });
                         }
-
                         myTimer.removeMessages(0); //핸들러 메세지 제거
                         myPauseTime = SystemClock.elapsedRealtime();
                         myBtnStart.setText("시작");
@@ -303,7 +311,9 @@ public class ptPlayActivity extends AppCompatActivity
                 myTimer.removeMessages(0); //핸들러 메세지 제거
                 myBtnStart.setText("시작");
                 myOutput.setText("00:00");
-                myRec.setText("여기에 스크립트가 표시됩니다");
+                hereTxt.setVisibility(View.VISIBLE);
+                myRec.setVisibility(View.INVISIBLE);
+//                myRec.setText("여기에 스크립트가 표시됩니다");
                 myTitle.setText("여기에 키포인트가 표시됩니다");
 //                myRec.setText("STAC 발표\nPRE-SENT");
                 cur_Status = Init;
@@ -356,6 +366,9 @@ public class ptPlayActivity extends AppCompatActivity
         for(Script sc : pt.getScripts()){
             if((outTime/1000) == (sc.getStartTime()/1000)){
                 myRec.setText(sc.getContent());
+                myRec.setMovementMethod(new ScrollingMovementMethod());
+
+
             } else if ((outTime/1000) == (sc.getEndTime()/1000)){
                 myRec.setText("");
             }

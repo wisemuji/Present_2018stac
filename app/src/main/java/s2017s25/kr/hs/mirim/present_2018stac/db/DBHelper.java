@@ -61,7 +61,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "  ScriptId INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
                 "  startTime INTEGER,\n" +
                 "  endTime INTEGER,\n" +
-                "  content TEXT,\n" +
+                "  content VARCHAR,\n" +
                 "  FOREIGN KEY(id)\n" +
                 "  REFERENCES presentation(id)\n" +
                 ");");
