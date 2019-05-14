@@ -19,6 +19,8 @@ https://play.google.com/store/apps/details?id=s2017s25.kr.hs.mirim.present_2018s
 
 ## 실행 화면
 
+![image](https://user-images.githubusercontent.com/32327475/57661637-ade7df80-7626-11e9-907f-0c4fe4720f49.png)
+![image](https://user-images.githubusercontent.com/32327475/57661579-81cc5e80-7626-11e9-86b4-954b1f090c20.png)
 
 ## Run on
 
